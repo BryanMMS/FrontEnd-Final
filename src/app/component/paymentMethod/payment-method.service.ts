@@ -8,7 +8,7 @@ import { Observable, retry } from 'rxjs';
   providedIn: 'root'
 })
 export class PaymentMethodService {
-baseUrl = "http://localhost:3001/paymentMethods"
+baseUrl = "http://localhost:8080/formapagamentos"
 
   constructor(private snackBar: MatSnackBar, private http: HttpClient) { }
 
@@ -29,8 +29,8 @@ baseUrl = "http://localhost:3001/paymentMethods"
     return this.http.get<PaymentMethod[]>(this.baseUrl)
   }
 
-  readById(id: string): Observable<PaymentMethod>{
-    const url = `${this.baseUrl}/${id}`
+  readById(fpgId: string): Observable<PaymentMethod>{
+    const url = `${this.baseUrl}/${fpgId}`
     return this.http.get<PaymentMethod>(url)
   }
 
@@ -40,8 +40,8 @@ baseUrl = "http://localhost:3001/paymentMethods"
   }
 
 
-  delete(id: number): Observable<PaymentMethod>{
-    const url = `${this.baseUrl}/${id}`
+  delete(fpgId: number): Observable<PaymentMethod>{
+    const url = `${this.baseUrl}/${fpgId}`
     return this.http.delete<PaymentMethod>(url)
   }
   

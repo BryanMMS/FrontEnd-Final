@@ -9,14 +9,14 @@ import { PaymentMethod } from './paymentMethod.model';
 })
 export class PaymentMethodReadComponent {
   paymentMethods!: PaymentMethod[]; // Usando a interface PaymentMethod
-  displayedColumns = ['id', 'description', 'type', 'stats', 'action']; // Atualizando as colunas
+  displayedColumns = ['fpgId', 'fpgDescricao', 'fpgTipo', 'action']; // Atualizando as colunas
 
   constructor(private paymentMethodService: PaymentMethodService) { }
 
   ngOnInit(): void {
-    this.paymentMethodService.read().subscribe(paymentMethods => {
-      this.paymentMethods = paymentMethods
-      console.log(paymentMethods)
-    });
+      this.paymentMethodService.read().subscribe(paymentMethods => {
+          this.paymentMethods = paymentMethods;
+          console.log(paymentMethods);
+      });
   }
 }

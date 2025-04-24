@@ -10,9 +10,8 @@ import { Router } from '@angular/router';
 })
 export class PaymentMethodCreateComponent implements OnInit{
 paymentMethod: PaymentMethod={
-description: '',
-type: '',
-stats: ''
+  fpgDescricao: '',
+  fpgTipo: ''
 }
 
 constructor(private paymentMethodService: PaymentMethodService,
