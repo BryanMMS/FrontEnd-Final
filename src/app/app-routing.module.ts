@@ -7,49 +7,56 @@ import { SupplierCreateComponent } from './component/supplier/supplier-create/su
 import { SupplierCrudComponent } from './views/supplier-crud/supplier-crud.component';
 import { PaymentMethodCreateComponent } from './component/paymentMethod/payment-method-create/payment-method-create.component';
 import { PaymentMethodCrudComponent } from './views/payment-method-crud/payment-method-crud.component';
+import { ProductUpdateComponent } from './component/product/product-update/product-update.component';
+import { SupplierUpdateComponent } from './component/supplier/supplier-update/supplier-update.component';
+import { PaymentMethodUpdateComponent } from './component/paymentMethod/payment-method-update/payment-method-update.component';
 
+// Definição das rotas da aplicação
 const routes: Routes = [
   {
-    path: "",
-    component: HomeComponent 
+    path: "", // Rota padrão
+    component: HomeComponent // Componente exibido na rota padrão
   },
   {
-    path: "products",
-    component: ProductCrudComponent
+    path: "products", // Rota para gerenciamento de produtos
+    component: ProductCrudComponent // Componente para CRUD de produtos
   },
-
   {
-    path:"products/create",
-    component: ProductCreateComponent
+    path: "products/create", // Rota para criação de um novo produto
+    component: ProductCreateComponent // Componente para criar um produto
   },
-
-
   {
-    path:"suppliers",
-    component: SupplierCrudComponent
+    path: "suppliers", // Rota para gerenciamento de fornecedores
+    component: SupplierCrudComponent // Componente para CRUD de fornecedores
   },
-
   {
-    path: "suppliers/create",
-    component: SupplierCreateComponent
+    path: "suppliers/create", // Rota para criação de um novo fornecedor
+    component: SupplierCreateComponent // Componente para criar um fornecedor
   },
-
   {
-    path: "paymentMethods",
-    component: PaymentMethodCrudComponent
+    path: "paymentMethods", // Rota para gerenciamento de métodos de pagamento
+    component: PaymentMethodCrudComponent // Componente para CRUD de métodos de pagamento
   },
-
   {
-    path: "paymentMethods/create",
-    component: PaymentMethodCreateComponent
+    path: "paymentMethods/create", // Rota para criação de um novo método de pagamento
+    component: PaymentMethodCreateComponent // Componente para criar um método de pagamento
+  },
+  {
+    path:"products/update/:id",
+    component: ProductUpdateComponent
+  },
+  {
+    path:"suppliers/update/:id",
+    component:SupplierUpdateComponent
+  },
+  {
+    path:"payment-methods/update/:id",
+    component:PaymentMethodUpdateComponent
   }
-
-
-    
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes)], // Importa as rotas definidas
+  exports: [RouterModule] // Exporta o RouterModule para uso em outros módulos
 })
 export class AppRoutingModule { }

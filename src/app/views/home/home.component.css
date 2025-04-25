@@ -1,9 +1,11 @@
-.home .title{
-    font-size: 3rem;
-    font-weight: 300;
-    line-height: 1.2;
+/* Estilo para o título do cartão na página inicial */
+.home .title {
+    font-size: 3rem; /* Tamanho da fonte do título */
+    font-weight: 300; /* Peso da fonte do título */
+    line-height: 1.2; /* Altura da linha do título */
 }
 
-.home .subtitle{
-    font-size: 1.1rem;
+/* Estilo para o subtítulo do cartão na página inicial */
+.home .subtitle {
+    font-size: 1.1rem; /* Tamanho da fonte do subtítulo */
 }

@@ -27,7 +27,10 @@ import{MatInputModule} from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { SupplierCreateComponent } from './component/supplier/supplier-create/supplier-create.component';
 import { PaymentMethodCreateComponent } from './component/paymentMethod/payment-method-create/payment-method-create.component';
-import{MatTableModule} from '@angular/material/table'
+import{MatTableModule} from '@angular/material/table';
+import { ProductUpdateComponent } from './component/product/product-update/product-update.component';
+import { SupplierUpdateComponent } from './component/supplier/supplier-update/supplier-update.component';
+import { PaymentMethodUpdateComponent } from './component/paymentMethod/payment-method-update/payment-method-update.component'
 
 @NgModule({
   declarations: [
@@ -44,7 +47,10 @@ import{MatTableModule} from '@angular/material/table'
     PaymentMethodCrudComponent,
     ProductCreateComponent,
     SupplierCreateComponent,
-    PaymentMethodCreateComponent
+    PaymentMethodCreateComponent,
+    ProductUpdateComponent,
+    SupplierUpdateComponent,
+    PaymentMethodUpdateComponent
    
   ],
   imports: [

@@ -8,7 +8,7 @@ import { Observable, retry } from 'rxjs';
   providedIn: 'root'
 })
 export class PaymentMethodService {
-baseUrl = "http://localhost:8080/formapagamentos"
+baseUrl = "http://localhost:8080/formapagamentos";
 
   constructor(private snackBar: MatSnackBar, private http: HttpClient) { }
 

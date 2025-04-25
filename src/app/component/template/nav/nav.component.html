@@ -1,48 +1,36 @@
 <mat-sidenav-container class="container">
+    <!-- Barra lateral (sidenav) com navegação -->
     <mat-sidenav class="sidenav" mode="side" opened fixedInViewport="true" fixedTopGap="64">
         <mat-nav-list class="nav-list">
+            <!-- Link para a página inicial -->
             <a mat-list-item routerLink="/">
-                <i class="material-icons">
-                    home
-                </i>
-                <span>
-                Início
-            </span>
+                <i class="material-icons">home</i> <!-- Ícone de início -->
+                <span>Início</span>
             </a>
 
+            <!-- Link para a página de produtos -->
             <a mat-list-item routerLink="/products">
-                <i class="material-icons">
-                    storefront
-                </i>
-                <span>
-                Produtos
-            </span>
+                <i class="material-icons">storefront</i> <!-- Ícone de produtos -->
+                <span>Produtos</span>
             </a>
 
-            
+            <!-- Link para a página de fornecedores -->
             <a mat-list-item routerLink="/suppliers">
-                <i class="material-icons">
-                   group
-                </i>
-                <span>  
-                Fornecedores
-            </span>
+                <i class="material-icons">group</i> <!-- Ícone de fornecedores -->
+                <span>Fornecedores</span>
             </a>
 
+            <!-- Link para a página de métodos de pagamento -->
             <a mat-list-item routerLink="/paymentMethods">
-                <i class="material-icons">
-                   local_atm
-                </i>
-                <span>  
-                Pagamento
-            </span>
+                <i class="material-icons">local_atm</i> <!-- Ícone de pagamento -->
+                <span>Pagamento</span>
             </a>
-
-
         </mat-nav-list>
     </mat-sidenav>
+
+    <!-- Conteúdo principal da aplicação -->
     <mat-sidenav-content class="content">
-        <!-- usamos para começar a trabalhar com a navegação a partir do clique... -->
+        <!-- Área onde o conteúdo das rotas será exibido -->
         <router-outlet></router-outlet>
     </mat-sidenav-content>
 </mat-sidenav-container>

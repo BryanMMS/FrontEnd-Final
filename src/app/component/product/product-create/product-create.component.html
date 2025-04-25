@@ -1,21 +1,31 @@
 <mat-card>
+    <!-- Componente de cartão do Angular Material que contém o formulário para cadastro de um novo produto -->
     <mat-card-title>Novo Produto</mat-card-title>
+    
     <form>
+        <!-- Formulário para entrada de dados do novo produto. Os campos são vinculados ao objeto 'product' através do ngModel -->
         <mat-form-field>
+            <!-- Campo de entrada para o nome do produto. O valor é vinculado à propriedade 'proNome' do objeto 'product' -->
             <input matInput placeholder="Nome" [(ngModel)]="product.proNome" name="proNome">
         </mat-form-field>
+        
         <mat-form-field>
+            <!-- Campo de entrada para o preço de custo do produto. O valor é vinculado à propriedade 'proPrecoCusto' do objeto 'product' -->
             <input matInput placeholder="Preço de Custo (R$)" [(ngModel)]="product.proPrecoCusto" name="proPrecoCusto">
         </mat-form-field>
+        
         <mat-form-field>
+            <!-- Campo de entrada para o preço de venda do produto. O valor é vinculado à propriedade 'proPrecoVenda' do objeto 'product' -->
             <input matInput placeholder="Preço de Venda (R$)" [(ngModel)]="product.proPrecoVenda" name="proPrecoVenda">
         </mat-form-field>
     </form>
 
+    <!-- Botão para salvar o novo produto. Ao ser clicado, chama a função 'createProduct()' que deve conter a lógica para salvar o produto -->
     <button mat-raised-button (click)="createProduct()" color="primary">
         Salvar
     </button>
    
+    <!-- Botão para cancelar a operação. Ao ser clicado, chama a função 'cancel()' que deve conter a lógica para cancelar a operação e possivelmente limpar o formulário -->
     <button mat-raised-button (click)="cancel()">
         Cancelar
     </button>
