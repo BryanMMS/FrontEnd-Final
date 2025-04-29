@@ -10,6 +10,9 @@ import { PaymentMethodCrudComponent } from './views/payment-method-crud/payment-
 import { ProductUpdateComponent } from './component/product/product-update/product-update.component';
 import { SupplierUpdateComponent } from './component/supplier/supplier-update/supplier-update.component';
 import { PaymentMethodUpdateComponent } from './component/paymentMethod/payment-method-update/payment-method-update.component';
+import { ProductDeleteComponent } from './component/product/product-delete/product-delete.component';
+import { SupplierDeleteComponent } from './component/supplier/supplier-delete/supplier-delete.component';
+import { PaymentMethodDeleteComponent } from './component/paymentMethod/payment-method-delete/payment-method-delete.component';
 
 // Definição das rotas da aplicação
 const routes: Routes = [
@@ -52,6 +55,18 @@ const routes: Routes = [
   {
     path:"payment-methods/update/:id",
     component:PaymentMethodUpdateComponent
+  },
+  {
+    path:"products/delete/:proId",
+    component: ProductDeleteComponent
+  },
+  {
+    path:"suppliers/delete/:forId",
+    component: SupplierDeleteComponent
+  },
+  {
+    path:"payment-methods/delete/:fpgId",
+    component: PaymentMethodDeleteComponent
   }
 ];
 

@@ -30,7 +30,10 @@ import { PaymentMethodCreateComponent } from './component/paymentMethod/payment-
 import{MatTableModule} from '@angular/material/table';
 import { ProductUpdateComponent } from './component/product/product-update/product-update.component';
 import { SupplierUpdateComponent } from './component/supplier/supplier-update/supplier-update.component';
-import { PaymentMethodUpdateComponent } from './component/paymentMethod/payment-method-update/payment-method-update.component'
+import { PaymentMethodUpdateComponent } from './component/paymentMethod/payment-method-update/payment-method-update.component';
+import { ProductDeleteComponent } from './component/product/product-delete/product-delete.component';
+import { SupplierDeleteComponent } from './component/supplier/supplier-delete/supplier-delete.component';
+import { PaymentMethodDeleteComponent } from './component/paymentMethod/payment-method-delete/payment-method-delete.component'
 
 @NgModule({
   declarations: [
@@ -50,7 +53,10 @@ import { PaymentMethodUpdateComponent } from './component/paymentMethod/payment-
     PaymentMethodCreateComponent,
     ProductUpdateComponent,
     SupplierUpdateComponent,
-    PaymentMethodUpdateComponent
+    PaymentMethodUpdateComponent,
+    ProductDeleteComponent,
+    SupplierDeleteComponent,
+    PaymentMethodDeleteComponent
    
   ],
   imports: [

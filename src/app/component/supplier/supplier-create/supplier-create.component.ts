@@ -25,7 +25,7 @@ export class SupplierCreateComponent implements OnInit{
 
     createSupplier(): void{
       this.supplierService.create(this.supplier).subscribe(()=>{
-        this.supplierService.showMessage('Produto criado')
+        this.supplierService.showMessage('Fornecedor criado')
         this.router.navigate(['/suppliers'])
       })
     }

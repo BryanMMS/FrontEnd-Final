@@ -26,6 +26,7 @@ export class PaymentMethodUpdateComponent {
     this.paymentMethodService.update(this.paymentMethod).subscribe(() => {
       this.paymentMethodService.showMessage('Forma de pagamento atualizado!')
       this.router.navigate(['/paymentMethods'])
+      
     })
   }
 

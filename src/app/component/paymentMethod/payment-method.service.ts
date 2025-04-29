@@ -35,7 +35,7 @@ baseUrl = "http://localhost:8080/formapagamentos";
   }
 
   update(paymentMethod: PaymentMethod): Observable<PaymentMethod>{
-    const url = `${this.baseUrl}/${paymentMethod}`
+    const url = `${this.baseUrl}/${paymentMethod.fpgId}`
     return this.http.put<PaymentMethod>(url,paymentMethod)
   }
 

@@ -2,7 +2,7 @@
 .header {
     display: flex; /* Utiliza flexbox para layout */
     align-items: center; /* Alinha itens verticalmente ao centro */
-    background-color: #c5dfe0; /* Cor de fundo do cabeçalho */
+    background-color: #322030; /* Cor de fundo do cabeçalho */
 }
 
 .header a {
@@ -21,4 +21,8 @@
 
 .header .title-group i {
     padding-right: 5px; /* Espaçamento à direita do ícone no título */
+}
+
+.header i,a{
+    color: #fcfdeb;
 }
