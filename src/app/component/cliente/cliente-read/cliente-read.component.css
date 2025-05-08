@@ -1,0 +1,17 @@
+table{
+    background-color: #725b75;
+    width: 100%;
+}
+
+.edit > i{
+    color: #d9cd26;
+}
+
+.delete > i{
+    color: #e35e6b;
+}
+
+th, td{
+    color: #e3cebd;
+}
+

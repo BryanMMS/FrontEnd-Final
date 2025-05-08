@@ -24,28 +24,27 @@ export class ProductService {
     });
   }
 
-  /** Cria um novo produto. */
-  create(product: Product): Observable<Product> {
-    return this.http.post<Product>(this.baseUrl, product);
+  create(product: Product): Observable<Product>{
+    return this.http.post<Product>(this.baseUrl, product)
   }
 
-  /** Lê todos os produtos. */
-  read(): Observable<Product[]> {
-    return this.http.get<Product[]>(this.baseUrl);
+  read(): Observable<Product[]>{
+    return this.http.get<Product[]>(this.baseUrl)
+  }
+ 
+  readById(proId: string): Observable<Product>{
+    const url = `${this.baseUrl}/${proId}`
+    return this.http.get<Product>(url)
   }
 
-  /** Lê um produto pelo ID. */
-  readById(proId: string): Observable<Product> {
-    return this.http.get<Product>(`${this.baseUrl}/${proId}`);
+  update(product: Product): Observable<Product>{
+    const url = `${this.baseUrl}/${product.proId}`
+    return this.http.put<Product>(url, product)
   }
 
-  /** Atualiza um produto existente. */
-  update(product: Product): Observable<Product> {
-    return this.http.put<Product>(`${this.baseUrl}/${product.proId}`, product);
+  delete(proId: number): Observable<Product>{
+    const url = `${this.baseUrl}/${proId}`
+    return this.http.delete<Product>(url)
   }
 
-  /** Deleta um produto pelo ID. */
-  delete(proId: number): Observable<Product> {
-    return this.http.delete<Product>(`${this.baseUrl}/${proId}`);
-  }
 }

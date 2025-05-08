@@ -33,7 +33,12 @@ import { SupplierUpdateComponent } from './component/supplier/supplier-update/su
 import { PaymentMethodUpdateComponent } from './component/paymentMethod/payment-method-update/payment-method-update.component';
 import { ProductDeleteComponent } from './component/product/product-delete/product-delete.component';
 import { SupplierDeleteComponent } from './component/supplier/supplier-delete/supplier-delete.component';
-import { PaymentMethodDeleteComponent } from './component/paymentMethod/payment-method-delete/payment-method-delete.component'
+import { PaymentMethodDeleteComponent } from './component/paymentMethod/payment-method-delete/payment-method-delete.component';
+import { ClienteCreateComponent } from './component/cliente/cliente-create/cliente-create.component';
+import { ClienteDeleteComponent } from './component/cliente/cliente-delete/cliente-delete.component';
+import { ClienteReadComponent } from './component/cliente/cliente-read/cliente-read.component';
+import { ClienteUpdateComponent } from './component/cliente/cliente-update/cliente-update.component';
+import { ClienteCrudComponent } from './views/cliente-crud/cliente-crud.component'
 
 @NgModule({
   declarations: [
@@ -56,7 +61,13 @@ import { PaymentMethodDeleteComponent } from './component/paymentMethod/payment-
     PaymentMethodUpdateComponent,
     ProductDeleteComponent,
     SupplierDeleteComponent,
-    PaymentMethodDeleteComponent
+    PaymentMethodDeleteComponent,
+    ClienteReadComponent,
+    ClienteCreateComponent,
+    ClienteDeleteComponent,
+    ClienteReadComponent,
+    ClienteUpdateComponent,
+    ClienteCrudComponent
    
   ],
   imports: [

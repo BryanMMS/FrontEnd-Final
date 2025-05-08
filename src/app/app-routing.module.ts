@@ -13,6 +13,9 @@ import { PaymentMethodUpdateComponent } from './component/paymentMethod/payment-
 import { ProductDeleteComponent } from './component/product/product-delete/product-delete.component';
 import { SupplierDeleteComponent } from './component/supplier/supplier-delete/supplier-delete.component';
 import { PaymentMethodDeleteComponent } from './component/paymentMethod/payment-method-delete/payment-method-delete.component';
+import { ClienteCrudComponent } from './views/cliente-crud/cliente-crud.component';
+import { ClienteCreateComponent } from './component/cliente/cliente-create/cliente-create.component';
+import { ClienteUpdateComponent } from './component/cliente/cliente-update/cliente-update.component';
 
 // Definição das rotas da aplicação
 const routes: Routes = [
@@ -67,6 +70,19 @@ const routes: Routes = [
   {
     path:"payment-methods/delete/:fpgId",
     component: PaymentMethodDeleteComponent
+  },
+  
+  {
+    path: "clientes", // Rota para gerenciamento de clientes
+    component: ClienteCrudComponent // Componente para CRUD de clientes
+  },
+  {
+    path: "clientes/create", // Rota para criação de um novo cliente
+    component: ClienteCreateComponent // Componente para criar um cliente
+  },
+  {
+path: "clientes/update/:id",
+component:ClienteUpdateComponent
   }
 ];
 

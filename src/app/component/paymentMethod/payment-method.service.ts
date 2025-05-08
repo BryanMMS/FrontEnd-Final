@@ -15,7 +15,7 @@ baseUrl = "http://localhost:8080/formapagamentos";
 
   showMessage(msg: string): void{
     this.snackBar.open(msg, 'X',{
-      duration: 300,
+      duration: 3000,
       horizontalPosition: "right",
       verticalPosition: "top"
     })
