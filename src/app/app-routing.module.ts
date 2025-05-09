@@ -16,6 +16,7 @@ import { PaymentMethodDeleteComponent } from './component/paymentMethod/payment-
 import { ClienteCrudComponent } from './views/cliente-crud/cliente-crud.component';
 import { ClienteCreateComponent } from './component/cliente/cliente-create/cliente-create.component';
 import { ClienteUpdateComponent } from './component/cliente/cliente-update/cliente-update.component';
+import { ClienteDeleteComponent } from './component/cliente/cliente-delete/cliente-delete.component';
 
 // Definição das rotas da aplicação
 const routes: Routes = [
@@ -83,6 +84,10 @@ const routes: Routes = [
   {
 path: "clientes/update/:id",
 component:ClienteUpdateComponent
+  },
+  {
+    path: "clientes/delete/:cliId",
+component:ClienteDeleteComponent
   }
 ];
 

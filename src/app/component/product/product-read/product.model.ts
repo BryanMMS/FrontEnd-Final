@@ -6,4 +6,6 @@ export interface Product {
     proNome: string;         // Nome do produto
     proPrecoCusto: number;   // Preço de custo do produto
     proPrecoVenda: number;   // Preço de venda do produto
+    proQuantidade: number;
+    proDescricao: string;
 }

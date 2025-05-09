@@ -26,6 +26,11 @@
     <td mat-cell *matCellDef="let row">{{row.cliTelefone}}</td>
 </ng-container>
 
+<ng-container matColumnDef="cliEndereco">
+    <th mat-header-cell *matHeaderCellDef>Endereço</th>
+    <td mat-cell *matCellDef="let row">{{row.cliEndereco}}</td>
+</ng-container>
+
 <ng-container matColumnDef="action">
     <th mat-header-cell *matHeaderCellDef>Ações</th>
     <td mat-cell *matCellDef="let row">

@@ -18,6 +18,15 @@
             <!-- Campo de entrada para o preço de venda do produto. O valor é vinculado à propriedade 'proPrecoVenda' do objeto 'product' -->
             <input matInput placeholder="Preço de Venda (R$)" [(ngModel)]="product.proPrecoVenda" name="proPrecoVenda">
         </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Quantidade" [(ngModel)]="product.proQuantidade" name="proQuantidade">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Descrição" [(ngModel)]="product.proDescricao" name="proDescricao">
+        </mat-form-field>
+
     </form>
 
     <!-- Botão para salvar o novo produto. Ao ser clicado, chama a função 'createProduct()' que deve conter a lógica para salvar o produto -->

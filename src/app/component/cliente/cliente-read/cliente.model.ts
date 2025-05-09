@@ -4,4 +4,5 @@ export interface Cliente {
     cliCpf: string;
     cliTelefone: string;
     cliEmail: string;
+    cliEndereco: string;
 }
