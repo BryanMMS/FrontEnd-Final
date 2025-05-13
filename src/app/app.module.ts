@@ -39,7 +39,7 @@ import { ClienteDeleteComponent } from './component/cliente/cliente-delete/clien
 import { ClienteReadComponent } from './component/cliente/cliente-read/cliente-read.component';
 import { ClienteUpdateComponent } from './component/cliente/cliente-update/cliente-update.component';
 import { ClienteCrudComponent } from './views/cliente-crud/cliente-crud.component'
-
+import { MatSelectModule } from '@angular/material/select';
 @NgModule({
   declarations: [
     AppComponent,
@@ -83,7 +83,9 @@ import { ClienteCrudComponent } from './views/cliente-crud/cliente-crud.componen
     MatFormFieldModule,
     MatInputModule,
     FormsModule,
-    MatTableModule
+    MatTableModule,
+    MatSelectModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

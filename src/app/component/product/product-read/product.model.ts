@@ -8,4 +8,10 @@ export interface Product {
     proPrecoVenda: number;   // Preço de venda do produto
     proQuantidade: number;
     proDescricao: string;
+    proCodigoBarras: string;
+    proMarca: string;
+    proAtivo: string;
+    proDataCadastro: Date;
+    proDataAtualizacao: Date;
+    proCategoria: string;
 }

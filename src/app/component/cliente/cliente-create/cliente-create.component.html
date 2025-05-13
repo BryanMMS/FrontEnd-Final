@@ -4,22 +4,22 @@
 
 <form>
 <mat-form-field>
-    <input matInput placeholder="Nome" [(ngModel)]="cliente.cliNome" name="cliNome">
+    <input matInput placeholder="Nome" [(ngModel)]="cliente.cliNome" name="cliNome" required>
 </mat-form-field>
 
 <mat-form-field>
-    <input matInput placeholder="Email" [(ngModel)]="cliente.cliEmail" name="cliEmail">
+    <input matInput placeholder="Email" [(ngModel)]="cliente.cliEmail" name="cliEmail" required>
 </mat-form-field>
 
 <mat-form-field>
-    <input matInput placeholder="Cpf" [(ngModel)]="cliente.cliCpf" name="cliCpf">
+    <input matInput placeholder="Cpf" [(ngModel)]="cliente.cliCpf" name="cliCpf" type="number" maxlength="11" required>
 </mat-form-field>
 
 <mat-form-field>
-    <input matInput placeholder="Telefone" [(ngModel)]="cliente.cliTelefone" name="cliTelefone">
+    <input matInput placeholder="Telefone" [(ngModel)]="cliente.cliTelefone" name="cliTelefone" type="number" maxlength="11" required>
 </mat-form-field>
 <mat-form-field>
-    <input matInput placeholder="Endereço" [(ngModel)]="cliente.cliEndereco" name="cliEndereco">
+    <input matInput placeholder="Endereço" [(ngModel)]="cliente.cliEndereco" name="cliEndereco" required>
 </mat-form-field>
 </form>
 

@@ -15,7 +15,7 @@ export class ProductReadComponent {
   products!: Product[];
 
   // Colunas a serem exibidas na tabela
-  displayedColumns = ['proId', 'proNome', 'proPrecoCusto', 'proPrecoVenda','proQuantidade','proDescricao', 'action'];
+  displayedColumns = ['proId', 'proNome', 'proPrecoCusto', 'proPrecoVenda','proCategoria','proQuantidade','proMarca','proAtivo', 'action'];
 
   constructor(private productService: ProductService) { }
 

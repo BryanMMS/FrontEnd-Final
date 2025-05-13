@@ -16,6 +16,21 @@
         <mat-form-field>
             <input matInput placeholder="Descrição" [value]="product.proDescricao" name="proDescricao" disabled>
         </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Codigo de Barras" [value]="product.proCodigoBarras" name="proCodigoBarras" disabled>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Marca" [value]="product.proMarca" name="proMarca" disabled>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-select placeholder="Ex: True or False" [(ngModel)]="product.proAtivo" name="proAtivo" >
+              <mat-option [value]="true" disable>True</mat-option >
+              <mat-option [value]="false" disable>False</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Categoria" [(ngModel)]="product.proCategoria" name="proCategoria" disabled>
+        </mat-form-field>
     </form>
 
     <button mat-raised-button (click)="deleteProduct()" color="warn">

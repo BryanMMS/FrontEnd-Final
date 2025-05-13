@@ -3,13 +3,14 @@
     <form>
       
         <mat-form-field>
-            <input matInput placeholder="Razão Social" [(ngModel)]="supplier.forRazaoSocial" name="razaoSocial">
+            <input matInput placeholder="Razão Social" [(ngModel)]="supplier.forRazaoSocial" name="razaoSocial" required>
         </mat-form-field>
         <mat-form-field>
-            <input matInput placeholder="Nome Fantasia" [(ngModel)]="supplier.forNomeFantasia" name="nomeFantasia">
+            <input matInput placeholder="Nome Fantasia" [(ngModel)]="supplier.forNomeFantasia" name="nomeFantasia" required>
         </mat-form-field>
         <mat-form-field>
-            <input matInput placeholder="CNPJ" [(ngModel)]="supplier.forCnpj" name="cnpj" type="number">
+            <mat-label>Cnpj*</mat-label>
+            <input matInput placeholder="CNPJ" [(ngModel)]="supplier.forCnpj" name="cnpj" type="number" required maxlength="14">
         </mat-form-field>
     </form>
 

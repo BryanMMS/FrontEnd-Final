@@ -18,7 +18,13 @@ export class ProductCreateComponent implements OnInit {
     proPrecoCusto: 0,
     proPrecoVenda: 0,
     proQuantidade: 0, 
-    proDescricao: ''
+    proDescricao: '',
+    proCodigoBarras: '',
+    proMarca: '',
+    proAtivo: '',
+    proDataCadastro: new Date,
+    proDataAtualizacao: new Date,
+    proCategoria:''
   }
 
   constructor(private productService: ProductService, private router: Router) { }
