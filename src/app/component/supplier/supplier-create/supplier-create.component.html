@@ -10,7 +10,7 @@
         </mat-form-field>
         <mat-form-field>
             <mat-label>Cnpj*</mat-label>
-            <input matInput placeholder="CNPJ" [(ngModel)]="supplier.forCnpj" name="cnpj" type="number" required maxlength="14">
+            <input matInput placeholder="CNPJ" [(ngModel)]="supplier.forCnpj" name="cnpj"  required minlength="14" maxlength="14">
         </mat-form-field>
     </form>
 

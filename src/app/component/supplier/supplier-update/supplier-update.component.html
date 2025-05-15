@@ -2,13 +2,16 @@
     <mat-card-title>Alterar Fornecedor</mat-card-title>
     <form>
         <mat-form-field>
-            <input matInput placeholder="Nome" [(ngModel)]="supplier.forRazaoSocial" name="Razão Social">
+            <mat-label>Razão Social*</mat-label>
+            <input matInput placeholder="Razão Social" [(ngModel)]="supplier.forRazaoSocial" name="Razão Social">
         </mat-form-field>
         <mat-form-field>
-            <input matInput placeholder="Preço (R$)" [(ngModel)]="supplier.forNomeFantasia" name="Nome Fantasia">
+            <mat-label>Nome Fantasia*</mat-label>
+            <input matInput placeholder="Nome Fantasia" [(ngModel)]="supplier.forNomeFantasia" name="Nome Fantasia">
         </mat-form-field>
         <mat-form-field>
-            <input matInput placeholder="Preço (R$)" [(ngModel)]="supplier.forCnpj" name="Cnpj">
+            <mat-label>Cnpj*</mat-label>
+            <input matInput placeholder="Cnpj" [(ngModel)]="supplier.forCnpj" name="Cnpj" minlength="14" maxlength="14">
         </mat-form-field>
     </form>
 

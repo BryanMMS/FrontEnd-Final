@@ -1,6 +1,6 @@
 /* Estilo para a barra lateral (sidenav) */
 .sidenav {
-    background-color: #725b75; /* Cor de fundo da barra lateral */
+    background-color: #ffffff; /* Cor de fundo da barra lateral */
     width: 200px; /* Largura fixa da barra lateral */
 }
 
@@ -18,7 +18,6 @@
     background-color: #fff; /* Cor de fundo do conteúdo */
 }
 
+
 /* Estilo para elementos span */
-span {
-    font-weight: bold; /* Define o texto em negrito */
-}
+

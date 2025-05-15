@@ -1,37 +1,53 @@
 <mat-card>
     <mat-card-title>Alterar Produto</mat-card-title>
     <form>
-        <mat-form-field>
-            <input matInput placeholder="Nome" [(ngModel)]="product.proNome" name="proNome">
+        <mat-form-field appearance="outline">
+            <mat-label>Nome do Produto*</mat-label>
+            <input matInput placeholder="" [(ngModel)]="product.proNome" name="proNome">
         </mat-form-field>
-        <mat-form-field>
-            <input matInput placeholder="Preço (R$)" [(ngModel)]="product.proPrecoCusto" name="proPrecoCusto">
+
+        <mat-form-field appearance="outline">
+            <mat-label>Preço do Custo(R$)*</mat-label>
+            <input matInput placeholder="" [(ngModel)]="product.proPrecoCusto" name="proPrecoCusto" type="number">
         </mat-form-field>
-        <mat-form-field>
-            <input matInput placeholder="Preço (R$)" [(ngModel)]="product.proPrecoVenda" name="proPrecoVenda">
+
+        <mat-form-field appearance="outline">
+            <mat-label>Preço de Venda(R$)*</mat-label>
+            <input matInput placeholder="" [(ngModel)]="product.proPrecoVenda" name="proPrecoVenda" type="number">
         </mat-form-field>
-        <mat-form-field>
-            <input matInput placeholder="Quantidade" [(ngModel)]="product.proQuantidade" name="proQuantidade">
+
+        <mat-form-field appearance="outline">
+            <mat-label>Quantidade*</mat-label>
+            <input matInput placeholder="" [(ngModel)]="product.proQuantidade" name="proQuantidade" type="number">
         </mat-form-field>
-        <mat-form-field>
-            <input matInput placeholder="Descrição" [(ngModel)]="product.proDescricao" name="proDescricao">
+
+        <mat-form-field appearance="outline">
+            <mat-label>Descrição*</mat-label>
+            <input matInput placeholder="" [(ngModel)]="product.proDescricao" name="proDescricao">
         </mat-form-field>
-        <mat-form-field>
-            <input matInput placeholder="CodigoBarras" [(ngModel)]="product.proCodigoBarras" name="proCodigoBarras">
+
+        <mat-form-field appearance="outline">
+            <mat-label>Código de Barras*</mat-label>
+            <input matInput placeholder="" [(ngModel)]="product.proCodigoBarras" name="proCodigoBarras" type="number">
         </mat-form-field>
-        <mat-form-field>
-            <input matInput placeholder="Marca" [(ngModel)]="product.proMarca" name="proMarca">
+
+        <mat-form-field appearance="outline">
+            <mat-label>Marca*</mat-label>
+            <input matInput placeholder="" [(ngModel)]="product.proMarca" name="proMarca">
         </mat-form-field>
-        <mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Categoria*</mat-label>
+            <input matInput placeholder="" [(ngModel)]="product.proCategoria" name="proCategoria">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
             <mat-select placeholder="Ex: True or False" [(ngModel)]="product.proAtivo" name="proAtivo">
               <mat-option [value]="true">True</mat-option>
               <mat-option [value]="false">False</mat-option>
             </mat-select>
           </mat-form-field>
 
-          <mat-form-field>
-            <input matInput placeholder="Categoria" [(ngModel)]="product.proCategoria" name="proCategoria">
-        </mat-form-field>
     </form>
 
     <button mat-raised-button (click)="updateProduct()" color="primary">

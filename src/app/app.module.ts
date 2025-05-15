@@ -40,6 +40,8 @@ import { ClienteReadComponent } from './component/cliente/cliente-read/cliente-r
 import { ClienteUpdateComponent } from './component/cliente/cliente-update/cliente-update.component';
 import { ClienteCrudComponent } from './views/cliente-crud/cliente-crud.component'
 import { MatSelectModule } from '@angular/material/select';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -85,7 +87,7 @@ import { MatSelectModule } from '@angular/material/select';
     FormsModule,
     MatTableModule,
     MatSelectModule
-    
+  
   ],
   providers: [],
   bootstrap: [AppComponent]

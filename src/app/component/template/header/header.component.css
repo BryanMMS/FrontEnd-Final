@@ -2,7 +2,7 @@
 .header {
     display: flex; /* Utiliza flexbox para layout */
     align-items: center; /* Alinha itens verticalmente ao centro */
-    background-color: #322030; /* Cor de fundo do cabeçalho */
+    background-color: #4180ab; /* Cor de fundo do cabeçalho */
 }
 
 .header a {

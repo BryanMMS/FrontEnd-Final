@@ -1,21 +1,31 @@
 <mat-card>
     <mat-card-title>Excluir cliente</mat-card-title>
     <form>
-        <mat-form-field>
-            <input matInput placeholder="Nome" [value]="cliente.cliNome" name="cliNome" disabled>
+        <mat-form-field appearance="outline">
+            <mat-label>Nome do Cliente*</mat-label >
+            <input matInput placeholder="" [value]="cliente.cliNome" name="cliNome" disabled>
         </mat-form-field>
-        <mat-form-field>
-            <input matInput placeholder="Cpf" [value]="cliente.cliCpf" name="cliCpf" disabled>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Cpf*</mat-label>
+            <input matInput placeholder="" [value]="cliente.cliCpf" name="cliCpf" disabled>
         </mat-form-field>
-        <mat-form-field>
-            <input matInput placeholder="@Email" [value]="cliente.cliEmail" name="cliEmail" disabled>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Gmail*</mat-label>
+            <input matInput placeholder="" [value]="cliente.cliEmail" name="cliEmail" disabled>
         </mat-form-field>
-        <mat-form-field>
-            <input matInput placeholder="Telefone" [value]="cliente.cliTelefone" name="cliTelefone" disabled>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Telefone*</mat-label>
+            <input matInput placeholder="" [value]="cliente.cliTelefone" name="cliTelefone" disabled>
         </mat-form-field>
-        <mat-form-field>
-            <input matInput placeholder="Endereço" [value]="cliente.cliEndereco" name="cliEndereco" disabled>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Endereço*</mat-label>
+            <input matInput placeholder="" [value]="cliente.cliEndereco" name="cliEndereco" disabled>
         </mat-form-field>
+
     </form>
 
     <button mat-raised-button (click)="deleteCliente()" color="warn">
