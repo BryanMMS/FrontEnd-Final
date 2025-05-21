@@ -9,3 +9,8 @@
 .home .subtitle {
     font-size: 1.1rem; /* Tamanho da fonte do subtítulo */
 }
+
+mat-card{
+
+box-shadow: none;
+}

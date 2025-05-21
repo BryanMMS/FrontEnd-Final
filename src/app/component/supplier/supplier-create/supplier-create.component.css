@@ -33,3 +33,7 @@ button{
     button:active {
     transform: scale(0.95); /* Efeito de pressionar */
     }
+
+    mat-card{
+        box-shadow: none;
+    }

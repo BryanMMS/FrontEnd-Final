@@ -9,7 +9,7 @@ import { PaymentMethod } from './paymentMethod.model';
 })
 export class PaymentMethodReadComponent {
   paymentMethods!: PaymentMethod[]; // Usando a interface PaymentMethod
-  displayedColumns = ['fpgId', 'fpgDescricao', 'fpgTipo', 'action']; // Atualizando as colunas
+  displayedColumns = ['fpgId', 'fpgDescricao', 'fpgTipo','fpgPermiteParcelamento','fpgNumMaxParcelas','fpgTaxaAdicional', 'action']; // Atualizando as colunas
 
   constructor(private paymentMethodService: PaymentMethodService) { }
 

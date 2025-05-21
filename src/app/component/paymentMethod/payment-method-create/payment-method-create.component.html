@@ -8,7 +8,21 @@
 
         <mat-form-field appearance="outline">
             <mat-label>Descrição</mat-label>
-            <input matInput placeholder="" [(ngModel)]="paymentMethod.fpgDescricao" name="fpgDescricao">
+            <input matInput placeholder="" [(ngModel)]="paymentMethod.fpgDescricao" name="fpgDescricao" required>
+        </mat-form-field>
+
+        
+        <mat-form-field appearance="outline">
+            <mat-label>Permitir Parcelamento?</mat-label>
+            <mat-select matInput placeholder="Permitir Parcelamento? " [(ngModel)]="paymentMethod.fpgPermiteParcelamento" name="fpgPermiteParcelamento" required>
+              <mat-option [value]="true">Sim</mat-option>
+              <mat-option [value]="false">Não</mat-option>
+            </mat-select>
+          </mat-form-field>
+          
+          <mat-form-field appearance="outline">
+            <mat-label>Máximo de Parcelas</mat-label>
+            <input matInput type = "number" placeholder="" [(ngModel)]="paymentMethod.fpgNumMaxParcelas" name="fpgNumMaxParcelas" required>
         </mat-form-field>
 
         <button mat-raised-button (click)="createPaymentMethod()" color="primary">
