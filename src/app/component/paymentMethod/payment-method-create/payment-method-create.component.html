@@ -25,6 +25,12 @@
             <input matInput type = "number" placeholder="" [(ngModel)]="paymentMethod.fpgNumMaxParcelas" name="fpgNumMaxParcelas" required>
         </mat-form-field>
 
+          
+        <mat-form-field appearance="outline">
+            <mat-label>Taxa Adicional</mat-label>
+            <input matInput  placeholder="%" [(ngModel)]="paymentMethod.fpgTaxaAdicional" name="fpgTaxaAdicional" required>
+        </mat-form-field>
+
         <button mat-raised-button (click)="createPaymentMethod()" color="primary">
             Salvar
         </button>

@@ -12,40 +12,49 @@ import { Router } from '@angular/router';
   styleUrls: ['./product-create.component.css']
 })
 export class ProductCreateComponent implements OnInit {
-  // Objeto que representa um produto com valores padrão
   product: Product = {
     proNome: '',
     proPrecoCusto: 0,
     proPrecoVenda: 0,
-    proQuantidade: 0, 
+    proQuantidade: 0,
     proDescricao: '',
     proCodigoBarras: '',
     proMarca: '',
-    proAtivo: '',
-    proDataCadastro: new Date,
-    proDataAtualizacao: new Date,
-    proCategoria:''
-  }
+    proAtivo: false,
+    proDataCadastro: new Date(),
+    proDataAtualizacao: new Date(),
+    proCategoria: ''
+  };
 
   constructor(private productService: ProductService, private router: Router) { }
- 
+
   ngOnInit(): void {
-    // Inicialização do componente (sem lógica adicional no momento)
+    // Inicialização, se necessário
   }
 
-  /**
-   * Cria um novo produto e navega para a lista de produtos.
-   */
   createProduct(): void {
+    // Verificação: nenhum campo pode estar vazio ou com valores inválidos
+    if (
+      !this.product.proNome.trim() ||
+      this.product.proPrecoCusto < 0 ||
+      this.product.proPrecoVenda < 0 ||
+      this.product.proQuantidade < 0 ||
+      !this.product.proDescricao.trim() ||
+      !this.product.proCodigoBarras.trim() ||
+      !this.product.proMarca.trim() ||
+      !this.product.proCategoria.trim()
+    ) {
+      this.productService.showMessage('Por favor, preencha todos os campos obrigatórios corretamente!');
+      return;
+    }
+
+    // Se passou na validação, prossegue com o cadastro
     this.productService.create(this.product).subscribe(() => {
       this.productService.showMessage('Produto criado!');
       this.router.navigate(['/products']);
     });
   }
 
-  /**
-   * Cancela a operação e navega de volta para a lista de produtos.
-   */
   cancel(): void {
     this.router.navigate(['/products']);
   }
