@@ -24,16 +24,27 @@ export class ClienteCreateComponent implements OnInit {
       
   }
 
-createCliente(): void{
-  this.clienteService.create(this.cliente).subscribe(()=>{
-    this.clienteService.showMessage('Cliente criado');
+  createCliente(): void {
+    // Verificação: nenhum campo pode estar vazio ou com valores inválidos
+    if (
+      !this.cliente.cliNome.trim() ||
+      !this.cliente.cliCpf.trim() ||
+      !this.cliente.cliTelefone.trim() ||
+      !this.cliente.cliEmail.trim() ||
+      !this.cliente.cliEndereco.trim() 
+    ) {
+      this.clienteService.showMessage('Por favor, preencha todos os campos obrigatórios corretamente!');
+      return;
+    }
+
+    // Se passou na validação, prossegue com o cadastro
+    this.clienteService.create(this.cliente).subscribe(() => {
+      this.clienteService.showMessage('Cliente criado!');
+      this.router.navigate(['/clientes']);
+    });
+  }
+
+  cancel(): void {
     this.router.navigate(['/clientes']);
-  });
-}
-
-
-cancel(): void{
-  this.router.navigate(['/clientes']);
-}
-
+  }
 }

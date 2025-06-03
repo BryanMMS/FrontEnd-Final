@@ -23,15 +23,25 @@ constructor(private clienteService: ClienteService,
     })
   }
 
-  updateCliente():void{
-    this.clienteService.update(this.cliente).subscribe(()=>{
-      this.clienteService.showMessage('Cliente atualizado com sucesso!')
-      this.router.navigate(['/clientes'])
-    })
+  updateCliente(): void {
+    // Verificação: nenhum campo pode estar vazio ou com valores inválidos
+    if (
+      !this.cliente.cliNome.trim() ||
+      !this.cliente.cliCpf.trim() ||
+      !this.cliente.cliEmail.trim() ||
+      !this.cliente.cliEndereco.trim() ||
+      !this.cliente.cliTelefone.trim() 
+    )
+     {
+      this.clienteService.showMessage('Por favor, preencha todos os campos obrigatórios corretamente!');
+      return;
+    }
+    // Se passou na validação, prossegue com a atualização
+    this.clienteService.update(this.cliente).subscribe(() => {
+      this.clienteService.showMessage('Cliente atualizado com sucesso!');
+      this.router.navigate(['/clientes']);
+    });
   }
-
-  cancel(): void{
-    this.router.navigate(['/clientes'])
-  }
-  
-}
+  cancel(): void {
+    this.router.navigate(['/clientes']);
+  }}
