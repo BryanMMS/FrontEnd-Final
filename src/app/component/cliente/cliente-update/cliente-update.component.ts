@@ -23,25 +23,29 @@ constructor(private clienteService: ClienteService,
     })
   }
 
-  updateCliente(): void {
-    // Verificação: nenhum campo pode estar vazio ou com valores inválidos
-    if (
-      !this.cliente.cliNome.trim() ||
-      !this.cliente.cliCpf.trim() ||
-      !this.cliente.cliEmail.trim() ||
-      !this.cliente.cliEndereco.trim() ||
-      !this.cliente.cliTelefone.trim() 
-    )
-     {
-      this.clienteService.showMessage('Por favor, preencha todos os campos obrigatórios corretamente!');
-      return;
-    }
-    // Se passou na validação, prossegue com a atualização
-    this.clienteService.update(this.cliente).subscribe(() => {
-      this.clienteService.showMessage('Cliente atualizado com sucesso!');
-      this.router.navigate(['/clientes']);
-    });
+updateCliente(): void {
+  if (
+    !this.cliente.cliNome.trim() ||
+    !this.cliente.cliCpf.trim() ||
+    !this.cliente.conEmail.trim() ||
+    !this.cliente.conTelefoneComercial.trim() ||
+    !this.cliente.endRua.trim() ||
+    !this.cliente.endNumero.trim() ||
+    !this.cliente.endCidade.trim() ||
+    !this.cliente.endCep.trim() ||
+    !this.cliente.endEstado.trim()
+  ) {
+    this.clienteService.showMessage('Por favor, preencha todos os campos obrigatórios corretamente!');
+    return;
   }
+
+  this.clienteService.update(this.cliente).subscribe(() => {
+    this.clienteService.showMessage('Cliente atualizado com sucesso!');
+    this.router.navigate(['/clientes']);
+  });
+}
+
   cancel(): void {
     this.router.navigate(['/clientes']);
-  }}
+  }
+}

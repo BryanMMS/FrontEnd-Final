@@ -11,35 +11,34 @@ import { Router } from '@angular/router';
 export class ClienteCreateComponent implements OnInit {
 
   cliente: Cliente = {
-
     cliNome: '',
     cliCpf: '',
-    cliEmail: '',
-    cliTelefone: '',
-    cliEndereco: ''
+
+    conCelular: '',
+    conTelefoneComercial: '',
+    conEmail: '',
+
+    endRua: '',
+    endNumero: '',
+    endCidade: '',
+    endCep: '',
+    endEstado: ''
   }
   constructor(private clienteService: ClienteService, private router: Router) { }
 
-  ngOnInit(): void {
-      
-  }
+  ngOnInit(): void {}
 
   createCliente(): void {
-    // Verificação: nenhum campo pode estar vazio ou com valores inválidos
-    if (
-      !this.cliente.cliNome.trim() ||
-      !this.cliente.cliCpf.trim() ||
-      !this.cliente.cliTelefone.trim() ||
-      !this.cliente.cliEmail.trim() ||
-      !this.cliente.cliEndereco.trim() 
-    ) {
-      this.clienteService.showMessage('Por favor, preencha todos os campos obrigatórios corretamente!');
+    const c = this.cliente;
+
+    if (!c.cliNome.trim() || !c.cliCpf.trim() || !c.conCelular.trim() || !c.conEmail.trim() ||
+        !c.endRua.trim() || !c.endNumero.trim() || !c.endCidade.trim() || !c.endCep.trim() || !c.endEstado.trim()) {
+      this.clienteService.showMessage('Por favor, preencha todos os campos corretamente!');
       return;
     }
 
-    // Se passou na validação, prossegue com o cadastro
     this.clienteService.create(this.cliente).subscribe(() => {
-      this.clienteService.showMessage('Cliente criado!');
+      this.clienteService.showMessage('Cliente criado com sucesso!');
       this.router.navigate(['/clientes']);
     });
   }

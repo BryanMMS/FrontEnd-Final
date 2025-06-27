@@ -1,39 +1,57 @@
 <mat-card>
-<mat-card-title>Alterar Cliente</mat-card-title>
-<form>
+  <mat-card-title>Alterar Cliente</mat-card-title>
+  <form>
+
+    <!-- Nome e CPF -->
     <mat-form-field appearance="outline">
-        <mat-label>Nome do Cliente*</mat-label>
-    <input matInput placeHolder="" [(ngModel)]="cliente.cliNome" name="cliNome">
+      <mat-label>Nome do Cliente*</mat-label>
+      <input matInput [(ngModel)]="cliente.cliNome" name="cliNome">
     </mat-form-field>
 
     <mat-form-field appearance="outline">
-        <mat-label>Email*</mat-label>
-    <input matInput placeholder="" [(ngModel)]="cliente.cliEmail" name="cliEmail">
+      <mat-label>CPF*</mat-label>
+      <input matInput [(ngModel)]="cliente.cliCpf" name="cliCpf" maxlength="11">
+    </mat-form-field>
+
+    <!-- Contato -->
+    <mat-form-field appearance="outline">
+      <mat-label>Email*</mat-label>
+      <input matInput [(ngModel)]="cliente.conEmail" name="conEmail">
     </mat-form-field>
 
     <mat-form-field appearance="outline">
-        <mat-label>Cpf*</mat-label>
-        <input matInput placeholder="" [(ngModel)]="cliente.cliCpf" name="cliCpf" minlength="11" maxlength="11">
+      <mat-label>Telefone Comercial*</mat-label>
+      <input matInput [(ngModel)]="cliente.conTelefoneComercial" name="conTelefoneComercial" maxlength="11">
+    </mat-form-field>
+
+    <!-- Endereço -->
+    <mat-form-field appearance="outline">
+      <mat-label>Rua*</mat-label>
+      <input matInput [(ngModel)]="cliente.endRua" name="endRua">
     </mat-form-field>
 
     <mat-form-field appearance="outline">
-        <mat-label>Telefone*</mat-label>
-        <input matInput placeholder="" [(ngModel)]="cliente.cliTelefone" name="cliTelefone" minlength="11" maxlength="11">
+      <mat-label>Número*</mat-label>
+      <input matInput [(ngModel)]="cliente.endNumero" name="endNumero">
     </mat-form-field>
 
     <mat-form-field appearance="outline">
-        <mat-label>Endereço*</mat-label>
-        <input matInput placeholder="" [(ngModel)]="cliente.cliEndereco" name="cliEndereco">
+      <mat-label>Cidade*</mat-label>
+      <input matInput [(ngModel)]="cliente.endCidade" name="endCidade">
     </mat-form-field>
-</form>
 
-<button mat-raised-button (click)="updateCliente()" color="primary">
-    Atualizar
-</button>
+    <mat-form-field appearance="outline">
+      <mat-label>CEP*</mat-label>
+      <input matInput [(ngModel)]="cliente.endCep" name="endCep">
+    </mat-form-field>
 
-<button mat-raised-button (click)="cancel()">
-    Cancelar
-</button>
+    <mat-form-field appearance="outline">
+      <mat-label>Estado*</mat-label>
+      <input matInput [(ngModel)]="cliente.endEstado" name="endEstado">
+    </mat-form-field>
 
+  </form>
 
+  <button mat-raised-button (click)="updateCliente()" color="primary">Atualizar</button>
+  <button mat-raised-button (click)="cancel()">Cancelar</button>
 </mat-card>
