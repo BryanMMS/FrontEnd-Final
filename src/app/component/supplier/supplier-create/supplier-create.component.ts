@@ -12,7 +12,7 @@ export class SupplierCreateComponent implements OnInit{
    supplier: Supplier = {
     forRazaoSocial:'',
     forNomeFantasia:'',
-    forCnpj: 0
+    forCnpj: ''
 
    }
 
@@ -22,13 +22,21 @@ export class SupplierCreateComponent implements OnInit{
     ngOnInit(): void {
         
     }
+createSupplier(): void {
+  if (
+    !this.supplier.forRazaoSocial.trim() ||
+    !this.supplier.forNomeFantasia.trim() ||
+    !this.supplier.forCnpj.trim()
+  ) {
+    this.supplierService.showMessage('Por favor, preencha todos os campos obrigatórios corretamente!');
+    return;
+  }
 
-    createSupplier(): void{
-      this.supplierService.create(this.supplier).subscribe(()=>{
-        this.supplierService.showMessage('Fornecedor criado')
-        this.router.navigate(['/suppliers'])
-      })
-    }
+  this.supplierService.create(this.supplier).subscribe(() => {
+    this.supplierService.showMessage('Fornecedor criado!');
+    this.router.navigate(['/suppliers']);
+  });
+}
 
     cancel(): void {
       this.router.navigate(['/suppliers'])

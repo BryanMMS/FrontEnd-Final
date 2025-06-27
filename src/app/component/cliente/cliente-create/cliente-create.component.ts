@@ -31,7 +31,7 @@ export class ClienteCreateComponent implements OnInit {
   createCliente(): void {
     const c = this.cliente;
 
-    if (!c.cliNome.trim() || !c.cliCpf.trim() || !c.conCelular.trim() || !c.conEmail.trim() ||
+    if (!c.cliNome.trim() ||  !this.cliente.cliCpf?.trim() || this.cliente.cliCpf.length !== 14 || !c.conCelular.trim() || !c.conEmail.trim() ||
         !c.endRua.trim() || !c.endNumero.trim() || !c.endCidade.trim() || !c.endCep.trim() || !c.endEstado.trim()) {
       this.clienteService.showMessage('Por favor, preencha todos os campos corretamente!');
       return;

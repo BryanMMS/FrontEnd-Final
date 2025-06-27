@@ -26,7 +26,8 @@ constructor(private clienteService: ClienteService,
 updateCliente(): void {
   if (
     !this.cliente.cliNome.trim() ||
-    !this.cliente.cliCpf.trim() ||
+  !this.cliente.cliCpf?.trim() ||
+   this.cliente.cliCpf.length !== 14 ||
     !this.cliente.conEmail.trim() ||
     !this.cliente.conTelefoneComercial.trim() ||
     !this.cliente.endRua.trim() ||

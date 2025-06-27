@@ -1,26 +1,56 @@
 <mat-card>
-    <mat-card-title>Alterar Fornecedor</mat-card-title>
-    <form>
-        <mat-form-field appearance="outline">
-            <mat-label>Razão Social*</mat-label>
-            <input matInput placeholder="Razão Social" [(ngModel)]="supplier.forRazaoSocial" name="Razão Social">
-        </mat-form-field >
-        <mat-form-field appearance="outline">
-            <mat-label>Nome Fantasia*</mat-label>
-            <input matInput placeholder="Nome Fantasia" [(ngModel)]="supplier.forNomeFantasia" name="Nome Fantasia">
-        </mat-form-field>
-        <mat-form-field appearance="outline">
-            <mat-label>Cnpj*</mat-label>
-            <input matInput placeholder="Cnpj" [(ngModel)]="supplier.forCnpj" name="Cnpj" minlength="14" maxlength="14">
-        </mat-form-field>
-    </form>
+  <mat-card-title>Alterar Fornecedor</mat-card-title>
 
-    <button mat-raised-button (click)="updateSupplier()" color="primary">
-        Atualizar
-    </button>
-   
-    <button mat-raised-button (click)="cancel()">
-        Cancelar
+  <form #fornecedorForm="ngForm" (ngSubmit)="updateSupplier()">
+
+    <mat-form-field appearance="outline">
+      <mat-label>Razão Social*</mat-label>
+      <input matInput
+             placeholder="Razão Social"
+             [(ngModel)]="supplier.forRazaoSocial"
+             name="forRazaoSocial"
+             required
+             #forRazaoSocial="ngModel">
+      <mat-error *ngIf="forRazaoSocial.invalid && forRazaoSocial.touched">
+        Razão Social é obrigatória.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Nome Fantasia*</mat-label>
+      <input matInput
+             placeholder="Nome Fantasia"
+             [(ngModel)]="supplier.forNomeFantasia"
+             name="forNomeFantasia"
+             required
+             #forNomeFantasia="ngModel">
+      <mat-error *ngIf="forNomeFantasia.invalid && forNomeFantasia.touched">
+        Nome Fantasia é obrigatório.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>CNPJ*</mat-label>
+      <input matInput
+             placeholder="CNPJ"
+             [(ngModel)]="supplier.forCnpj"
+             name="forCnpj"
+             minlength="14"
+             maxlength="14"
+             required
+             #forCnpj="ngModel">
+      <mat-error *ngIf="forCnpj.invalid && forCnpj.touched">
+        CNPJ deve ter 14 caracteres.
+      </mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit">
+      Atualizar
     </button>
 
+    <button mat-raised-button type="button" (click)="cancel()">
+      Cancelar
+    </button>
+
+  </form>
 </mat-card>

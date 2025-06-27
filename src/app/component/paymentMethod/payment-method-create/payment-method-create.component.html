@@ -1,42 +1,51 @@
 <mat-card>
-    <mat-card-title>Nova Forma de Pagamento</mat-card-title>
-    <form>
-        <mat-form-field appearance="outline" >
-              <mat-label>Tipo</mat-label>
-            <input matInput placeholder="" [(ngModel)]="paymentMethod.fpgTipo" name="fpgTipo" required>
-        </mat-form-field>
+  <mat-card-title>Nova Forma de Pagamento</mat-card-title>
 
-        <mat-form-field appearance="outline">
-            <mat-label>Descrição</mat-label>
-            <input matInput placeholder="" [(ngModel)]="paymentMethod.fpgDescricao" name="fpgDescricao" required>
-        </mat-form-field>
+  <form #form="ngForm" (ngSubmit)="createPaymentMethod()">
+    <!-- Tipo -->
+    <mat-form-field appearance="outline">
+      <mat-label>Tipo</mat-label>
+      <input matInput [(ngModel)]="paymentMethod.fpgTipo" name="fpgTipo" required #fpgTipo="ngModel">
+      <mat-error *ngIf="fpgTipo.invalid && fpgTipo.touched">Tipo é obrigatório</mat-error>
+    </mat-form-field>
 
-        
-        <mat-form-field appearance="outline">
-            <mat-label>Permitir Parcelamento?</mat-label>
-            <mat-select matInput placeholder="Permitir Parcelamento? " [(ngModel)]="paymentMethod.fpgPermiteParcelamento" name="fpgPermiteParcelamento" required>
-              <mat-option [value]="true">Sim</mat-option>
-              <mat-option [value]="false">Não</mat-option>
-            </mat-select>
-          </mat-form-field>
-          
-          <mat-form-field appearance="outline">
-            <mat-label>Máximo de Parcelas</mat-label>
-            <input matInput type = "number" placeholder="" [(ngModel)]="paymentMethod.fpgNumMaxParcelas" name="fpgNumMaxParcelas" required>
-        </mat-form-field>
+    <!-- Descrição -->
+    <mat-form-field appearance="outline">
+      <mat-label>Descrição</mat-label>
+      <input matInput [(ngModel)]="paymentMethod.fpgDescricao" name="fpgDescricao" required #fpgDescricao="ngModel">
+      <mat-error *ngIf="fpgDescricao.invalid && fpgDescricao.touched">Descrição é obrigatória</mat-error>
+    </mat-form-field>
 
-          
-        <mat-form-field appearance="outline">
-            <mat-label>Taxa Adicional</mat-label>
-            <input matInput  placeholder="%" [(ngModel)]="paymentMethod.fpgTaxaAdicional" name="fpgTaxaAdicional" required>
-        </mat-form-field>
+    <!-- Parcelamento -->
+    <mat-form-field appearance="outline">
+      <mat-label>Permitir Parcelamento?</mat-label>
+      <mat-select [(ngModel)]="paymentMethod.fpgPermiteParcelamento" name="fpgPermiteParcelamento" required #fpgPermiteParcelamento="ngModel">
+        <mat-option [value]="true">Sim</mat-option>
+        <mat-option [value]="false">Não</mat-option>
+      </mat-select>
+      <mat-error *ngIf="fpgPermiteParcelamento.invalid && fpgPermiteParcelamento.touched">Selecione uma opção</mat-error>
+    </mat-form-field>
 
-        <button mat-raised-button (click)="createPaymentMethod()" color="primary">
-            Salvar
-        </button>
-       
-        <button mat-raised-button (click)="cancel()">
-            Cancelar
-        </button>
-    </form>
+    <!-- Máximo Parcelas -->
+    <mat-form-field appearance="outline">
+      <mat-label>Máximo de Parcelas</mat-label>
+      <input matInput type="number" [(ngModel)]="paymentMethod.fpgNumMaxParcelas" name="fpgNumMaxParcelas" required #fpgNumMaxParcelas="ngModel">
+      <mat-error *ngIf="fpgNumMaxParcelas.invalid && fpgNumMaxParcelas.touched">Obrigatório</mat-error>
+    </mat-form-field>
+
+    <!-- Taxa Adicional -->
+    <mat-form-field appearance="outline">
+      <mat-label>Taxa Adicional (%)</mat-label>
+      <input matInput [(ngModel)]="paymentMethod.fpgTaxaAdicional" name="fpgTaxaAdicional" required #fpgTaxaAdicional="ngModel">
+      <mat-error *ngIf="fpgTaxaAdicional.invalid && fpgTaxaAdicional.touched">Obrigatório</mat-error>
+    </mat-form-field>
+
+    <!-- Botões -->
+    <button mat-raised-button color="primary" type="submit">
+      Salvar
+    </button>
+    <button mat-raised-button type="button" (click)="cancel()">
+      Cancelar
+    </button>
+  </form>
 </mat-card>

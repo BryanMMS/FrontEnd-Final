@@ -39,6 +39,8 @@ import { ClienteDeleteComponent } from './component/cliente/cliente-delete/clien
 import { ClienteReadComponent } from './component/cliente/cliente-read/cliente-read.component';
 import { ClienteUpdateComponent } from './component/cliente/cliente-update/cliente-update.component';
 import { ClienteCrudComponent } from './views/cliente-crud/cliente-crud.component'
+
+import { NgxMaskModule } from 'ngx-mask';
 import { MatSelectModule } from '@angular/material/select';
 
 
@@ -69,7 +71,8 @@ import { MatSelectModule } from '@angular/material/select';
     ClienteDeleteComponent,
     ClienteReadComponent,
     ClienteUpdateComponent,
-    ClienteCrudComponent
+    ClienteCrudComponent,
+  
    
   ],
   imports: [
@@ -86,10 +89,13 @@ import { MatSelectModule } from '@angular/material/select';
     MatInputModule,
     FormsModule,
     MatTableModule,
-    MatSelectModule
+    MatSelectModule,
+     NgxMaskModule.forRoot(),
   
   ],
-  providers: [],
+  
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
