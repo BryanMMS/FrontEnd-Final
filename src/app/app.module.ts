@@ -90,7 +90,11 @@ import { MatSelectModule } from '@angular/material/select';
     FormsModule,
     MatTableModule,
     MatSelectModule,
-     NgxMaskModule.forRoot(),
+NgxMaskModule.forRoot({
+  showMaskTyped: true,
+  dropSpecialCharacters: false // <-- Mantém pontos, barra e traço no model
+}),
+
   
   ],
   

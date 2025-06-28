@@ -2,5 +2,18 @@ export interface Supplier {
   forId?: number;
   forRazaoSocial: string;
   forNomeFantasia: string;
-  forCnpj: string;  // CNPJ como string para manter zeros à esquerda e formato
+  forCnpj: string; 
+
+  // Contato
+  conCelular: string;
+  conTelefoneComercial: string;
+  conEmail: string;
+
+  // Endereço
+  endRua: string;
+  endNumero: string;
+  endCidade: string;
+  endCep: string;
+  endEstado: string;
+
 }

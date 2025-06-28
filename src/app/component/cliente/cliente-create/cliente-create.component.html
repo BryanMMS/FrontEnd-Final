@@ -12,20 +12,18 @@
     </mat-form-field>
 
     <mat-form-field appearance="outline">
-      <mat-label>CPF</mat-label>
-      <input matInput
-             name="cliCpf"
-             [(ngModel)]="cliente.cliCpf"
-             required
-             mask="000.000.000-00"
-             [dropSpecialCharacters]="false"
-             minlength="14"
-             maxlength="14"
-             #cliCpf="ngModel">
-      <mat-error *ngIf="cliCpf.invalid && cliCpf.touched">
-        CPF inválido ou incompleto
-      </mat-error>
-    </mat-form-field>
+  <mat-label>CPF</mat-label>
+  <input matInput
+         name="cliCpf"
+         [(ngModel)]="cliente.cliCpf"
+         required
+         [mask]="'000.000.000-00'" 
+         [dropSpecialCharacters]="false"
+         #cliCpf="ngModel">
+  <mat-error *ngIf="cliCpf.invalid && cliCpf.touched">
+    CPF inválido ou incompleto
+  </mat-error>
+</mat-form-field>
 
     <!-- Contato -->
     <mat-form-field appearance="outline">

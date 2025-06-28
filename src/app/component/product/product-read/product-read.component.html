@@ -43,11 +43,14 @@
 
     <ng-container matColumnDef="proAtivo">
       <th mat-header-cell *matHeaderCellDef>Ativo</th>
-      <td mat-cell *matCellDef="let row">{{row.proAtivo}}</td>
+   <td mat-cell *matCellDef="let row">{{ row.proAtivo ? 'Sim' : 'Não' }}</td>
     </ng-container>
 
- 
 
+<ng-container matColumnDef="fornecedor">
+  <th mat-header-cell *matHeaderCellDef>Fornecedor</th>
+  <td mat-cell *matCellDef="let row">{{ row.fornecedor?.forRazaoSocial }}</td>
+</ng-container>
 
     <!-- Definição da coluna para ações (editar e deletar) -->
     <ng-container matColumnDef="action">

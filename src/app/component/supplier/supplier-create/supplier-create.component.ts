@@ -12,22 +12,42 @@ export class SupplierCreateComponent implements OnInit{
    supplier: Supplier = {
     forRazaoSocial:'',
     forNomeFantasia:'',
-    forCnpj: ''
+    forCnpj: '',
+
+    conCelular: '',
+    conTelefoneComercial: '',
+    conEmail: '',
+
+    endRua: '',
+    endNumero: '',
+    endCidade: '',
+    endCep: '',
+    endEstado: ''
 
    }
 
-   constructor(private supplierService: SupplierService,
-    private router:Router) { }
+   constructor(private supplierService: SupplierService, private router:Router) { }
 
     ngOnInit(): void {
         
     }
 createSupplier(): void {
+    console.log('DEBUG => Dados do formulário:');
+  console.log(this.supplier);
+    const s = this.supplier;
+    const cnpjRegex = /^\d{2}\.\d{3}\.\d{3}\/\d{4}-\d{2}$/;
   if (
     !this.supplier.forRazaoSocial.trim() ||
     !this.supplier.forNomeFantasia.trim() ||
-    !this.supplier.forCnpj.trim()
-  ) {
+    !this.supplier.forCnpj?.trim() || 
+  !cnpjRegex.test(s.forCnpj) || 
+    !s.conCelular.trim() ||
+     !s.conEmail.trim() ||
+        !s.endRua.trim() ||
+         !s.endNumero.trim() ||
+          !s.endCidade.trim() ||
+           !s.endCep.trim() || 
+           !s.endEstado.trim()) {
     this.supplierService.showMessage('Por favor, preencha todos os campos obrigatórios corretamente!');
     return;
   }
