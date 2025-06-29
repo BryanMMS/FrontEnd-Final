@@ -64,9 +64,6 @@
              name="proDescricao"
              required
              #proDescricao="ngModel">
-      <mat-error *ngIf="proDescricao.invalid && proDescricao.touched">
-        Descrição é obrigatória.
-      </mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
@@ -83,17 +80,17 @@
       </mat-error>
     </mat-form-field>
 
-    <mat-form-field appearance="outline">
-      <mat-label>Marca*</mat-label>
-      <input matInput
-             [(ngModel)]="product.proMarca"
-             name="proMarca"
-             required
-             #proMarca="ngModel">
-      <mat-error *ngIf="proMarca.invalid && proMarca.touched">
-        Marca é obrigatória.
-      </mat-error>
-    </mat-form-field>
+<mat-form-field appearance="outline">
+  <mat-label>Marca*</mat-label>
+  <mat-select [(ngModel)]="selectedMarcaId" name="marca" required #marca="ngModel">
+    <mat-option *ngFor="let m of marcas" [value]="m.marId">
+      {{ m.marNome }}
+    </mat-option>
+  </mat-select>
+  <mat-error *ngIf="marca.invalid && marca.touched">
+    Marca é obrigatória.
+  </mat-error>
+</mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>Categoria*</mat-label>

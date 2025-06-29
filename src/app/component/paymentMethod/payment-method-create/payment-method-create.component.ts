@@ -28,10 +28,8 @@ constructor(private paymentMethodService: PaymentMethodService,
   createPaymentMethod(): void {
     // Verificação: nenhum campo pode estar vazio ou com valores inválidos
     if (
-      !this.paymentMethod.fpgDescricao.trim() ||
       !this.paymentMethod.fpgTaxaAdicional.trim() ||
-      !this.paymentMethod.fpgTaxaAdicional.trim() ||
-      !this.paymentMethod.fpgTipo.trim()
+      !this.paymentMethod.fpgTaxaAdicional.trim() 
     ) {
       this.paymentMethodService.showMessage('Por favor, preencha todos os campos obrigatórios corretamente!');
       return;

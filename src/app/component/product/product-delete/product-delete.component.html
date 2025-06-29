@@ -31,10 +31,11 @@
             <input matInput placeholder="" [value]="product.proCodigoBarras" name="proCodigoBarras" disabled>
         </mat-form-field>
 
-        <mat-form-field appearance="outline">
-            <mat-label>Marca*</mat-label>
-            <input matInput placeholder="" [value]="product.proMarca" name="proMarca" disabled>
-        </mat-form-field>
+        
+<mat-form-field appearance="outline">
+  <mat-label>Marca*</mat-label>
+  <input matInput [value]="product.marca?.marNome" disabled>
+</mat-form-field>
 
         <mat-form-field appearance="outline">
             <mat-label>Categoria*</mat-label>
@@ -43,8 +44,9 @@
 
         
         <mat-form-field appearance="outline">
-               <input matInput  [(ngModel)]="product.proAtivo" name="proAtivo" disabled>
-          </mat-form-field>
+      <mat-label>Ativo</mat-label>
+      <input matInput [value]="product.proAtivo ? 'Ativo' : 'Inativo'" name="proAtivo" disabled>
+    </mat-form-field>
           
       
     </form>

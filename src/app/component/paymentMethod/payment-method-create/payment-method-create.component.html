@@ -12,7 +12,7 @@
     <!-- Descrição -->
     <mat-form-field appearance="outline">
       <mat-label>Descrição</mat-label>
-      <input matInput [(ngModel)]="paymentMethod.fpgDescricao" name="fpgDescricao" required #fpgDescricao="ngModel">
+      <input matInput [(ngModel)]="paymentMethod.fpgDescricao" name="fpgDescricao"  #fpgDescricao="ngModel">
       <mat-error *ngIf="fpgDescricao.invalid && fpgDescricao.touched">Descrição é obrigatória</mat-error>
     </mat-form-field>
 

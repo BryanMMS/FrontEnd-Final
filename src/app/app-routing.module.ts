@@ -17,6 +17,10 @@ import { ClienteCrudComponent } from './views/cliente-crud/cliente-crud.componen
 import { ClienteCreateComponent } from './component/cliente/cliente-create/cliente-create.component';
 import { ClienteUpdateComponent } from './component/cliente/cliente-update/cliente-update.component';
 import { ClienteDeleteComponent } from './component/cliente/cliente-delete/cliente-delete.component';
+import { MarcaCrudComponent } from './views/marca-crud/marca-crud.component';
+import { MarcaCreateComponent } from './component/marca/marca-create/marca-create.component';
+import { MarcaDeleteComponent } from './component/marca/marca-delete/marca-delete.component';
+import { MarcaUpdateComponent } from './component/marca/marca-update/marca-update.component';
 
 // Definição das rotas da aplicação
 const routes: Routes = [
@@ -88,6 +92,22 @@ component:ClienteUpdateComponent
   {
     path: "clientes/delete/:cliId",
 component:ClienteDeleteComponent
+  },
+   {
+    path: "marcas", // Rota para gerenciamento de marcas
+    component: MarcaCrudComponent // Componente para CRUD de marcas
+  },
+    {
+    path: "marcas/create", // Rota para criação de um nova marca
+    component: MarcaCreateComponent // Componente para criar um marca
+  },
+   {
+    path: "marcas/delete/:marId",
+component:MarcaDeleteComponent
+  },
+    {
+    path:"marcas/update/:id",
+    component:MarcaUpdateComponent
   }
 ];
 

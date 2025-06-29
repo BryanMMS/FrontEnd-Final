@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { Product } from '../product-read/product.model';
-import { ProductService } from '../product.service';
-import { Router } from '@angular/router';
-import { SupplierService } from '../../supplier/supplier.service';
-import { Supplier } from '../../supplier/supplier-read/supplier.model';
+import { Router } from "@angular/router";
+import { MarcaService } from "../../marca/marca.service";
+import { SupplierService } from "../../supplier/supplier.service";
+import { ProductService } from "../product.service";
+import { Supplier } from "../../supplier/supplier-read/supplier.model";
+import { Product } from "../product-read/product.model";
+import { Component, OnInit } from "@angular/core";
+import { Marca } from "../../marca/marca-read/marca.model";
 
 @Component({
   selector: 'app-product-create',
@@ -11,32 +13,38 @@ import { Supplier } from '../../supplier/supplier-read/supplier.model';
   styleUrls: ['./product-create.component.css']
 })
 export class ProductCreateComponent implements OnInit {
-product: Product = {
-  proNome: '',
-  proPrecoCusto: 0,
-  proPrecoVenda: 0,
-  proQuantidade: 0,
-  proDescricao: '',
-  proCodigoBarras: '',
-  proMarca: '',
-  proAtivo: false,
-  proDataCadastro: new Date(),
-  proDataAtualizacao: new Date(),
-  proCategoria: '',
-  fornecedor: undefined  // <== o nome correto aqui
-};
+  product: Product = {
+    proNome: '',
+    proPrecoCusto: 0,
+    proPrecoVenda: 0,
+    proQuantidade: 0,
+    proDescricao: '',
+    proCodigoBarras: '',
+    proAtivo: true,
+    proDataCadastro: new Date(),
+    proDataAtualizacao: new Date(),
+    proCategoria: '',
+    fornecedor: undefined,
+    marca: undefined
+  };
 
   fornecedores: Supplier[] = [];
+  marcas: Marca[] = [];
 
   constructor(
     private productService: ProductService,
     private supplierService: SupplierService,
+    private marcaService: MarcaService,
     private router: Router
   ) {}
 
   ngOnInit(): void {
     this.supplierService.read().subscribe(fornecedores => {
       this.fornecedores = fornecedores;
+    });
+
+    this.marcaService.read().subscribe(dados => {
+      this.marcas = dados;
     });
   }
 
@@ -47,9 +55,9 @@ product: Product = {
       this.product.proPrecoVenda < 0 ||
       this.product.proQuantidade < 0 ||
       !this.product.proCodigoBarras.trim() ||
-      !this.product.proMarca.trim() ||
       !this.product.proCategoria.trim() ||
-      !this.product.fornecedor // validação da FK
+      !this.product.fornecedor ||
+      !this.product.marca
     ) {
       this.productService.showMessage('Por favor, preencha todos os campos obrigatórios corretamente!');
       return;

@@ -43,12 +43,16 @@
       <mat-error *ngIf="proCodigoBarras.invalid && proCodigoBarras.touched">Código é brigatório.</mat-error>
     </mat-form-field>
 
-    <!-- Marca -->
-    <mat-form-field appearance="outline">
-      <mat-label>Marca</mat-label>
-      <input matInput [(ngModel)]="product.proMarca" name="proMarca" required #proMarca="ngModel">
-      <mat-error *ngIf="proMarca.invalid && proMarca.touched">Marca é obrigatório.</mat-error>
-    </mat-form-field>
+  <!--Selecionar a Marca-->
+<mat-form-field appearance="outline">
+  <mat-label>Marca</mat-label>
+  <mat-select [(ngModel)]="product.marca" name="marca" required #marcaNgModel="ngModel">
+    <mat-option *ngFor="let marca of marcas" [value]="marca">
+      {{ marca.marNome }}
+    </mat-option>
+  </mat-select>
+  <mat-error *ngIf="marcaNgModel.invalid && marcaNgModel.touched">Marca é obrigatório.</mat-error>
+</mat-form-field>
 
     <!-- Categoria -->
     <mat-form-field appearance="outline">

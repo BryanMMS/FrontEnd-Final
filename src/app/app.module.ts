@@ -41,9 +41,14 @@ import { ClienteUpdateComponent } from './component/cliente/cliente-update/clien
 import { ClienteCrudComponent } from './views/cliente-crud/cliente-crud.component'
 
 import { NgxMaskModule } from 'ngx-mask';
+import { MarcaCreateComponent } from './component/marca/marca-create/marca-create.component';
+import { MarcaDeleteComponent } from './component/marca/marca-delete/marca-delete.component';
+import { MarcaReadComponent } from './component/marca/marca-read/marca-read.component';
+import { MarcaUpdateComponent } from './component/marca/marca-update/marca-update.component';
+import { MarcaCrudComponent } from './views/marca-crud/marca-crud.component';
+import { MatOptionModule } from '@angular/material/core'; 
+import { CommonModule } from '@angular/common';
 import { MatSelectModule } from '@angular/material/select';
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,9 +74,13 @@ import { MatSelectModule } from '@angular/material/select';
     ClienteReadComponent,
     ClienteCreateComponent,
     ClienteDeleteComponent,
-    ClienteReadComponent,
     ClienteUpdateComponent,
     ClienteCrudComponent,
+    MarcaCreateComponent,
+    MarcaDeleteComponent,
+    MarcaReadComponent,
+    MarcaUpdateComponent,
+    MarcaCrudComponent,
   
    
   ],
@@ -90,6 +99,8 @@ import { MatSelectModule } from '@angular/material/select';
     FormsModule,
     MatTableModule,
     MatSelectModule,
+      MatOptionModule,
+        CommonModule,
 NgxMaskModule.forRoot({
   showMaskTyped: true,
   dropSpecialCharacters: false // <-- Mantém pontos, barra e traço no model
