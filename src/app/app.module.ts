@@ -49,6 +49,11 @@ import { MarcaCrudComponent } from './views/marca-crud/marca-crud.component';
 import { MatOptionModule } from '@angular/material/core'; 
 import { CommonModule } from '@angular/common';
 import { MatSelectModule } from '@angular/material/select';
+import { CategoriaCreateComponent } from './component/categoria/categoria-create/categoria-create.component';
+import { CategoriaUpdateComponent } from './component/categoria/categoria-update/categoria-update.component';
+import { CategoriaDeleteComponent } from './component/categoria/categoria-delete/categoria-delete.component';
+import { CategoriaReadComponent } from './component/categoria/categoria-read/categoria-read.component';
+import { CategoriaCrudComponent } from './views/categoria-crud/categoria-crud.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -81,6 +86,11 @@ import { MatSelectModule } from '@angular/material/select';
     MarcaReadComponent,
     MarcaUpdateComponent,
     MarcaCrudComponent,
+    CategoriaCreateComponent,
+    CategoriaUpdateComponent,
+    CategoriaDeleteComponent,
+    CategoriaReadComponent,
+    CategoriaCrudComponent,
   
    
   ],

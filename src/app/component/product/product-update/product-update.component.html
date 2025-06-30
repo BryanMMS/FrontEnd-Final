@@ -104,6 +104,20 @@
       </mat-error>
     </mat-form-field>
 
+
+<mat-form-field appearance="outline">
+  <mat-label>Fornecedor*</mat-label>
+  <mat-select [(ngModel)]="selectedFornecedorId" name="fornecedor" required #fornecedor="ngModel">
+    <mat-option *ngFor="let f of fornecedores" [value]="f.forId">
+      {{ f.forRazaoSocial }}
+    </mat-option>
+  </mat-select>
+  <mat-error *ngIf="fornecedor.invalid && fornecedor.touched">
+    Fornecedor é obrigatório.
+  </mat-error>
+</mat-form-field>
+
+
     <mat-form-field appearance="outline">
       <mat-label>Status do Produto</mat-label>
       <mat-select

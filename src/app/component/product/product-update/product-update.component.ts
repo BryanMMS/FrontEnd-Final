@@ -4,6 +4,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from '../product.service';
 import { MarcaService } from '../../marca/marca.service';
 import { Marca } from '../../marca/marca-read/marca.model';
+import { Supplier } from '../../supplier/supplier-read/supplier.model';
+import { SupplierService } from '../../supplier/supplier.service';
 
 @Component({
   selector: 'app-product-update',
@@ -13,13 +15,17 @@ import { Marca } from '../../marca/marca-read/marca.model';
 export class ProductUpdateComponent implements OnInit {
   product!: Product;
   marcas: Marca[] = [];
+  fornecedores: Supplier[] = [];
 
   // variável para controlar o select da marca (apenas o id)
   selectedMarcaId!: number;
+selectedFornecedorId!: number;
+  
 
   constructor(
     private productService: ProductService,
     private marcaService: MarcaService,
+    private supplierService: SupplierService,
     private router: Router,
     private route: ActivatedRoute
   ) {}
@@ -32,45 +38,60 @@ export class ProductUpdateComponent implements OnInit {
 
       // inicializa selectedMarcaId com o id da marca do produto, se existir
       this.selectedMarcaId = product.marca?.marId || 0;
+            // inicializa selectedFornecedorId com o id do fornecedor do produto, se existir
+      this.selectedFornecedorId = product.fornecedor?.forId || 0;
     });
 
     this.marcaService.read().subscribe((dados: Marca[]) => {
       this.marcas = dados;
     });
-  }
 
-  updateProduct(): void {
-    // Atribui o objeto Marca selecionado para o produto, com base no selectedMarcaId
-    const marcaSelecionada = this.marcas.find(m => m.marId === this.selectedMarcaId);
-    if (!marcaSelecionada) {
-      this.productService.showMessage('Marca inválida!');
-      return;
-    }
-    this.product.marca = marcaSelecionada;
 
-    // Validações
-    if (
-      !this.product.proNome.trim() ||
-      this.product.proPrecoCusto < 0 ||
-      this.product.proPrecoVenda < 0 ||
-      this.product.proQuantidade < 0 ||
-      !this.product.proCodigoBarras.trim() ||
-      !this.product.marca ||
-      !this.product.proCategoria.trim() ||
-      (this.product.proAtivo !== true && this.product.proAtivo !== false)
-    ) {
-      this.productService.showMessage('Por favor, preencha todos os campos obrigatórios corretamente!');
-      return;
-    }
-
-    // Atualiza produto
-    this.productService.update(this.product).subscribe(() => {
-      this.productService.showMessage('Produto atualizado com sucesso!');
-      this.router.navigate(['/products']);
+       this.supplierService.read().subscribe((dados: Supplier[]) => {
+      this.fornecedores = dados;
     });
   }
-
-  cancel(): void {
-    this.router.navigate(['/products']);
+updateProduct(): void {
+  // Atribui o objeto Marca selecionado
+  const marcaSelecionada = this.marcas.find(m => m.marId === this.selectedMarcaId);
+  if (!marcaSelecionada) {
+    this.productService.showMessage('Marca inválida!');
+    return;
   }
+  this.product.marca = marcaSelecionada;
+
+  // Atribui o objeto Fornecedor selecionado
+  const fornecedorSelecionado = this.fornecedores.find(f => f.forId === this.selectedFornecedorId);
+  if (!fornecedorSelecionado) {
+    this.productService.showMessage('Fornecedor inválido!');
+    return;
+  }
+  this.product.fornecedor = fornecedorSelecionado;
+
+  // Validações
+  if (
+    !this.product.proNome.trim() ||
+    this.product.proPrecoCusto < 0 ||
+    this.product.proPrecoVenda < 0 ||
+    this.product.proQuantidade < 0 ||
+    !this.product.proCodigoBarras.trim() ||
+    !this.product.marca ||
+    !this.product.fornecedor || // <- agora também exige fornecedor
+    !this.product.proCategoria.trim() ||
+    (this.product.proAtivo !== true && this.product.proAtivo !== false)
+  ) {
+    this.productService.showMessage('Por favor, preencha todos os campos obrigatórios corretamente!');
+    return;
+  }
+
+  // Atualiza produto
+  this.productService.update(this.product).subscribe(() => {
+    this.productService.showMessage('Produto atualizado com sucesso!');
+    this.router.navigate(['/products']);
+  });
+}
+
+cancel(): void {
+  this.router.navigate(['/products']);
+}
 }
