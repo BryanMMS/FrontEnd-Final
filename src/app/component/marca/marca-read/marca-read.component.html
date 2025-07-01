@@ -20,10 +20,11 @@
     </ng-container>
 
 
-    <ng-container matColumnDef="marAtivo">
+        <ng-container matColumnDef="marAtivo">
       <th mat-header-cell *matHeaderCellDef>Ativo</th>
-      <td mat-cell *matCellDef="let row">{{row.marAtivo}}</td>    
+   <td mat-cell *matCellDef="let row">{{ row.marAtivo ? 'Sim' : 'Inativo' }}</td>
     </ng-container>
+
 
 
     <!-- Action Column -->

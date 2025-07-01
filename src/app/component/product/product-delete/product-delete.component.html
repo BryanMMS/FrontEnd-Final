@@ -37,11 +37,17 @@
   <input matInput [value]="product.marca?.marNome" disabled>
 </mat-form-field>
 
-        <mat-form-field appearance="outline">
-            <mat-label>Categoria*</mat-label>
-            <input matInput placeholder="" [(ngModel)]="product.proCategoria" name="proCategoria" disabled>
-        </mat-form-field>
+      <mat-form-field appearance="outline">
+  <mat-label>Categoria*</mat-label>
+  <input matInput [value]="product.categoria?.ctgNome" disabled>
+</mat-form-field>
 
+
+
+      <mat-form-field appearance="outline">
+  <mat-label>Fornecedor*</mat-label>
+  <input matInput [value]="product.fornecedor?.forNomeFantasia" disabled>
+</mat-form-field>
         
         <mat-form-field appearance="outline">
       <mat-label>Ativo</mat-label>

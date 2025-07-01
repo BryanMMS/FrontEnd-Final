@@ -92,17 +92,18 @@
   </mat-error>
 </mat-form-field>
 
-    <mat-form-field appearance="outline">
-      <mat-label>Categoria*</mat-label>
-      <input matInput
-             [(ngModel)]="product.proCategoria"
-             name="proCategoria"
-             required
-             #proCategoria="ngModel">
-      <mat-error *ngIf="proCategoria.invalid && proCategoria.touched">
-        Categoria é obrigatória.
-      </mat-error>
-    </mat-form-field>
+
+<mat-form-field appearance="outline">
+  <mat-label>Categoria*</mat-label>
+  <mat-select [(ngModel)]="selectedCategoriaId" name="categoria" required #categoria="ngModel">
+    <mat-option *ngFor="let c of categorias" [value]="c.ctgId">
+      {{ c.ctgNome }}
+    </mat-option>
+  </mat-select>
+  <mat-error *ngIf="categoria.invalid && categoria.touched">
+    Categoria é obrigatório.
+  </mat-error>
+</mat-form-field>
 
 
 <mat-form-field appearance="outline">

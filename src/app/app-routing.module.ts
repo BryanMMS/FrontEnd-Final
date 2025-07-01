@@ -21,6 +21,10 @@ import { MarcaCrudComponent } from './views/marca-crud/marca-crud.component';
 import { MarcaCreateComponent } from './component/marca/marca-create/marca-create.component';
 import { MarcaDeleteComponent } from './component/marca/marca-delete/marca-delete.component';
 import { MarcaUpdateComponent } from './component/marca/marca-update/marca-update.component';
+import { CategoriaCreateComponent } from './component/categoria/categoria-create/categoria-create.component';
+import { CategoriaCrudComponent } from './views/categoria-crud/categoria-crud.component';
+import { CategoriaDeleteComponent } from './component/categoria/categoria-delete/categoria-delete.component';
+import { CategoriaUpdateComponent } from './component/categoria/categoria-update/categoria-update.component';
 
 // Definição das rotas da aplicação
 const routes: Routes = [
@@ -108,7 +112,25 @@ component:MarcaDeleteComponent
     {
     path:"marcas/update/:id",
     component:MarcaUpdateComponent
+  },
+  {
+    path:"categorias",
+    component: CategoriaCrudComponent
+  },
+  {
+    path: "categorias/create", // Rota para criação de um nova Categoria
+    component: CategoriaCreateComponent // Componente para criar um Categoria
+  },
+    {
+    path: "categorias/delete/:ctgId",
+component:CategoriaDeleteComponent
+  },
+     {
+    path:"categorias/update/:id",
+    component:CategoriaUpdateComponent
   }
+
+
 ];
 
 @NgModule({

@@ -1,1 +1,39 @@
-<p>categoria-create works!</p>
+<mat-card>
+  <mat-card-title>Nova Categoria</mat-card-title>
+
+  <form #form="ngForm" (ngSubmit)="createCategoria()">
+    <!-- Nome -->
+    <mat-form-field appearance="outline">
+      <mat-label>Nome</mat-label>
+      <input matInput [(ngModel)]="categoria.ctgNome" name="ctgNome" required #ctgNome="ngModel">
+      <mat-error *ngIf="ctgNome.invalid && ctgNome.touched">Nome é obrigatório</mat-error>
+    </mat-form-field>
+
+    <!-- Descrição -->
+    <mat-form-field appearance="outline">
+      <mat-label>Descrição*</mat-label>
+      <input matInput [(ngModel)]="categoria.ctgDescricao" name="ctgDescricao"  #ctgDescricao="ngModel">
+      <mat-error *ngIf="ctgDescricao.invalid && ctgDescricao.touched">Descrição é obrigatória</mat-error>
+    </mat-form-field>
+
+
+        <!-- Status da Marca -->
+    <mat-form-field appearance="outline">
+      <mat-label>Status da Categoria</mat-label>
+      <mat-select [(ngModel)]="categoria.ctgAtivo" name="ctgAtivo" required #ctgAtivo="ngModel">
+        <mat-option [value]="true">Ativo</mat-option>
+        <mat-option [value]="false">Inativo</mat-option>
+      </mat-select>
+      <mat-error *ngIf="ctgAtivo.invalid && ctgAtivo.touched">Obrigatório.</mat-error>
+    </mat-form-field>
+
+
+    <!-- Botões -->
+    <button mat-raised-button color="primary" type="submit">
+      Salvar
+    </button>
+    <button mat-raised-button type="button" (click)="cancel()">
+      Cancelar
+    </button>
+  </form>
+</mat-card>

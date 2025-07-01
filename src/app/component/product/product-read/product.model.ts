@@ -1,3 +1,4 @@
+import { Categoria } from '../../categoria/categoria-read/categoria.model';
 import { Marca } from '../../marca/marca-read/marca.model';
 import { Supplier } from '../../supplier/supplier-read/supplier.model'; 
 
@@ -12,7 +13,7 @@ export interface Product {
   proAtivo: boolean
   proDataCadastro: Date
   proDataAtualizacao: Date
-  proCategoria: string
  fornecedor?: Supplier
  marca?: Marca
+ categoria?: Categoria
 }

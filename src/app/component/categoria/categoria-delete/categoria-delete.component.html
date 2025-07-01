@@ -1,1 +1,31 @@
-<p>categoria-delete works!</p>
+<mat-card>
+  <mat-card-title>Excluir Categoria</mat-card-title>
+
+  <form>
+    <mat-form-field appearance="outline">
+      <mat-label>Nome*</mat-label>
+      <input matInput [value]="categoria.ctgNome" name="ctgNome" disabled>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Descrição*</mat-label>
+      <input matInput [value]="categoria.ctgDescricao" name="ctgDescricao" disabled>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Ativo</mat-label>
+      <input matInput [value]="categoria.ctgAtivo ? 'Ativo' : 'Inativo'" name="ctgAtivo" disabled>
+    </mat-form-field>
+
+
+    </form>
+
+    <button mat-raised-button (click)="deleteCategoria()" color="warn">
+        Excluir
+    </button>
+   
+    <button mat-raised-button (click)="cancel()">
+        Cancelar
+    </button>
+
+</mat-card>

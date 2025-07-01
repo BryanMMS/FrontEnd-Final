@@ -54,12 +54,16 @@
   <mat-error *ngIf="marcaNgModel.invalid && marcaNgModel.touched">Marca é obrigatório.</mat-error>
 </mat-form-field>
 
-    <!-- Categoria -->
-    <mat-form-field appearance="outline">
-      <mat-label>Categoria</mat-label>
-      <input matInput [(ngModel)]="product.proCategoria" name="proCategoria" required #proCategoria="ngModel">
-      <mat-error *ngIf="proCategoria.invalid && proCategoria.touched">Categoria é obrigatório.</mat-error>
-    </mat-form-field>
+   <!--Selecionar a Categoria-->
+<mat-form-field appearance="outline">
+  <mat-label>Categoria</mat-label>
+  <mat-select [(ngModel)]="product.categoria" name="categoria" required #categoriaNgModel="ngModel">
+    <mat-option *ngFor="let categoria of categorias" [value]="categoria">
+      {{ categoria.ctgNome }}
+    </mat-option>
+  </mat-select>
+  <mat-error *ngIf="categoriaNgModel.invalid && categoriaNgModel.touched">Categoria é obrigatório.</mat-error>
+</mat-form-field>
     
 
 
@@ -68,7 +72,7 @@
   <mat-label>Fornecedor</mat-label>
   <mat-select [(ngModel)]="product.fornecedor" name="fornecedor" required #fornecedorNgModel="ngModel">
     <mat-option *ngFor="let fornecedor of fornecedores" [value]="fornecedor">
-      {{ fornecedor.forRazaoSocial }}
+      {{ fornecedor.forNomeFantasia }}
     </mat-option>
   </mat-select>
   <mat-error *ngIf="fornecedorNgModel.invalid && fornecedorNgModel.touched">Fornecedor é obrigatório.</mat-error>

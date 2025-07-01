@@ -21,11 +21,11 @@
       <td mat-cell *matCellDef="let row">{{row.fpgDescricao}}</td>
     </ng-container>
 
-
     <ng-container matColumnDef="fpgPermiteParcelamento">
-      <th mat-header-cell *matHeaderCellDef>Permite Parcelamento?</th>
-      <td mat-cell *matCellDef="let row">{{row.fpgPermiteParcelamento}}</td>    
+      <th mat-header-cell *matHeaderCellDef>Permite parcelas?</th>
+   <td mat-cell *matCellDef="let row">{{ row.fpgPermiteParcelamento ? 'Sim' : 'Não' }}</td>
     </ng-container>
+
 
 
     <ng-container matColumnDef="fpgNumMaxParcelas">

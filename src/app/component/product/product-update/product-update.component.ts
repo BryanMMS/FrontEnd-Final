@@ -6,6 +6,8 @@ import { MarcaService } from '../../marca/marca.service';
 import { Marca } from '../../marca/marca-read/marca.model';
 import { Supplier } from '../../supplier/supplier-read/supplier.model';
 import { SupplierService } from '../../supplier/supplier.service';
+import { Categoria } from '../../categoria/categoria-read/categoria.model';
+import { CategoriaService } from '../../categoria/categoria.service';
 
 @Component({
   selector: 'app-product-update',
@@ -16,16 +18,19 @@ export class ProductUpdateComponent implements OnInit {
   product!: Product;
   marcas: Marca[] = [];
   fornecedores: Supplier[] = [];
+  categorias: Categoria[] = [];
 
   // variável para controlar o select da marca (apenas o id)
   selectedMarcaId!: number;
 selectedFornecedorId!: number;
+selectedCategoriaId!: number;
   
 
   constructor(
     private productService: ProductService,
     private marcaService: MarcaService,
     private supplierService: SupplierService,
+    private categoriaService: CategoriaService,
     private router: Router,
     private route: ActivatedRoute
   ) {}
@@ -40,6 +45,8 @@ selectedFornecedorId!: number;
       this.selectedMarcaId = product.marca?.marId || 0;
             // inicializa selectedFornecedorId com o id do fornecedor do produto, se existir
       this.selectedFornecedorId = product.fornecedor?.forId || 0;
+         // inicializa selectedCategoriaId com o id da categoria do produto, se existir
+          this.selectedCategoriaId = product.categoria?.ctgId || 0;
     });
 
     this.marcaService.read().subscribe((dados: Marca[]) => {
@@ -49,6 +56,10 @@ selectedFornecedorId!: number;
 
        this.supplierService.read().subscribe((dados: Supplier[]) => {
       this.fornecedores = dados;
+    });
+
+     this.categoriaService.read().subscribe((dados: Categoria[]) => {
+      this.categorias = dados;
     });
   }
 updateProduct(): void {
@@ -68,6 +79,19 @@ updateProduct(): void {
   }
   this.product.fornecedor = fornecedorSelecionado;
 
+
+
+    // Atribui o objeto Categoria selecionado
+  const categoriaSelecionado = this.categorias.find(c => c.ctgId === this.selectedCategoriaId);
+  if (!categoriaSelecionado) {
+    this.productService.showMessage('Categoria inválido!');
+    return;
+  }
+  this.product.categoria = categoriaSelecionado;
+
+
+
+
   // Validações
   if (
     !this.product.proNome.trim() ||
@@ -77,7 +101,7 @@ updateProduct(): void {
     !this.product.proCodigoBarras.trim() ||
     !this.product.marca ||
     !this.product.fornecedor || // <- agora também exige fornecedor
-    !this.product.proCategoria.trim() ||
+     !this.product.categoria ||
     (this.product.proAtivo !== true && this.product.proAtivo !== false)
   ) {
     this.productService.showMessage('Por favor, preencha todos os campos obrigatórios corretamente!');

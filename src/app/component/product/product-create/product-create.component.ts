@@ -6,6 +6,8 @@ import { Supplier } from "../../supplier/supplier-read/supplier.model";
 import { Product } from "../product-read/product.model";
 import { Component, OnInit } from "@angular/core";
 import { Marca } from "../../marca/marca-read/marca.model";
+import { Categoria } from "../../categoria/categoria-read/categoria.model";
+import { CategoriaService } from "../../categoria/categoria.service";
 
 @Component({
   selector: 'app-product-create',
@@ -23,18 +25,20 @@ export class ProductCreateComponent implements OnInit {
     proAtivo: true,
     proDataCadastro: new Date(),
     proDataAtualizacao: new Date(),
-    proCategoria: '',
+    categoria: undefined,
     fornecedor: undefined,
     marca: undefined
   };
 
   fornecedores: Supplier[] = [];
   marcas: Marca[] = [];
+  categorias: Categoria[] = [];
 
   constructor(
     private productService: ProductService,
     private supplierService: SupplierService,
     private marcaService: MarcaService,
+    private categoriaService: CategoriaService,
     private router: Router
   ) {}
 
@@ -46,6 +50,10 @@ export class ProductCreateComponent implements OnInit {
     this.marcaService.read().subscribe(dados => {
       this.marcas = dados;
     });
+
+      this.categoriaService.read().subscribe(dados => {
+      this.categorias = dados;
+    });
   }
 
   createProduct(): void {
@@ -55,7 +63,7 @@ export class ProductCreateComponent implements OnInit {
       this.product.proPrecoVenda < 0 ||
       this.product.proQuantidade < 0 ||
       !this.product.proCodigoBarras.trim() ||
-      !this.product.proCategoria.trim() ||
+      !this.product.categoria || 
       !this.product.fornecedor ||
       !this.product.marca
     ) {

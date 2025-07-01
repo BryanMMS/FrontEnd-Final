@@ -1,1 +1,49 @@
-<p>categoria-update works!</p>
+<mat-card>
+  <mat-card-title>Alterar Categoria</mat-card-title>
+
+  <form #categoriaForm="ngForm" (ngSubmit)="updateCategoria()">
+
+    <mat-form-field appearance="outline">
+      <mat-label>Nome da Categoria*</mat-label>
+      <input matInput
+             [(ngModel)]="categoria.ctgNome"
+             name="ctgNome"
+             required
+             #ctgNome="ngModel">
+      <mat-error *ngIf="ctgNome.invalid && ctgNome.touched">
+        Nome da Categoria é obrigatório.
+      </mat-error>
+    </mat-form-field>
+
+        <mat-form-field appearance="outline">
+      <mat-label>Descrição*</mat-label>
+      <input matInput
+             [(ngModel)]="categoria.ctgDescricao"
+             name="ctgDescricao"
+             #ctgDescricao="ngModel">
+    </mat-form-field>
+
+      <mat-form-field appearance="outline">
+      <mat-label>Status da Categoria</mat-label>
+      <mat-select
+        [(ngModel)]="categoria.ctgAtivo"
+        name="ctgAtivo"
+        required
+        #ctgAtivo="ngModel">
+        <mat-option [value]="true">Ativo</mat-option>
+        <mat-option [value]="false">Inativo</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+
+
+    <button mat-raised-button color="primary" type="submit" >
+      Atualizar
+    </button>
+
+    <button mat-raised-button type="button" (click)="cancel()">
+      Cancelar
+    </button>
+
+  </form>
+</mat-card>
