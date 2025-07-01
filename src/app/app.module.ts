@@ -54,6 +54,10 @@ import { CategoriaUpdateComponent } from './component/categoria/categoria-update
 import { CategoriaDeleteComponent } from './component/categoria/categoria-delete/categoria-delete.component';
 import { CategoriaReadComponent } from './component/categoria/categoria-read/categoria-read.component';
 import { CategoriaCrudComponent } from './views/categoria-crud/categoria-crud.component';
+import { FuncionarioCreateComponent } from './component/funcionario/funcionario-create/funcionario-create.component';
+import { FuncionarioDeleteComponent } from './component/funcionario/funcionario-delete/funcionario-delete.component';
+import { FuncionarioReadComponent } from './component/funcionario/funcionario-read/funcionario-read.component';
+import { FuncionarioUpdateComponent } from './component/funcionario/funcionario-update/funcionario-update.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -91,6 +95,10 @@ import { CategoriaCrudComponent } from './views/categoria-crud/categoria-crud.co
     CategoriaDeleteComponent,
     CategoriaReadComponent,
     CategoriaCrudComponent,
+    FuncionarioCreateComponent,
+    FuncionarioDeleteComponent,
+    FuncionarioReadComponent,
+    FuncionarioUpdateComponent,
   
    
   ],
