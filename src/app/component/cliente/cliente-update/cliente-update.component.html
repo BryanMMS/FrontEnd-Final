@@ -23,12 +23,10 @@
       <mat-error *ngIf="cliCpf.invalid && cliCpf.touched">CPF inválido ou incompleto.</mat-error>
     </mat-form-field>
 
+
+  <mat-card-title>Contato</mat-card-title>
+
     <!-- Contato -->
-    <mat-form-field appearance="outline">
-      <mat-label>Email*</mat-label>
-      <input matInput [(ngModel)]="cliente.conEmail" name="conEmail" type="email" required #conEmail="ngModel">
-      <mat-error *ngIf="conEmail.invalid && conEmail.touched">Email inválido ou obrigatório.</mat-error>
-    </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>Telefone Comercial</mat-label>
@@ -40,6 +38,15 @@
       <mat-label>Celular</mat-label>
       <input matInput [(ngModel)]="cliente.conCelular" name="conCelular">
     </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Email*</mat-label>
+      <input matInput [(ngModel)]="cliente.conEmail" name="conEmail" type="email" required #conEmail="ngModel">
+      <mat-error *ngIf="conEmail.invalid && conEmail.touched">Email inválido ou obrigatório.</mat-error>
+    </mat-form-field>
+
+
+      <mat-card-title>Endereço</mat-card-title>
 
     <!-- Endereço -->
     <mat-form-field appearance="outline">

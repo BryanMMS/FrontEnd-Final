@@ -25,6 +25,10 @@ import { CategoriaCreateComponent } from './component/categoria/categoria-create
 import { CategoriaCrudComponent } from './views/categoria-crud/categoria-crud.component';
 import { CategoriaDeleteComponent } from './component/categoria/categoria-delete/categoria-delete.component';
 import { CategoriaUpdateComponent } from './component/categoria/categoria-update/categoria-update.component';
+import { FuncionarioCrudComponent } from './views/funcionario-crud/funcionario-crud.component';
+import { FuncionarioCreateComponent } from './component/funcionario/funcionario-create/funcionario-create.component';
+import { FuncionarioUpdateComponent } from './component/funcionario/funcionario-update/funcionario-update.component';
+import { FuncionarioDeleteComponent } from './component/funcionario/funcionario-delete/funcionario-delete.component';
 
 // Definição das rotas da aplicação
 const routes: Routes = [
@@ -128,8 +132,23 @@ component:CategoriaDeleteComponent
      {
     path:"categorias/update/:id",
     component:CategoriaUpdateComponent
+  },
+    {
+    path:"funcionarios",
+    component: FuncionarioCrudComponent
+  },
+  {
+    path: "funcionarios/create", // Rota para criação de um novo Funcionario
+    component: FuncionarioCreateComponent // Componente para criar um Funcionario
+  },
+    {
+    path:"funcionarios/update/:id",
+    component:FuncionarioUpdateComponent
+  },
+      {
+    path: "funcionarios/delete/:funId",
+component:FuncionarioDeleteComponent
   }
-
 
 ];
 

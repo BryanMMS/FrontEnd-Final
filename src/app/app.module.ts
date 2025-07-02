@@ -58,6 +58,8 @@ import { FuncionarioCreateComponent } from './component/funcionario/funcionario-
 import { FuncionarioDeleteComponent } from './component/funcionario/funcionario-delete/funcionario-delete.component';
 import { FuncionarioReadComponent } from './component/funcionario/funcionario-read/funcionario-read.component';
 import { FuncionarioUpdateComponent } from './component/funcionario/funcionario-update/funcionario-update.component';
+import { FuncionarioCrudComponent } from './views/funcionario-crud/funcionario-crud.component';
+import { MatExpansionModule } from '@angular/material/expansion';
 @NgModule({
   declarations: [
     AppComponent,
@@ -99,6 +101,7 @@ import { FuncionarioUpdateComponent } from './component/funcionario/funcionario-
     FuncionarioDeleteComponent,
     FuncionarioReadComponent,
     FuncionarioUpdateComponent,
+    FuncionarioCrudComponent,
   
    
   ],
@@ -119,6 +122,7 @@ import { FuncionarioUpdateComponent } from './component/funcionario/funcionario-
     MatSelectModule,
       MatOptionModule,
         CommonModule,
+            MatExpansionModule,
 NgxMaskModule.forRoot({
   showMaskTyped: true,
   dropSpecialCharacters: false // <-- Mantém pontos, barra e traço no model

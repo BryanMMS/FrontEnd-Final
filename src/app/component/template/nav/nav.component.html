@@ -1,54 +1,63 @@
 <mat-sidenav-container class="container">
-    <!-- Barra lateral (sidenav) com navegação -->
-    <mat-sidenav class="sidenav" mode="side" opened fixedInViewport="true" fixedTopGap="64">
-        <mat-nav-list class="nav-list">
-            <!-- Link para a página inicial -->
-            <a mat-list-item routerLink="/">
-                <i class="material-icons">home</i> <!-- Ícone de início -->
-                <span>Início</span>
-            </a>
-            <a mat-list-item routerLink="/clientes">
-                <i class="material-icons">account_circle</i> <!-- Ícone de cliente -->
-                <span>Cliente</span>
-            </a>
+  <mat-sidenav class="sidenav" mode="side" opened fixedInViewport="true" fixedTopGap="64">
+    <mat-nav-list>
 
-            <!-- Link para a página de produtos -->
-            <a mat-list-item routerLink="/products">
-                <i class="material-icons">storefront</i> <!-- Ícone de produtos -->
-                <span>Produtos</span>
-            </a>
+      <!-- Seção Principal -->
+      <a mat-list-item routerLink="/">
+        <i class="material-icons">home</i>
+        <span>Início</span>
+      </a>
 
-            <!-- Link para a página de fornecedores -->
-            <a mat-list-item routerLink="/suppliers">
-                <i class="material-icons">local_shipping</i> <!-- Ícone de fornecedores -->
-                <span>Fornecedores</span>
-            </a>
+      <a mat-list-item routerLink="/clientes">
+        <i class="material-icons">account_circle</i>
+        <span>Clientes</span>
+      </a>
 
-            <!-- Link para a página de métodos de pagamento -->
-            <a mat-list-item routerLink="/paymentMethods">
-                <i class="material-icons">local_atm</i> <!-- Ícone de pagamento -->
-                <span>Pagamento</span>
-            </a>
+      <!-- Menu Produtos com subitens -->
+      <mat-expansion-panel class="menu-expansion" >
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <i class="material-icons">storefront</i>
+            <span>Produtos</span>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
 
-             
-              <!-- Link para a página de Marcas -->
-            <a mat-list-item routerLink="/marcas">
-                <i class="material-icons">local_offer</i> <!-- Ícone de marca -->
-                <span>Marca</span>
-            </a>
+        <mat-nav-list>
+  <a mat-list-item routerLink="/products">
+            <i class="material-icons">inventory</i>
+            <span>Catálogo</span>
+          </a>
 
-    <!-- Link para a página de Categorias -->
-            <a mat-list-item routerLink="/categorias">
-                <i class="material-icons">category</i> <!-- Ícone de categoria -->
-                <span>Categoria</span>
-            </a>
-
+          <a mat-list-item routerLink="/marcas">
+            <i class="material-icons">local_offer</i>
+            <span>Marcas</span>
+          </a>
+          <a mat-list-item routerLink="/categorias">
+            <i class="material-icons">category</i>
+            <span>Categorias</span>
+          </a>
         </mat-nav-list>
-    </mat-sidenav>
+      </mat-expansion-panel>
 
-    <!-- Conteúdo principal da aplicação -->
-    <mat-sidenav-content class="content">
-        <!-- Área onde o conteúdo das rotas será exibido -->
-        <router-outlet></router-outlet>
-    </mat-sidenav-content>
+      <a mat-list-item routerLink="/suppliers">
+        <i class="material-icons">local_shipping</i>
+        <span>Fornecedores</span>
+      </a>
+
+      <a mat-list-item routerLink="/funcionarios">
+        <i class="material-icons">badge</i>
+        <span>Funcionários</span>
+      </a>
+
+      <a mat-list-item routerLink="/paymentMethods">
+        <i class="material-icons">local_atm</i>
+        <span>Pagamentos</span>
+      </a>
+
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content class="content">
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
 </mat-sidenav-container>
