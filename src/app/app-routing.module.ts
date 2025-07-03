@@ -29,6 +29,10 @@ import { FuncionarioCrudComponent } from './views/funcionario-crud/funcionario-c
 import { FuncionarioCreateComponent } from './component/funcionario/funcionario-create/funcionario-create.component';
 import { FuncionarioUpdateComponent } from './component/funcionario/funcionario-update/funcionario-update.component';
 import { FuncionarioDeleteComponent } from './component/funcionario/funcionario-delete/funcionario-delete.component';
+import { CargoCrudComponent } from './views/cargo-crud/cargo-crud.component';
+import { CargoCreateComponent } from './component/cargo/cargo-create/cargo-create.component';
+import { CargoUpdateComponent } from './component/cargo/cargo-update/cargo-update.component';
+import { CargoDeleteComponent } from './component/cargo/cargo-delete/cargo-delete.component';
 
 // Definição das rotas da aplicação
 const routes: Routes = [
@@ -148,7 +152,25 @@ component:CategoriaDeleteComponent
       {
     path: "funcionarios/delete/:funId",
 component:FuncionarioDeleteComponent
-  }
+  },
+  {
+    path:"cargos",
+    component: CargoCrudComponent
+  },
+
+    {
+    path: "cargos/create", // Rota para criação de um novo Cargo
+    component: CargoCreateComponent // Componente para criar um Cargo
+  },
+   {
+    path:"cargos/update/:id",
+    component: CargoUpdateComponent
+  },
+       {
+    path: "cargos/delete/:carId",
+component:CargoDeleteComponent
+  },
+
 
 ];
 

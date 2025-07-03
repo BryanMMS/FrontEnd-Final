@@ -9,6 +9,7 @@
       <mat-error *ngIf="funNome.invalid && funNome.touched">Nome é obrigatório.</mat-error>
     </mat-form-field>
 
+
     <mat-form-field appearance="outline">
       <mat-label>CPF*</mat-label>
       <input matInput
@@ -17,11 +18,21 @@
              required
              mask="000.000.000-00"
              [dropSpecialCharacters]="false"
-             minlength="14"
-             maxlength="14"
              #funCpf="ngModel">
       <mat-error *ngIf="funCpf.invalid && funCpf.touched">CPF inválido ou incompleto.</mat-error>
     </mat-form-field>
+
+<mat-form-field appearance="outline">
+  <mat-label>Cargo*</mat-label>
+  <mat-select [(ngModel)]="selectedCargoId" name="cargo" required #cargo="ngModel">
+    <mat-option *ngFor="let c of cargos" [value]="c.carId">
+      {{ c.carNome }}
+    </mat-option>
+  </mat-select>
+  <mat-error *ngIf="cargo.invalid && cargo.touched">
+    Cargo é obrigatória.
+  </mat-error>
+</mat-form-field>
 
 
   <mat-card-title>Contatos</mat-card-title>

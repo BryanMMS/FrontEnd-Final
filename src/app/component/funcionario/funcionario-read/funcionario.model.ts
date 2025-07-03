@@ -1,10 +1,12 @@
+import { Cargo } from "../../cargo/cargo-read/cargo.model";
+
 export interface Funcionario{
 
 funId?: number;
 funNome: string;
 funCpf: string;
 funDataAdmissao: Date;
-
+carId?: number;
 
 
   // Contato

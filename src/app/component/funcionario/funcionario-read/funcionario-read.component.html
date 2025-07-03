@@ -22,6 +22,14 @@
   <td mat-cell *matCellDef="let row">{{ row.conEmail }}</td>
 </ng-container>
 
+
+<ng-container matColumnDef="cargo">
+  <th mat-header-cell *matHeaderCellDef>Cargo</th>
+  <td mat-cell *matCellDef="let row">
+    {{ getCargoNomeById(row.cargo?.carId || row.carId) }}
+  </td>
+</ng-container>
+
 <!-- Telefone Comercial -->
 <ng-container matColumnDef="conTelefoneComercial">
   <th mat-header-cell *matHeaderCellDef>Telefone</th>

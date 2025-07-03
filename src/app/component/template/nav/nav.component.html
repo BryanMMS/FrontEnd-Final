@@ -39,15 +39,33 @@
         </mat-nav-list>
       </mat-expansion-panel>
 
-      <a mat-list-item routerLink="/suppliers">
+          <!-- Menu Produtos com subitens -->
+      <mat-expansion-panel class="menu-expansion" >
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <i class="material-icons">badge</i>
+            <span>Funcionários</span>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <mat-nav-list>
+  <a mat-list-item routerLink="/funcionarios">
+            <i class="material-icons">list</i>
+            <span>Lista</span>
+          </a>
+
+          <a mat-list-item routerLink="/cargos">
+            <i class="material-icons">account_tree</i>
+            <span>Cargos</span>
+          </a>
+        </mat-nav-list>
+      </mat-expansion-panel>
+
+    <a mat-list-item routerLink="/suppliers">
         <i class="material-icons">local_shipping</i>
         <span>Fornecedores</span>
       </a>
 
-      <a mat-list-item routerLink="/funcionarios">
-        <i class="material-icons">badge</i>
-        <span>Funcionários</span>
-      </a>
 
       <a mat-list-item routerLink="/paymentMethods">
         <i class="material-icons">local_atm</i>

@@ -60,6 +60,11 @@ import { FuncionarioReadComponent } from './component/funcionario/funcionario-re
 import { FuncionarioUpdateComponent } from './component/funcionario/funcionario-update/funcionario-update.component';
 import { FuncionarioCrudComponent } from './views/funcionario-crud/funcionario-crud.component';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { CargoCreateComponent } from './component/cargo/cargo-create/cargo-create.component';
+import { CargoUpdateComponent } from './component/cargo/cargo-update/cargo-update.component';
+import { CargoDeleteComponent } from './component/cargo/cargo-delete/cargo-delete.component';
+import { CargoReadComponent } from './component/cargo/cargo-read/cargo-read.component';
+import { CargoCrudComponent } from './views/cargo-crud/cargo-crud.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -102,6 +107,11 @@ import { MatExpansionModule } from '@angular/material/expansion';
     FuncionarioReadComponent,
     FuncionarioUpdateComponent,
     FuncionarioCrudComponent,
+    CargoCreateComponent,
+    CargoUpdateComponent,
+    CargoDeleteComponent,
+    CargoReadComponent,
+    CargoCrudComponent,
   
    
   ],

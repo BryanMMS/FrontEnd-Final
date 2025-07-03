@@ -1,0 +1,39 @@
+<mat-card>
+  <mat-card-title>Novo Cargo</mat-card-title>
+
+  <form #form="ngForm" (ngSubmit)="createCargo()">
+    <!-- Nome -->
+    <mat-form-field appearance="outline">
+      <mat-label>Nome</mat-label>
+      <input matInput [(ngModel)]="cargo.carNome" name="carNome" required #carNome="ngModel">
+      <mat-error *ngIf="carNome.invalid && carNome.touched">Nome é obrigatório</mat-error>
+    </mat-form-field>
+
+    <!-- Descrição -->
+    <mat-form-field appearance="outline">
+      <mat-label>Descrição*</mat-label>
+      <input matInput [(ngModel)]="cargo.carDescricao" name="carDescricao"  #carDescricao="ngModel">
+      <mat-error *ngIf="carDescricao.invalid && carDescricao.touched">Descrição é obrigatória</mat-error>
+    </mat-form-field>
+
+
+        <!-- Status da Marca -->
+    <mat-form-field appearance="outline">
+      <mat-label>Status do Cargo</mat-label>
+      <mat-select [(ngModel)]="cargo.carAtivo" name="carAtivo" required #carAtivo="ngModel">
+        <mat-option [value]="true">Ativo</mat-option>
+        <mat-option [value]="false">Inativo</mat-option>
+      </mat-select>
+      <mat-error *ngIf="carAtivo.invalid && carAtivo.touched">Obrigatório.</mat-error>
+    </mat-form-field>
+
+
+    <!-- Botões -->
+    <button mat-raised-button color="primary" type="submit">
+      Salvar
+    </button>
+    <button mat-raised-button type="button" (click)="cancel()">
+      Cancelar
+    </button>
+  </form>
+</mat-card>
