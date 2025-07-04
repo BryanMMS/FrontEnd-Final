@@ -2,17 +2,19 @@
   <mat-card-title>Nova Categoria</mat-card-title>
 
   <form #form="ngForm" (ngSubmit)="createCategoria()">
-    <!-- Nome -->
-    <mat-form-field appearance="outline">
-      <mat-label>Nome</mat-label>
-      <input matInput [(ngModel)]="categoria.ctgNome" name="ctgNome" required #ctgNome="ngModel">
-      <mat-error *ngIf="ctgNome.invalid && ctgNome.touched">Nome é obrigatório</mat-error>
-    </mat-form-field>
+<!-- Nome -->
+<mat-form-field appearance="outline">
+  <mat-label>Nome</mat-label>
+  <input matInput [(ngModel)]="categoria.ctgNome" name="ctgNome" required maxlength="50" #ctgNome="ngModel"
+         (keypress)="apenasLetras($event)" (paste)="bloquearPaste($event)">
+  <mat-error *ngIf="ctgNome.invalid && ctgNome.touched">Nome é obrigatório</mat-error>
+</mat-form-field>
 
     <!-- Descrição -->
     <mat-form-field appearance="outline">
       <mat-label>Descrição*</mat-label>
-      <input matInput [(ngModel)]="categoria.ctgDescricao" name="ctgDescricao"  #ctgDescricao="ngModel">
+      <input matInput [(ngModel)]="categoria.ctgDescricao" name="ctgDescricao" maxlength="200"  #ctgDescricao="ngModel"
+            (keypress)="apenasLetras($event)" (paste)="bloquearPaste($event)">
       <mat-error *ngIf="ctgDescricao.invalid && ctgDescricao.touched">Descrição é obrigatória</mat-error>
     </mat-form-field>
 

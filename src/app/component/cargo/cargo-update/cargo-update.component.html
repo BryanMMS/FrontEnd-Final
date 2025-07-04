@@ -9,7 +9,9 @@
              [(ngModel)]="cargo.carNome"
              name="carNome"
              required
-             #carNome="ngModel">
+             #carNome="ngModel"
+             maxlength="50"
+           (keypress)="apenasLetras($event)" (paste)="bloquearPaste($event)">
       <mat-error *ngIf="carNome.invalid && carNome.touched">
         Nome do Cargo é obrigatório.
       </mat-error>
@@ -20,7 +22,9 @@
       <input matInput
              [(ngModel)]="cargo.carDescricao"
              name="carDescricao"
-             #carDescricao="ngModel">
+             #carDescricao="ngModel"
+             maxlength="200"
+            (keypress)="apenasLetras($event)" (paste)="bloquearPaste($event)">
     </mat-form-field>
 
       <mat-form-field appearance="outline">

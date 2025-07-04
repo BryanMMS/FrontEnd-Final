@@ -45,4 +45,21 @@ if(
 cancel(): void{
   this.router.navigate(['/categorias']);
 }
+
+apenasLetras(event: KeyboardEvent): void {
+  const charCode = event.key;
+  const regex = /^[A-Za-zÀ-ÿ\s]*$/;
+
+  if (!regex.test(charCode)) {
+    event.preventDefault();
+  }
+}
+
+bloquearPaste(event: ClipboardEvent): void {
+  const texto = event.clipboardData?.getData('text') || '';
+  const regex = /^[A-Za-zÀ-ÿ\s]*$/;
+  if (!regex.test(texto)) {
+    event.preventDefault();
+  }
+}
 }

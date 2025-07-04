@@ -5,14 +5,16 @@
     <!-- Tipo -->
     <mat-form-field appearance="outline">
       <mat-label>Tipo</mat-label>
-      <input matInput [(ngModel)]="paymentMethod.fpgTipo" name="fpgTipo" required #fpgTipo="ngModel">
+      <input matInput [(ngModel)]="paymentMethod.fpgTipo" name="fpgTipo" required maxlength="50" #fpgTipo="ngModel"
+          (keypress)="apenasLetras($event)" (paste)="bloquearPaste($event)">
       <mat-error *ngIf="fpgTipo.invalid && fpgTipo.touched">Tipo é obrigatório</mat-error>
     </mat-form-field>
 
     <!-- Descrição -->
     <mat-form-field appearance="outline">
       <mat-label>Descrição</mat-label>
-      <input matInput [(ngModel)]="paymentMethod.fpgDescricao" name="fpgDescricao"  #fpgDescricao="ngModel">
+      <input matInput [(ngModel)]="paymentMethod.fpgDescricao" name="fpgDescricao" maxlength="200" #fpgDescricao="ngModel"
+          (keypress)="apenasLetras($event)" (paste)="bloquearPaste($event)">
       <mat-error *ngIf="fpgDescricao.invalid && fpgDescricao.touched">Descrição é obrigatória</mat-error>
     </mat-form-field>
 
@@ -29,14 +31,18 @@
     <!-- Máximo de Parcelas -->
     <mat-form-field appearance="outline">
       <mat-label>Máximo de Parcelas</mat-label>
-      <input matInput type="number" [(ngModel)]="paymentMethod.fpgNumMaxParcelas" name="fpgNumMaxParcelas" required #fpgNumMaxParcelas="ngModel">
+      <input matInput type="number" [(ngModel)]="paymentMethod.fpgNumMaxParcelas" name="fpgNumMaxParcelas" required    min="1"
+         max="99"
+              (keypress)="apenasNumeros($event)"
+         #fpgNumMaxParcelas="ngModel">
       <mat-error *ngIf="fpgNumMaxParcelas.invalid && fpgNumMaxParcelas.touched">Obrigatório</mat-error>
     </mat-form-field>
 
     <!-- Taxa Adicional -->
     <mat-form-field appearance="outline">
       <mat-label>Taxa Adicional (%)</mat-label>
-      <input matInput [(ngModel)]="paymentMethod.fpgTaxaAdicional" name="fpgTaxaAdicional" required #fpgTaxaAdicional="ngModel">
+      <input matInput [(ngModel)]="paymentMethod.fpgTaxaAdicional" name="fpgTaxaAdicional" required maxlength="2" #fpgTaxaAdicional="ngModel"
+      (keypress)="apenasNumeros($event)">
       <mat-error *ngIf="fpgTaxaAdicional.invalid && fpgTaxaAdicional.touched">Obrigatório</mat-error>
     </mat-form-field>
 

@@ -5,41 +5,47 @@
     <!-- Nome -->
     <mat-form-field appearance="outline">
       <mat-label>Nome</mat-label>
-      <input matInput [(ngModel)]="product.proNome" name="proNome" required #proNome="ngModel">
+      <input matInput [(ngModel)]="product.proNome" name="proNome" required maxlength="100" #proNome="ngModel"
+             (keypress)="apenasLetras($event)" (paste)="bloquearPaste($event)">
       <mat-error *ngIf="proNome.invalid && proNome.touched">Nome é obrigatório.</mat-error>
     </mat-form-field>
 
     <!-- Preço de Custo -->
     <mat-form-field appearance="outline">
       <mat-label>Preço de Custo (R$)</mat-label>
-      <input matInput type="number" [(ngModel)]="product.proPrecoCusto" name="proPrecoCusto" required #proPrecoCusto="ngModel">
+      <input matInput type="number" [(ngModel)]="product.proPrecoCusto" name="proPrecoCusto" required #proPrecoCusto="ngModel"
+           (keypress)="apenasNumeros($event)">
       <mat-error *ngIf="proPrecoCusto.invalid && proPrecoCusto.touched">Obrigatório.</mat-error>
     </mat-form-field>
 
     <!-- Preço de Venda -->
     <mat-form-field appearance="outline">
       <mat-label>Preço de Venda (R$)</mat-label>
-      <input matInput type="number" [(ngModel)]="product.proPrecoVenda" name="proPrecoVenda" required #proPrecoVenda="ngModel">
+      <input matInput type="number" [(ngModel)]="product.proPrecoVenda" name="proPrecoVenda" required #proPrecoVenda="ngModel"
+          (keypress)="apenasNumeros($event)">
       <mat-error *ngIf="proPrecoVenda.invalid && proPrecoVenda.touched">Obrigatório.</mat-error>
     </mat-form-field>
 
     <!-- Quantidade -->
     <mat-form-field appearance="outline">
       <mat-label>Quantidade</mat-label>
-      <input matInput type="number" [(ngModel)]="product.proQuantidade" name="proQuantidade" required #proQuantidade="ngModel">
+      <input matInput type="number" [(ngModel)]="product.proQuantidade" name="proQuantidade" required #proQuantidade="ngModel"
+            (keypress)="apenasNumeros($event)">
       <mat-error *ngIf="proQuantidade.invalid && proQuantidade.touched">Quantidade é obrigatório.</mat-error>
     </mat-form-field>
 
     <!-- Descrição -->
     <mat-form-field appearance="outline">
       <mat-label>Descrição</mat-label>
-      <input matInput [(ngModel)]="product.proDescricao" name="proDescricao">
+      <input matInput [(ngModel)]="product.proDescricao" name="proDescricao" maxlength="200"
+          (keypress)="apenasLetras($event)" (paste)="bloquearPaste($event)">
     </mat-form-field>
 
     <!-- Código de Barras -->
     <mat-form-field appearance="outline">
       <mat-label>Código de Barras</mat-label>
-      <input matInput maxlength="13" [(ngModel)]="product.proCodigoBarras" name="proCodigoBarras" required #proCodigoBarras="ngModel">
+      <input matInput maxlength="13" [(ngModel)]="product.proCodigoBarras" name="proCodigoBarras" required #proCodigoBarras="ngModel"
+         (keypress)="apenasNumeros($event)">
       <mat-error *ngIf="proCodigoBarras.invalid && proCodigoBarras.touched">Código é brigatório.</mat-error>
     </mat-form-field>
 

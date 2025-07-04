@@ -5,14 +5,16 @@
     <!-- Nome -->
     <mat-form-field appearance="outline">
       <mat-label>Nome</mat-label>
-      <input matInput [(ngModel)]="cargo.carNome" name="carNome" required #carNome="ngModel">
+      <input matInput [(ngModel)]="cargo.carNome" name="carNome" required maxlength="50" #carNome="ngModel"
+       (keypress)="apenasLetras($event)" (paste)="bloquearPaste($event)">
       <mat-error *ngIf="carNome.invalid && carNome.touched">Nome é obrigatório</mat-error>
     </mat-form-field>
 
     <!-- Descrição -->
     <mat-form-field appearance="outline">
       <mat-label>Descrição*</mat-label>
-      <input matInput [(ngModel)]="cargo.carDescricao" name="carDescricao"  #carDescricao="ngModel">
+      <input matInput [(ngModel)]="cargo.carDescricao" name="carDescricao" maxlength="200" #carDescricao="ngModel"
+       (keypress)="apenasLetras($event)" (paste)="bloquearPaste($event)">
       <mat-error *ngIf="carDescricao.invalid && carDescricao.touched">Descrição é obrigatória</mat-error>
     </mat-form-field>
 

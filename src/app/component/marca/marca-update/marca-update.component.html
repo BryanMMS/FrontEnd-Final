@@ -9,6 +9,8 @@
              [(ngModel)]="marca.marNome"
              name="marNome"
              required
+             maxlength="50"
+               (keypress)="apenasLetras($event)" (paste)="bloquearPaste($event)"
              #marNome="ngModel">
       <mat-error *ngIf="marNome.invalid && marNome.touched">
         Nome da Marca é obrigatório.
@@ -20,6 +22,8 @@
       <input matInput
              [(ngModel)]="marca.marDescricao"
              name="marDescricao"
+             maxlength="200"
+               (keypress)="apenasLetras($event)" (paste)="bloquearPaste($event)"
              #marDescricao="ngModel">
     </mat-form-field>
 

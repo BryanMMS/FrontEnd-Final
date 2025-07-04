@@ -83,4 +83,44 @@ export class ClienteCreateComponent implements OnInit {
     if (resto === 10 || resto === 11) resto = 0;
     return resto === parseInt(cpf.charAt(10));
   }
+
+  apenasLetras(event: KeyboardEvent): void {
+  const charCode = event.key;
+  const regex = /^[A-Za-zÀ-ÿ\s]*$/;
+
+  if (!regex.test(charCode)) {
+    event.preventDefault();
+  }
+}
+
+bloquearPaste(event: ClipboardEvent): void {
+  const texto = event.clipboardData?.getData('text') || '';
+  const regex = /^[A-Za-zÀ-ÿ\s]*$/;
+  if (!regex.test(texto)) {
+    event.preventDefault();
+  }
+}
+
+
+
+
+
+
+apenasNumeros(event: KeyboardEvent): void {
+  const charCode = event.key;
+  const regex = /^[0-9]$/;
+
+  if (!regex.test(charCode)) {
+    event.preventDefault();
+  }
+}
+
+bloquearPasteNumeros(event: ClipboardEvent): void {
+  const texto = event.clipboardData?.getData('text') || '';
+  const regex = /^[0-9]+$/;
+  if (!regex.test(texto)) {
+    event.preventDefault();
+  }
+}
+
 }

@@ -9,7 +9,9 @@
              [(ngModel)]="product.proNome"
              name="proNome"
              required
-             #proNome="ngModel">
+             #proNome="ngModel"
+             maxlength="100"
+              (keypress)="apenasLetras($event)" (paste)="bloquearPaste($event)">
       <mat-error *ngIf="proNome.invalid && proNome.touched">
         Nome do Produto é obrigatório.
       </mat-error>
@@ -23,7 +25,8 @@
              name="proPrecoCusto"
              required
              #proPrecoCusto="ngModel"
-             min="0">
+             min="0"
+           (keypress)="apenasNumeros($event)">
       <mat-error *ngIf="proPrecoCusto.invalid && proPrecoCusto.touched">
         Preço do Custo é obrigatório e não pode ser negativo.
       </mat-error>
@@ -37,7 +40,8 @@
              name="proPrecoVenda"
              required
              #proPrecoVenda="ngModel"
-             min="0">
+             min="0"
+            (keypress)="apenasNumeros($event)">
       <mat-error *ngIf="proPrecoVenda.invalid && proPrecoVenda.touched">
         Preço de Venda é obrigatório e não pode ser negativo.
       </mat-error>
@@ -51,7 +55,8 @@
              name="proQuantidade"
              required
              #proQuantidade="ngModel"
-             min="0">
+             min="0"
+            (keypress)="apenasNumeros($event)">
       <mat-error *ngIf="proQuantidade.invalid && proQuantidade.touched">
         Quantidade é obrigatória e não pode ser negativa.
       </mat-error>
@@ -63,7 +68,9 @@
              [(ngModel)]="product.proDescricao"
              name="proDescricao"
              required
-             #proDescricao="ngModel">
+             #proDescricao="ngModel"
+             maxlength="200"
+            (keypress)="apenasLetras($event)" (paste)="bloquearPaste($event)">
     </mat-form-field>
 
     <mat-form-field appearance="outline">
@@ -74,7 +81,8 @@
              [(ngModel)]="product.proCodigoBarras"
              name="proCodigoBarras"
              required
-             #proCodigoBarras="ngModel">
+             #proCodigoBarras="ngModel"
+             (keypress)="apenasNumeros($event)">
       <mat-error *ngIf="proCodigoBarras.invalid && proCodigoBarras.touched">
         Código de Barras é obrigatório e deve ter no máximo 13 caracteres.
       </mat-error>

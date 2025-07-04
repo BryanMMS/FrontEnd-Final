@@ -9,7 +9,9 @@
              [(ngModel)]="categoria.ctgNome"
              name="ctgNome"
              required
-             #ctgNome="ngModel">
+             #ctgNome="ngModel"
+             maxlength="50"
+      (keypress)="apenasLetras($event)" (paste)="bloquearPaste($event)">
       <mat-error *ngIf="ctgNome.invalid && ctgNome.touched">
         Nome da Categoria é obrigatório.
       </mat-error>
@@ -20,7 +22,9 @@
       <input matInput
              [(ngModel)]="categoria.ctgDescricao"
              name="ctgDescricao"
-             #ctgDescricao="ngModel">
+             #ctgDescricao="ngModel"
+             maxlength="200"
+   (keypress)="apenasLetras($event)" (paste)="bloquearPaste($event)">
     </mat-form-field>
 
       <mat-form-field appearance="outline">
