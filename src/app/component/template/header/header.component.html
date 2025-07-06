@@ -1,16 +1,28 @@
-<mat-toolbar class="header" mat-elevation-z4>
-    <!-- Logo da aplicação com link para a página inicial -->
-    <span>
-        <a routerLink="/">
-            <img class="logo" src="assets/img/logo-senai.png" alt="logo">
-        </a>
-    </span>
-    
-    <!-- Grupo de título com ícone e texto -->
-    <span class="title-group">
-        <a>
-            <i class="material-icons">home</i> <!-- Ícone de início -->
-            Inicio
-        </a>
-    </span>
+<mat-toolbar class="header" color="primary" mat-elevation-z4>
+
+
+  <!-- Logo -->
+  <span class="logo-container">
+    <a routerLink="/">
+      <img class="logo" src="assets/img/logo-senai.png" alt="logo">
+    </a>
+  </span>
+
+  <!-- Menu de navegação -->
+  <span class="nav-links">
+    <a mat-button routerLink="/clientes"><i class="material-icons">info</i> Sobre</a>
+  </span>
+
+  <!-- Espaçador para empurrar os itens da direita -->
+  <span class="spacer"></span>
+
+  <!-- Nome do usuário -->
+  <span class="user-info">
+    <i class="material-icons">account_circle</i> Olá, Admin
+  </span>
+
+  <!-- Botão de logout -->
+  <button mat-icon-button aria-label="Logout">
+    <i class="material-icons">logout</i>
+  </button>
 </mat-toolbar>

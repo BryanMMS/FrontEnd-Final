@@ -1,28 +1,63 @@
-/* Estilo para o cabeçalho da aplicação */
+/* Estilo geral do cabeçalho */
 .header {
-    display: flex; /* Utiliza flexbox para layout */
-    align-items: center; /* Alinha itens verticalmente ao centro */
-    background-color: #4180ab; /* Cor de fundo do cabeçalho */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #1976d2; /* Azul Material */
+    padding: 0 16px;
+    height: 64px;
+    color: white;
 }
 
-.header a {
-    display: flex; /* Utiliza flexbox para links */
-    align-items: center; /* Alinha itens verticalmente ao centro */
-    text-decoration: none; /* Remove sublinhado dos links */
+/* Logo da aplicação */
+.logo-container img {
+    max-height: 40px;
 }
 
-.header .logo {
-    max-height: 32px; /* Define altura máxima para o logo */
+/* Links do menu de navegação */
+.nav-links {
+    display: flex;
+    gap: 16px;
+    margin-left: 24px;
 }
 
-.header .title-group {
-    padding-left: 25px; /* Espaçamento à esquerda do grupo de título */
+.nav-links a {
+    color: white;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    text-decoration: none;
+    font-size: 15px;
 }
 
-.header .title-group i {
-    padding-right: 5px; /* Espaçamento à direita do ícone no título */
+.nav-links a:hover {
+    opacity: 0.85;
 }
 
-.header i,a{
-    color: #fcfdeb;
+/* Espaço flexível para empurrar os itens da direita */
+.spacer {
+    flex: 1 1 auto;
+}
+
+/* Informações do usuário */
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 500;
+    font-size: 14px;
+    color: white;
+    margin-right: 10px;
+}
+
+/* Ícones */
+.header i {
+    font-size: 20px;
+    vertical-align: middle;
+}
+
+/* Botão de logout */
+button[mat-icon-button] {
+    color: white;
 }
