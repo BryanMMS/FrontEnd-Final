@@ -3,7 +3,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #1976d2; /* Azul Material */
+    background-color: #77181e; /* Azul Material */
     padding: 0 16px;
     height: 64px;
     color: white;
@@ -61,3 +61,5 @@
 button[mat-icon-button] {
     color: white;
 }
+
+
