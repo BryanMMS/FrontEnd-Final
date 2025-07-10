@@ -1,3 +1,28 @@
+<!-- Barra de pesquisa separada -->
+<div class="barra-pesquisa">
+  <mat-form-field appearance="outline" class="search-bar">
+    <mat-label>Pesquisar Nome</mat-label>
+    <input matInput (input)="onFilterChange('nomeFantasia', $event)" placeholder="Nome">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="search-bar">
+    <mat-label>Pesquisar Email</mat-label>
+    <input matInput (input)="onFilterChange('email', $event)" placeholder="Email">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="search-bar">
+    <mat-label>Pesquisar Cnpj</mat-label>
+    <input matInput (input)="onFilterChange('cnpj', $event)" placeholder="Cnpj">
+  </mat-form-field>
+
+</div>
+
+
+
+
+
+
+
 
 
 <div class="mat-elevation-z4">
