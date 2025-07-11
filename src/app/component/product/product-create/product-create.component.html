@@ -5,8 +5,7 @@
     <!-- Nome -->
     <mat-form-field appearance="outline">
       <mat-label>Nome</mat-label>
-      <input matInput [(ngModel)]="product.proNome" name="proNome" required maxlength="100" #proNome="ngModel"
-             (keypress)="apenasLetras($event)" (paste)="bloquearPaste($event)">
+      <input matInput [(ngModel)]="product.proNome" name="proNome" required maxlength="100" #proNome="ngModel">
       <mat-error *ngIf="proNome.invalid && proNome.touched">Nome é obrigatório.</mat-error>
     </mat-form-field>
 

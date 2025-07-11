@@ -2,7 +2,7 @@
 .mat-elevation-z4 {
   background-color: #282832;
   border-radius: 8px;
-  padding: 8px;
+  padding: 16px;  /* aumentei um pouco o padding para mais espaço */
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
@@ -39,7 +39,6 @@ tr:nth-child(even) td {
   background-color: #2e2e3a;
 }
 
-
 /* Ações: Editar */
 .edit > i {
   color: #d9cd26;
@@ -60,4 +59,62 @@ tr:nth-child(even) td {
 /* Ajuste de altura mínima para linhas */
 td {
   min-height: 48px;
+}
+
+
+
+.barra-pesquisa {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.search-bar {
+  flex: 1 1 200px; /* Responsivo: mínimo 200px */
+  min-width: 180px;
+}
+
+/* Aparência do campo de entrada */
+.mat-form-field {
+  background-color: #1f1f2b;
+  color: #e4ebf0;
+  border-radius: 4px;
+}
+
+.mat-form-field-infix {
+  color: #e4ebf0;
+}
+
+/* Cor da label */
+.mat-form-field-label {
+  color: #b0b6c4 !important;
+}
+
+/* Input text color */
+input.mat-input-element {
+  color: #e4ebf0;
+}
+
+/* Placeholder */
+input::placeholder {
+  color: #a0a4b0;
+}
+
+/* mat-select customização */
+.mat-select {
+  color: #e4ebf0;
+}
+
+.mat-select-placeholder {
+  color: #a0a4b0;
+}
+
+.mat-option {
+  background-color: #1f1f2b;
+  color: #e4ebf0;
+}
+
+.mat-option:hover {
+  background-color: #2a2a38;
 }

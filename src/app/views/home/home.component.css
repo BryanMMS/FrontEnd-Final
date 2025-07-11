@@ -46,10 +46,14 @@
 
 /* Menu de botões lado a lado */
 .menu-options {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas iguais */
+    gap: 20px 40px; /* espaçamento entre linhas e colunas */
     justify-content: center;
-    gap: 20px;
     margin-bottom: 40px;
+    max-width: 400px; /* opcional, para limitar a largura do grid */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .btn-primary {
