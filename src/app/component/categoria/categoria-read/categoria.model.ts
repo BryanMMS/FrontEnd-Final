@@ -3,6 +3,6 @@ export interface Categoria{
     ctgNome: string
     ctgDescricao: string
     ctgDataCadastro: Date
-    ctgDataAtualizado: Date
+    ctgDataAtualizado?: Date
     ctgAtivo: boolean
 }

@@ -13,7 +13,7 @@ cargo: Cargo ={
     carNome: '',
     carDescricao: '',
     carDataCadastro: new Date(),
-    carDataAtualizado: new Date(),
+    carDataAtualizado:undefined,
     carAtivo: false
 };
 

@@ -6,7 +6,6 @@
     <!-- Espaço para imagem / logo -->
     <div class="image-container">
       <img src="assets/img/logo-autopecas.png" alt="Logo Sistema Auto-Peças" />
-      <!-- Você pode trocar essa imagem ou adicionar um banner maior aqui -->
     </div>
 
     <!-- Subtítulo / Painel Inicial -->
@@ -19,6 +18,19 @@
       <button class="btn-primary" routerLink="/suppliers">Lista Fornecedores</button>
       <button class="btn-primary" routerLink="/fornecedores">Lista Funcionarios</button>
     </div>
+
+    
+         <!-- Bloco de informações resumidas do sistema -->
+         <div class="system-info-box">
+          <div class="info-card">
+            <h4>Produtos</h4>
+            <p>{{ qtdProdutos }} cadastrados</p>
+          </div>
+          <div class="info-card">
+            <h4>Vendas</h4>
+            <p>{{ qtdVendas }} realizadas</p>
+          </div>
+        </div>
 
     <!-- Caixa de aviso para dados vinculados inativos -->
     <div class="alert-box">

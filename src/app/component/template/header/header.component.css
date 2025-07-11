@@ -53,4 +53,22 @@ button[mat-icon-button] {
     color: white;
 }
 
+/* Nome da marca estilizado */
+.brand-name {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: transform 0.2s ease-in-out;
+}
+
+.brand-name:hover {
+    transform: scale(1.05);
+}
+
+.brand-name span {
+    color: #ff5252; /* Vermelho para destacar o "Stock" */
+}
 

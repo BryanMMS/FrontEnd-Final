@@ -31,7 +31,9 @@ export class CategoriaUpdateComponent {
       this.categoriaService.showMessage('Por favor, preencha todos os campos obrigatórios corretamente!');
       return;
     }
-    // Se passou na validação, prossegue com a atualização
+    
+    this.categoria.ctgDataAtualizado = new Date();
+
     this.categoriaService.update(this.categoria).subscribe(() => {
       this.categoriaService.showMessage('Categoria atualizado com sucesso!');
       this.router.navigate(['/categorias']);

@@ -3,6 +3,6 @@ export interface Cargo{
     carNome: string
     carDescricao: string
     carDataCadastro: Date;
-    carDataAtualizado: Date;
+    carDataAtualizado?: Date;
     carAtivo: boolean
 }

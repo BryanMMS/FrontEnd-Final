@@ -3,6 +3,6 @@ export interface Marca{
     marNome: string
     marDescricao: string
     marDataCadastro: Date;
-    marDataAtualizado: Date;
+    marDataAtualizado?: Date;
     marAtivo: boolean
 }

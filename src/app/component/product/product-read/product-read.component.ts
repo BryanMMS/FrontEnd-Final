@@ -10,6 +10,7 @@ import { MatSelectChange } from '@angular/material/select';
 })
 export class ProductReadComponent implements OnInit {
   products!: MatTableDataSource<Product>;
+  totalProdutosEstoque: number = 0; 
   displayedColumns = ['proId', 'proNome', 'proPrecoVenda', 'categoria', 'proQuantidade', 'marca', 'proAtivo', 'fornecedor', 'action'];
 
   // armazenar os filtros de cada campo
@@ -25,6 +26,7 @@ export class ProductReadComponent implements OnInit {
   ngOnInit(): void {
     this.productService.read().subscribe(products => {
       this.products = new MatTableDataSource(products);
+      this.totalProdutosEstoque = products.length;  
 
       this.products.filterPredicate = (data: Product, filter: string) => {
         // filter é ignorado, pois vamos usar os filtros da variável filters
@@ -52,5 +54,6 @@ export class ProductReadComponent implements OnInit {
   
     this.filters[field] = value;
     this.products.filter = '' + Math.random(); // força atualização do filtro
+    this.totalProdutosEstoque = this.products.filteredData.length;
   }
 }

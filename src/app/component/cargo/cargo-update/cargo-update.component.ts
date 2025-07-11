@@ -31,7 +31,10 @@ export class CargoUpdateComponent {
       this.cargoService.showMessage('Por favor, preencha todos os campos obrigatórios corretamente!');
       return;
     }
-    // Se passou na validação, prossegue com a atualização
+
+
+    this.cargo.carDataAtualizado = new Date();
+    
     this.cargoService.update(this.cargo).subscribe(() => {
       this.cargoService.showMessage('Cargo atualizado com sucesso!');
       this.router.navigate(['/cargos']);

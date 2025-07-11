@@ -12,7 +12,7 @@ export interface Product {
   proCodigoBarras: string
   proAtivo: boolean
   proDataCadastro: Date
-  proDataAtualizacao: Date
+  proDataAtualizacao?: Date; 
  fornecedor?: Supplier
  marca?: Marca
  categoria?: Categoria

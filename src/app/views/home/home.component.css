@@ -1,23 +1,22 @@
 .home {
-    background: linear-gradient(135deg, #C6D6D6, #DEE7E7);
-    padding: 40px;
+    background: transparent; /* remove o fundo cinza */
+    padding: 20px;
     text-align: center;
-    border-radius: 20px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    max-width: 650px;
-    margin: 60px auto;
+    max-width: 900px;
+    margin: 40px auto;
+    box-shadow: none; /* remove sombra externa */
 }
 
 .card-content {
-    padding: 20px;
+    padding: 0;
 }
 
 /* Boas-vindas */
 .welcome-message {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     color: #77181E;
-    margin-bottom: 15px;
     font-weight: 600;
+    margin-bottom: 10px;
 }
 
 .system-name {
@@ -25,93 +24,88 @@
     text-decoration: underline;
 }
 
-/* Container para imagem */
+/* Logo */
 .image-container {
-    margin: 20px 0 30px 0;
+    margin: 10px 0 20px 0;
 }
 
 .image-container img {
-    max-width: 200px;
+    max-width: 180px;
     height: auto;
-    border-radius: 15px;
-    box-shadow: 0 4px 12px rgba(119, 24, 30, 0.5);
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(119, 24, 30, 0.4);
 }
 
 /* Subtítulo */
-.home .subtitle {
-    font-size: 1.5rem;
+.subtitle {
+    font-size: 1.3rem;
     color: #A92727;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
 }
 
 /* Menu de botões lado a lado */
 .menu-options {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 colunas iguais */
-    gap: 20px 40px; /* espaçamento entre linhas e colunas */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
     justify-content: center;
-    margin-bottom: 40px;
-    max-width: 400px; /* opcional, para limitar a largura do grid */
-    margin-left: auto;
-    margin-right: auto;
+    margin-bottom: 30px;
 }
 
 .btn-primary {
     background-color: #77181E;
-    color: #DEE7E7;
-    padding: 15px 30px;
-    font-size: 1.1rem;
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    box-shadow: 0 4px 12px rgba(119, 24, 30, 0.6);
-}
-
-.btn-primary:hover {
-    background-color: #A92727;
-    box-shadow: 0 6px 16px rgba(169, 39, 39, 0.8);
-}
-
-/* Caixa de aviso */
-.alert-box {
-    background-color: #282832;
-    border: 2px solid #A92727;
-    border-radius: 15px;
-    padding: 20px;
-    max-width: 400px;
-    margin: 0 auto 40px auto;
-    color: #DEE7E7;
-    text-align: center;
-}
-
-.alert-box h3 {
-    margin: 0 0 10px 0;
-    color: #A92727;
-}
-
-.alert-box p {
-    font-size: 1.2rem;
-    margin: 0;
-}
-
-/* Botão secundário para alertas */
-.btn-secondary {
-    background-color: #A92727;
-    color: #FFF;
-    padding: 10px 25px;
+    color: #fff;
+    padding: 12px 24px;
     font-size: 1rem;
     border: none;
     border-radius: 10px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    box-shadow: 0 3px 8px rgba(169, 39, 39, 0.6);
+    box-shadow: 0 2px 6px rgba(119, 24, 30, 0.5);
+}
+
+.btn-primary:hover {
+    background-color: #A92727;
+    box-shadow: 0 4px 10px rgba(169, 39, 39, 0.6);
+}
+
+/* Caixa de aviso */
+.alert-box {
+    background-color: #1c1c26;
+    border: 2px solid #A92727;
+    border-radius: 12px;
+    padding: 20px;
+    max-width: 500px;
+    margin: 0 auto 30px auto;
+    color: #DEE7E7;
+    text-align: center;
+}
+
+.alert-box h3 {
+    color: #ff4444;
+    margin-bottom: 10px;
+}
+
+.alert-box p {
+    font-size: 1rem;
+    margin: 0;
+}
+
+/* Botão de alerta */
+.btn-secondary {
+    background-color: #A92727;
+    color: #fff;
+    padding: 8px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
     margin-top: 10px;
 }
 
 .btn-secondary:hover {
     background-color: #77181E;
-    box-shadow: 0 5px 12px rgba(119, 24, 30, 0.8);
 }
 
 /* Botão Sobre */
@@ -122,16 +116,15 @@
 .btn-about {
     background-color: #004d40;
     color: #e0f7fa;
-    padding: 12px 35px;
-    font-size: 1.1rem;
+    padding: 10px 30px;
+    font-size: 1rem;
     border: none;
-    border-radius: 14px;
+    border-radius: 12px;
     cursor: pointer;
-    box-shadow: 0 4px 12px rgba(0, 77, 64, 0.7);
+    box-shadow: 0 2px 8px rgba(0, 77, 64, 0.6);
     transition: background-color 0.3s ease;
 }
 
 .btn-about:hover {
     background-color: #00695c;
-    box-shadow: 0 6px 16px rgba(0, 105, 92, 0.9);
 }

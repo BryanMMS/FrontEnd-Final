@@ -15,7 +15,8 @@ import { CategoriaService } from "../../categoria/categoria.service";
   styleUrls: ['./product-create.component.css']
 })
 export class ProductCreateComponent implements OnInit {
-  product: Product = {
+  product: Product =
+   {
     proNome: '',
     proPrecoCusto: 0,
     proPrecoVenda: 0,
@@ -24,7 +25,7 @@ export class ProductCreateComponent implements OnInit {
     proCodigoBarras: '',
     proAtivo: true,
     proDataCadastro: new Date(),
-    proDataAtualizacao: new Date(),
+    proDataAtualizacao: undefined,
     categoria: undefined,
     fornecedor: undefined,
     marca: undefined

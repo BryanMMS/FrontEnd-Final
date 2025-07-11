@@ -13,7 +13,7 @@ marca: Marca ={
     marNome: '',
     marDescricao: '',
     marDataCadastro: new Date(),
-    marDataAtualizado: new Date(),
+    marDataAtualizado: undefined,
     marAtivo: false
 };
 

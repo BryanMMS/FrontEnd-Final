@@ -90,7 +90,7 @@ updateProduct(): void {
   this.product.categoria = categoriaSelecionado;
 
 
-
+// ----------------------------------------------------------------------------------------------------------
 
   // Validações
   if (
@@ -108,6 +108,9 @@ updateProduct(): void {
     return;
   }
 
+
+  this.product.proDataAtualizacao = new Date();
+
   // Atualiza produto
   this.productService.update(this.product).subscribe(() => {
     this.productService.showMessage('Produto atualizado com sucesso!');
@@ -119,7 +122,7 @@ cancel(): void {
   this.router.navigate(['/products']);
 }
 
-
+// ----------------------------------------------------------------------------------------------------------
     apenasLetras(event: KeyboardEvent): void {
   const charCode = event.key;
   const regex = /^[A-Za-zÀ-ÿ\s]*$/;

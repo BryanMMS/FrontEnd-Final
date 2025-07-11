@@ -31,7 +31,9 @@ export class MarcaUpdateComponent {
       this.marcaService.showMessage('Por favor, preencha todos os campos obrigatórios corretamente!');
       return;
     }
-    // Se passou na validação, prossegue com a atualização
+    
+    this.marca.marDataAtualizado = new Date();
+
     this.marcaService.update(this.marca).subscribe(() => {
       this.marcaService.showMessage('Marca atualizado com sucesso!');
       this.router.navigate(['/marcas']);

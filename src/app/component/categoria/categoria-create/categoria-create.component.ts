@@ -12,7 +12,7 @@ export class CategoriaCreateComponent implements OnInit {
   categoria: Categoria ={
   ctgNome: '',
   ctgDescricao: '',
-  ctgDataAtualizado: new Date(),
+  ctgDataAtualizado: undefined,
   ctgDataCadastro: new Date(),
   ctgAtivo: false
   };
