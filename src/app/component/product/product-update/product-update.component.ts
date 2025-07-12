@@ -49,19 +49,34 @@ selectedCategoriaId!: number;
           this.selectedCategoriaId = product.categoria?.ctgId || 0;
     });
 
-    this.marcaService.read().subscribe((dados: Marca[]) => {
-      this.marcas = dados;
-    });
+   this.marcaService.read().subscribe((dados: Marca[]) => {
+  this.marcas = dados.filter(marca => marca.marAtivo); // apenas marcas ativas
+});
+
+this.categoriaService.read().subscribe((dados: Categoria[]) => {
+  this.categorias = dados.filter(categoria => categoria.ctgAtivo); // apenas categorias ativas
+});
 
 
        this.supplierService.read().subscribe((dados: Supplier[]) => {
       this.fornecedores = dados;
     });
 
-     this.categoriaService.read().subscribe((dados: Categoria[]) => {
-      this.categorias = dados;
-    });
+    const marcaSelecionada = this.marcas.find(m => m.marId === this.selectedMarcaId);
+if (!marcaSelecionada || !marcaSelecionada.marAtivo) {
+  this.productService.showMessage('Marca inválida ou inativa!');
+  return;
+}
+
+const categoriaSelecionado = this.categorias.find(c => c.ctgId === this.selectedCategoriaId);
+if (!categoriaSelecionado || !categoriaSelecionado.ctgAtivo) {
+  this.productService.showMessage('Categoria inválida ou inativa!');
+  return;
+}
+
   }
+
+  
 updateProduct(): void {
   // Atribui o objeto Marca selecionado
   const marcaSelecionada = this.marcas.find(m => m.marId === this.selectedMarcaId);

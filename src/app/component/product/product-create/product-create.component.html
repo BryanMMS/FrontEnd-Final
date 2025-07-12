@@ -52,9 +52,9 @@
 <mat-form-field appearance="outline">
   <mat-label>Marca</mat-label>
   <mat-select [(ngModel)]="product.marca" name="marca" required #marcaNgModel="ngModel">
-    <mat-option *ngFor="let marca of marcas" [value]="marca">
-      {{ marca.marNome }}
-    </mat-option>
+  <mat-option *ngFor="let marca of marcas" [value]="marca" [disabled]="!marca.marAtivo">
+  {{ marca.marNome }}
+</mat-option>
   </mat-select>
   <mat-error *ngIf="marcaNgModel.invalid && marcaNgModel.touched">Marca é obrigatório.</mat-error>
 </mat-form-field>
@@ -63,9 +63,9 @@
 <mat-form-field appearance="outline">
   <mat-label>Categoria</mat-label>
   <mat-select [(ngModel)]="product.categoria" name="categoria" required #categoriaNgModel="ngModel">
-    <mat-option *ngFor="let categoria of categorias" [value]="categoria">
-      {{ categoria.ctgNome }}
-    </mat-option>
+ <mat-option *ngFor="let categoria of categorias" [value]="categoria" [disabled]="!categoria.ctgAtivo">
+  {{ categoria.ctgNome }}
+</mat-option>
   </mat-select>
   <mat-error *ngIf="categoriaNgModel.invalid && categoriaNgModel.touched">Categoria é obrigatório.</mat-error>
 </mat-form-field>

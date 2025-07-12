@@ -29,6 +29,7 @@ export class ProductCreateComponent implements OnInit {
     categoria: undefined,
     fornecedor: undefined,
     marca: undefined
+    
   };
 
   fornecedores: Supplier[] = [];
@@ -43,19 +44,19 @@ export class ProductCreateComponent implements OnInit {
     private router: Router
   ) {}
 
-  ngOnInit(): void {
-    this.supplierService.read().subscribe(fornecedores => {
-      this.fornecedores = fornecedores;
-    });
+ngOnInit(): void {
+  this.supplierService.read().subscribe(fornecedores => {
+    this.fornecedores = fornecedores;
+  });
 
-    this.marcaService.read().subscribe(dados => {
-      this.marcas = dados;
-    });
+  this.marcaService.read().subscribe(dados => {
+    this.marcas = dados.filter(marca => marca.marAtivo); // Apenas marcas ativas
+  });
 
-      this.categoriaService.read().subscribe(dados => {
-      this.categorias = dados;
-    });
-  }
+  this.categoriaService.read().subscribe(dados => {
+    this.categorias = dados.filter(categoria => categoria.ctgAtivo); // Apenas categorias ativas
+  });
+}
 
   createProduct(): void {
     if (
@@ -66,7 +67,9 @@ export class ProductCreateComponent implements OnInit {
       !this.product.proCodigoBarras.trim() ||
       !this.product.categoria || 
       !this.product.fornecedor ||
-      !this.product.marca
+      !this.product.marca ||
+          !this.product.categoria.ctgAtivo ||         // Verifica se categoria está ativa
+    !this.product.marca.marAtivo 
     ) {
       this.productService.showMessage('Por favor, preencha todos os campos obrigatórios corretamente!');
       return;
