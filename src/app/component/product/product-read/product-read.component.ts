@@ -11,7 +11,8 @@ import { MatSelectChange } from '@angular/material/select';
 export class ProductReadComponent implements OnInit {
   products!: MatTableDataSource<Product>;
   totalProdutosEstoque: number = 0; 
-  displayedColumns = ['proId', 'proNome', 'proPrecoVenda', 'categoria', 'proQuantidade', 'marca', 'proAtivo', 'fornecedor', 'action'];
+displayedColumns = ['proId', 'proNome', 'proPrecoVenda', 'categoria', 'proQuantidade', 'marca', 'proAtivo', 'fornecedor', 'status', 'action'];
+
 
   // armazenar os filtros de cada campo
   filters = {

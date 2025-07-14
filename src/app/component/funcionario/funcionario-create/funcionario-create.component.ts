@@ -38,13 +38,11 @@ cargos: Cargo[] = [];
     private router: Router
   ) {}
 
-  ngOnInit(): void {
-
-      this.cargoService.read().subscribe(dados => {
-      this.cargos = dados;
-    });
-
-  }
+ngOnInit(): void {
+  this.cargoService.read().subscribe(dados => {
+    this.cargos = dados.filter(cargo => cargo.carAtivo); 
+  });
+}
 
   createFuncionario(): void {
     const f = this.funcionario;

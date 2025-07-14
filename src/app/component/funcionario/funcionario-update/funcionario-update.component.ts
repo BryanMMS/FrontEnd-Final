@@ -33,9 +33,9 @@ export class FuncionarioUpdateComponent implements OnInit {
       this.selectedCargoId = funcionario.carId || 0;
     });
 
-    this.cargoService.read().subscribe((dados: Cargo[]) => {
-      this.cargos = dados;
-    });
+   this.cargoService.read().subscribe((dados: Cargo[]) => {
+  this.cargos = dados.filter(c => c.carAtivo);
+});
   }
 
   updateFuncionario(): void {
