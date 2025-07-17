@@ -28,15 +28,24 @@
       <mat-error *ngIf="fpgPermiteParcelamento.invalid && fpgPermiteParcelamento.touched">Selecione uma opção</mat-error>
     </mat-form-field>
 
-    <!-- Máximo de Parcelas -->
-    <mat-form-field appearance="outline">
-      <mat-label>Máximo de Parcelas</mat-label>
-      <input matInput type="number" [(ngModel)]="paymentMethod.fpgNumMaxParcelas" name="fpgNumMaxParcelas" required    min="1"
+    
+<mat-form-field appearance="outline">
+  <mat-label>Máximo de Parcelas</mat-label>
+  <input matInput
+         type="number"
+         [(ngModel)]="paymentMethod.fpgNumMaxParcelas"
+         name="fpgNumMaxParcelas"
+         required
+         min="1"
          max="99"
-              (keypress)="apenasNumeros($event)"
+         [disabled]="!paymentMethod.fpgPermiteParcelamento"
+         (keypress)="apenasNumeros($event)"
          #fpgNumMaxParcelas="ngModel">
-      <mat-error *ngIf="fpgNumMaxParcelas.invalid && fpgNumMaxParcelas.touched">Obrigatório</mat-error>
-    </mat-form-field>
+  <mat-error *ngIf="fpgNumMaxParcelas.invalid && fpgNumMaxParcelas.touched">
+    Informe um número entre 1 e 99.
+  </mat-error>
+</mat-form-field>
+
 
     <!-- Taxa Adicional -->
     <mat-form-field appearance="outline">

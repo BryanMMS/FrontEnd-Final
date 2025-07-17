@@ -25,7 +25,8 @@ export class PaymentMethodUpdateComponent {
     updatePaymentMethod(): void {
     // Verificação: nenhum campo pode estar vazio ou com valores inválidos
     if (  
-      !this.paymentMethod.fpgTaxaAdicional.trim() ||
+  this.paymentMethod.fpgTaxaAdicional === null || 
+  this.paymentMethod.fpgTaxaAdicional === undefined || 
       !this.paymentMethod.fpgTipo.trim() 
   
     ) {

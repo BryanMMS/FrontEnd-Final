@@ -65,6 +65,13 @@ import { CargoUpdateComponent } from './component/cargo/cargo-update/cargo-updat
 import { CargoDeleteComponent } from './component/cargo/cargo-delete/cargo-delete.component';
 import { CargoReadComponent } from './component/cargo/cargo-read/cargo-read.component';
 import { CargoCrudComponent } from './views/cargo-crud/cargo-crud.component';
+import { VendaCreateComponent } from './component/venda/venda-create/venda-create.component';
+import { VendaUpdateComponent } from './component/venda/venda-update/venda-update.component';
+import { VendaDeleteComponent } from './component/venda/venda-delete/venda-delete.component';
+import { VendaReadComponent } from './component/venda/venda-read/venda-read.component';
+import { VendaCrudComponent } from './views/venda-crud/venda-crud.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatCheckboxModule } from '@angular/material/checkbox'; 
 @NgModule({
   declarations: [
     AppComponent,
@@ -112,6 +119,11 @@ import { CargoCrudComponent } from './views/cargo-crud/cargo-crud.component';
     CargoDeleteComponent,
     CargoReadComponent,
     CargoCrudComponent,
+    VendaCreateComponent,
+    VendaUpdateComponent,
+    VendaDeleteComponent,
+    VendaReadComponent,
+    VendaCrudComponent,
   
    
   ],
@@ -133,6 +145,8 @@ import { CargoCrudComponent } from './views/cargo-crud/cargo-crud.component';
       MatOptionModule,
         CommonModule,
             MatExpansionModule,
+                MatIconModule, 
+    MatCheckboxModule,
 NgxMaskModule.forRoot({
   showMaskTyped: true,
   dropSpecialCharacters: false // <-- Mantém pontos, barra e traço no model
