@@ -11,6 +11,7 @@ import { Venda } from 'src/app/component/venda/venda-read/venda.model';
 export class HomeComponent implements OnInit {
   qtdProdutos: number = 0;
   qtdVendas: number = 0;
+  qtdPendentes: number = 0;
 
   constructor(
     private productService: ProductService,
@@ -24,6 +25,11 @@ export class HomeComponent implements OnInit {
 
     this.vendaService.read().subscribe(vendas => {
       this.qtdVendas = vendas.filter(v => v.vndConcluida).length;
+    });
+    
+    this.vendaService.read().subscribe(vendas => {
+      this.qtdVendas = vendas.length;
+      this.qtdPendentes = vendas.filter(v => !v.vndConcluida).length;
     });
   }
 }

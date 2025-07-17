@@ -36,6 +36,7 @@ import { CargoDeleteComponent } from './component/cargo/cargo-delete/cargo-delet
 import { VendaCrudComponent } from './views/venda-crud/venda-crud.component';
 import { VendaCreateComponent } from './component/venda/venda-create/venda-create.component';
 import { PendenteCrudComponent } from './views/pendente-crud/pendente-crud.component';
+import { VendaUpdateComponent } from './component/venda/venda-update/venda-update.component';
 
 
 // Definição das rotas da aplicação
@@ -186,7 +187,11 @@ component:CargoDeleteComponent
   {
     path:"pendentes",
     component: PendenteCrudComponent
-  }
+  },
+  {
+    path:"vendas/update/:id",
+    component: VendaUpdateComponent
+  },
 
 ];
 

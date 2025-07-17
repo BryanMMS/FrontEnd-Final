@@ -26,16 +26,31 @@ constructor(private paymentMethodService: PaymentMethodService,
   }
 
   createPaymentMethod(): void {
-    // Verificação: nenhum campo pode estar vazio ou com valores inválidos
     if (
-      !this.paymentMethod.fpgTaxaAdicional.trim() ||
-      !this.paymentMethod.fpgTaxaAdicional.trim() 
+      !this.paymentMethod.fpgTipo.trim() ||
+      !this.paymentMethod.fpgDescricao.trim() ||
+      this.paymentMethod.fpgTaxaAdicional === '' || this.paymentMethod.fpgTaxaAdicional === null
     ) {
       this.paymentMethodService.showMessage('Por favor, preencha todos os campos obrigatórios corretamente!');
       return;
     }
-
-    // Se passou na validação, prossegue com o cadastro
+  
+    // Se permitir parcelamento, o número máximo de parcelas é obrigatório e deve estar válido
+    if (this.paymentMethod.fpgPermiteParcelamento) {
+      if (
+        this.paymentMethod.fpgNumMaxParcelas === null ||
+        this.paymentMethod.fpgNumMaxParcelas === undefined ||
+        this.paymentMethod.fpgNumMaxParcelas < 1 ||
+        this.paymentMethod.fpgNumMaxParcelas > 99
+      ) {
+        this.paymentMethodService.showMessage('Informe um número válido de parcelas (entre 1 e 99).');
+        return;
+      }
+    } else {
+      // Se não permitir parcelamento, define o número máximo de parcelas como 1 (ou 0 se preferir)
+      this.paymentMethod.fpgNumMaxParcelas = 1; // Ou 0, conforme regra do seu negócio
+    }
+  
     this.paymentMethodService.create(this.paymentMethod).subscribe(() => {
       this.paymentMethodService.showMessage('Forma de Pagamento criado!');
       this.router.navigate(['/paymentMethods']);

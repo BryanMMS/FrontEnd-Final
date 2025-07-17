@@ -1,13 +1,30 @@
-<!-- Barra de pesquisa por Cliente e Forma de Pagamento -->
-<div class="barra-pesquisa" style="display: flex; gap: 16px; margin-bottom: 16px;">
-  <mat-form-field appearance="outline" class="search-bar" style="flex: 1;">
+<!-- Barra de pesquisa por Cliente, Forma de Pagamento, Data e Concluída -->
+<div class="barra-pesquisa" style="display: flex; gap: 16px; margin-bottom: 16px; flex-wrap: wrap;">
+  <mat-form-field appearance="outline" class="search-bar" style="flex: 1; min-width: 200px;">
     <mat-label>Pesquisar Cliente</mat-label>
     <input matInput (input)="onFilterChange('cliente', $event)" placeholder="Cliente" />
   </mat-form-field>
 
-  <mat-form-field appearance="outline" class="search-bar" style="flex: 1;">
+  <mat-form-field appearance="outline" class="search-bar" style="flex: 1; min-width: 200px;">
     <mat-label>Pesquisar Forma Pagamento</mat-label>
     <input matInput (input)="onFilterChange('formaPagamento', $event)" placeholder="Forma Pagamento" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="search-bar" style="flex: 1; min-width: 200px;">
+    <mat-label>Data da Venda (dd/mm/aaaa)</mat-label>
+    <input matInput
+           placeholder="dd/mm/aaaa"
+           mask="00/00/0000"
+           (input)="onFilterChange('vndDataVenda', $event)" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="search-bar" style="flex: 1; min-width: 200px;">
+    <mat-label>Concluída?</mat-label>
+    <mat-select (selectionChange)="onFilterChange('vndConcluida', $event)">
+      <mat-option value="">Todos</mat-option>
+      <mat-option value="true">Sim</mat-option>
+      <mat-option value="false">Não</mat-option>
+    </mat-select>
   </mat-form-field>
 </div>
 

@@ -22,23 +22,41 @@ export class PaymentMethodUpdateComponent {
     })
   }
 
-    updatePaymentMethod(): void {
-    // Verificação: nenhum campo pode estar vazio ou com valores inválidos
-    if (  
-  this.paymentMethod.fpgTaxaAdicional === null || 
-  this.paymentMethod.fpgTaxaAdicional === undefined || 
-      !this.paymentMethod.fpgTipo.trim() 
-  
+  updatePaymentMethod(): void {
+    // Valida campos obrigatórios básicos
+    if (
+      !this.paymentMethod.fpgTipo.trim() ||
+      !this.paymentMethod.fpgDescricao.trim() ||
+      this.paymentMethod.fpgTaxaAdicional === null ||
+      this.paymentMethod.fpgTaxaAdicional === undefined
     ) {
       this.paymentMethodService.showMessage('Por favor, preencha todos os campos obrigatórios corretamente!');
       return;
     }
-    // Se passou na validação, prossegue com a atualização
+  
+    // Se permitir parcelamento, valida máximo de parcelas
+    if (this.paymentMethod.fpgPermiteParcelamento) {
+      if (
+        this.paymentMethod.fpgNumMaxParcelas === null ||
+        this.paymentMethod.fpgNumMaxParcelas === undefined ||
+        this.paymentMethod.fpgNumMaxParcelas < 1 ||
+        this.paymentMethod.fpgNumMaxParcelas > 99
+      ) {
+        this.paymentMethodService.showMessage('Informe um número válido de parcelas (entre 1 e 99).');
+        return;
+      }
+    } else {
+      // Se não permitir parcelamento, limpa ou seta padrão para máximo parcelas
+      this.paymentMethod.fpgNumMaxParcelas = 1; // ou 0, conforme regra do negócio
+    }
+  
+    // Prosseguir com atualização
     this.paymentMethodService.update(this.paymentMethod).subscribe(() => {
       this.paymentMethodService.showMessage('Forma de Pagamento atualizado com sucesso!');
       this.router.navigate(['/paymentMethods']);
     });
   }
+  
   cancel(): void {
     this.router.navigate(['/paymentMethods']);
   }
@@ -75,6 +93,11 @@ bloquearPasteNumeros(event: ClipboardEvent): void {
   const regex = /^[0-9]+$/;
   if (!regex.test(texto)) {
     event.preventDefault();
+  }
+}
+onPermiteParcelamentoChange(): void {
+  if (!this.paymentMethod.fpgPermiteParcelamento) {
+    this.paymentMethod.fpgNumMaxParcelas = 1; // Ou 0, depende da regra de negócio
   }
 }
 }

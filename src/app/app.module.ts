@@ -72,7 +72,8 @@ import { VendaCrudComponent } from './views/venda-crud/venda-crud.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { PendenteCrudComponent } from './views/pendente-crud/pendente-crud.component';
-import { PendenteReadComponent } from './component/pendente/pendente-read/pendente-read.component'; 
+import { PendenteReadComponent } from './component/pendente/pendente-read/pendente-read.component';
+import { VendaUpdateComponent } from './component/venda/venda-update/venda-update.component'; 
 @NgModule({
   declarations: [
     AppComponent,
@@ -126,6 +127,7 @@ import { PendenteReadComponent } from './component/pendente/pendente-read/penden
     VendaCrudComponent,
     PendenteCrudComponent,
     PendenteReadComponent,
+    VendaUpdateComponent,
   
    
   ],

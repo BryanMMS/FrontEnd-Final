@@ -24,10 +24,12 @@ export class VendaReadComponent implements OnInit {
     'action'
   ];
 
-  // Filtros para cliente e forma de pagamento
+  // Filtros para cliente, formaPagamento, data e concluída
   filters = {
     cliente: '',
-    formaPagamento: ''
+    formaPagamento: '',
+    vndDataVenda: '',
+    vndConcluida: ''  // pode ser 'true', 'false' ou ''
   };
 
   constructor(private vendaService: VendaService) {}
@@ -36,29 +38,50 @@ export class VendaReadComponent implements OnInit {
     this.loadVendas();
   }
 
-  /** Carrega todas as vendas e aplica o filtro personalizado */
   loadVendas(): void {
     this.vendaService.read().subscribe(vendas => {
       this.vendas.data = vendas;
       this.totalVendas = vendas.length;
 
-      // Filtro personalizado
       this.vendas.filterPredicate = (data: Venda, filter: string) => {
+        // filtro cliente
         const clienteMatch = (data.cliente?.cliNome || '')
           .toLowerCase()
           .includes(this.filters.cliente.toLowerCase());
 
+        // filtro formaPagamento
         const formaPgtoMatch = (data.formaPagamento?.fpgDescricao || '')
           .toLowerCase()
           .includes(this.filters.formaPagamento.toLowerCase());
 
-        return clienteMatch && formaPgtoMatch;
+        // filtro concluída (boolean)
+        let concluidaMatch = true;
+        if (this.filters.vndConcluida === 'true') {
+          concluidaMatch = data.vndConcluida === true;
+        } else if (this.filters.vndConcluida === 'false') {
+          concluidaMatch = data.vndConcluida === false;
+        }
+
+        // filtro data
+        // Como vndDataVenda é um Date ou string ISO, vamos formatar para dd/MM/yyyy e comparar com o filtro
+        let dataVendaStr = '';
+        if (data.vndDataVenda) {
+          const d = new Date(data.vndDataVenda);
+          const day = ('0' + d.getDate()).slice(-2);
+          const month = ('0' + (d.getMonth() + 1)).slice(-2);
+          const year = d.getFullYear();
+          dataVendaStr = `${day}/${month}/${year}`;
+        }
+
+        const dataVendaMatch = dataVendaStr.includes(this.filters.vndDataVenda);
+
+        // retorna true se todos os filtros baterem
+        return clienteMatch && formaPgtoMatch && dataVendaMatch && concluidaMatch;
       };
     });
   }
 
-  /** Atualiza os filtros da tabela quando cliente ou pagamento mudar */
-  onFilterChange(field: 'cliente' | 'formaPagamento', event: Event | MatSelectChange): void {
+  onFilterChange(field: 'cliente' | 'formaPagamento' | 'vndDataVenda' | 'vndConcluida', event: Event | MatSelectChange): void {
     const value = event instanceof MatSelectChange
       ? event.value || ''
       : (event.target as HTMLInputElement).value;
