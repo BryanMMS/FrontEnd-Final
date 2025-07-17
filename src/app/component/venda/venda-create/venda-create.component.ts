@@ -58,18 +58,20 @@ export class VendaCreateComponent implements OnInit {
   }
 
   addItem(): void {
-    this.venda.itens.push({
+    const novoItem: ItemVenda = {
       produto: undefined!,
       ivdQuantidade: 1,
       ivdPrecoUnitario: 0,
       ivdSubtotal: 0
-    });
+    };
+    this.venda.itens = [...this.venda.itens, novoItem]; // ← troca a referência do array
   }
-
+  
   removeItem(index: number): void {
-    this.venda.itens.splice(index, 1);
+    this.venda.itens = this.venda.itens.filter((_, i) => i !== index); // ← troca a referência
     this.calculateTotal();
   }
+  
 
 updateItemSubtotal(index: number): void {
   const item = this.venda.itens[index];

@@ -66,12 +66,13 @@ import { CargoDeleteComponent } from './component/cargo/cargo-delete/cargo-delet
 import { CargoReadComponent } from './component/cargo/cargo-read/cargo-read.component';
 import { CargoCrudComponent } from './views/cargo-crud/cargo-crud.component';
 import { VendaCreateComponent } from './component/venda/venda-create/venda-create.component';
-import { VendaUpdateComponent } from './component/venda/venda-update/venda-update.component';
 import { VendaDeleteComponent } from './component/venda/venda-delete/venda-delete.component';
 import { VendaReadComponent } from './component/venda/venda-read/venda-read.component';
 import { VendaCrudComponent } from './views/venda-crud/venda-crud.component';
 import { MatIconModule } from '@angular/material/icon';
-import { MatCheckboxModule } from '@angular/material/checkbox'; 
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { PendenteCrudComponent } from './views/pendente-crud/pendente-crud.component';
+import { PendenteReadComponent } from './component/pendente/pendente-read/pendente-read.component'; 
 @NgModule({
   declarations: [
     AppComponent,
@@ -120,10 +121,11 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     CargoReadComponent,
     CargoCrudComponent,
     VendaCreateComponent,
-    VendaUpdateComponent,
     VendaDeleteComponent,
     VendaReadComponent,
     VendaCrudComponent,
+    PendenteCrudComponent,
+    PendenteReadComponent,
   
    
   ],

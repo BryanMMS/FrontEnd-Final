@@ -38,11 +38,11 @@
       <td mat-cell *matCellDef="let row">{{ row.formaPagamento?.fpgDescricao }}</td>
     </ng-container>
 
-    <!-- Data da venda -->
-    <ng-container matColumnDef="vndDataVenda">
-      <th mat-header-cell *matHeaderCellDef>Data</th>
-      <td mat-cell *matCellDef="let row">{{ row.vndDataVenda | date:'shortDate' }}</td>
-    </ng-container>
+<!-- Data da venda -->
+<ng-container matColumnDef="vndDataVenda">
+  <th mat-header-cell *matHeaderCellDef>Data</th>
+  <td mat-cell *matCellDef="let row">{{ row.vndDataVenda | date:'dd/MM/yyyy' }}</td>
+</ng-container>
 
     <!-- Total da venda -->
     <ng-container matColumnDef="vndTotal">
