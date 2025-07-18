@@ -13,8 +13,7 @@
     <!-- Descrição -->
     <mat-form-field appearance="outline">
       <mat-label>Descrição</mat-label>
-      <input matInput [(ngModel)]="paymentMethod.fpgDescricao" name="fpgDescricao" maxlength="200" #fpgDescricao="ngModel"
-          (keypress)="apenasLetras($event)" (paste)="bloquearPaste($event)">
+      <input matInput [(ngModel)]="paymentMethod.fpgDescricao" name="fpgDescricao" maxlength="200" #fpgDescricao="ngModel">
       <mat-error *ngIf="fpgDescricao.invalid && fpgDescricao.touched">Descrição é obrigatória</mat-error>
     </mat-form-field>
 
@@ -46,13 +45,18 @@
       </mat-error>
     </mat-form-field>
 
-    <!-- Taxa Adicional -->
-    <mat-form-field appearance="outline">
-      <mat-label>Taxa Adicional (%)</mat-label>
-      <input matInput [(ngModel)]="paymentMethod.fpgTaxaAdicional" name="fpgTaxaAdicional" required maxlength="2" #fpgTaxaAdicional="ngModel"
-      (keypress)="apenasNumeros($event)">
-      <mat-error *ngIf="fpgTaxaAdicional.invalid && fpgTaxaAdicional.touched">Obrigatório</mat-error>
-    </mat-form-field>
+   <mat-form-field appearance="outline">
+  <mat-label>Taxa Adicional (%)</mat-label>
+  <input matInput
+         [(ngModel)]="paymentMethod.fpgTaxaAdicional"
+         name="fpgTaxaAdicional"
+         required
+         maxlength="2"
+         [disabled]="!paymentMethod.fpgPermiteParcelamento"
+         (keypress)="apenasNumeros($event)"
+         #fpgTaxaAdicional="ngModel">
+  <mat-error *ngIf="fpgTaxaAdicional.invalid && fpgTaxaAdicional.touched">Obrigatório</mat-error>
+</mat-form-field>
 
     <!-- Botões -->
     <button mat-raised-button color="primary" type="submit">Atualizar</button>

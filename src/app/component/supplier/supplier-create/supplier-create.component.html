@@ -10,8 +10,7 @@
              name="forRazaoSocial"
              required
              maxlength="100"
-             #forRazaoSocial="ngModel"
-            (keypress)="apenasLetras($event)" (paste)="bloquearPaste($event)">
+             #forRazaoSocial="ngModel">
       <mat-error *ngIf="forRazaoSocial.invalid && forRazaoSocial.touched">
         Razão Social é obrigatória.
       </mat-error>
@@ -25,8 +24,7 @@
          name="forNomeFantasia"
          required
          #forNomeFantasia="ngModel"
-         maxlength="100"
-        (keypress)="apenasLetras($event)" (paste)="bloquearPaste($event)">
+         maxlength="100">
   <mat-error *ngIf="forNomeFantasia.invalid && forNomeFantasia.touched">
     Nome da Fantasia é obrigatório.
   </mat-error>

@@ -55,7 +55,6 @@ export class PendenteReadComponent implements OnInit {
           .toLowerCase()
           .includes(this.filters.formaPagamento.toLowerCase());
 
-        // filtro data
         let dataVendaStr = '';
         if (data.vndDataVenda) {
           const d = new Date(data.vndDataVenda);

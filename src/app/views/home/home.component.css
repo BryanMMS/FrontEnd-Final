@@ -108,23 +108,5 @@
     background-color: #77181E;
 }
 
-/* Botão Sobre */
-.about-button-container {
-    margin-top: 20px;
-}
 
-.btn-about {
-    background-color: #004d40;
-    color: #e0f7fa;
-    padding: 10px 30px;
-    font-size: 1rem;
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
-    box-shadow: 0 2px 8px rgba(0, 77, 64, 0.6);
-    transition: background-color 0.3s ease;
-}
 
-.btn-about:hover {
-    background-color: #00695c;
-}

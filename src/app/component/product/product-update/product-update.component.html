@@ -10,8 +10,7 @@
              name="proNome"
              required
              #proNome="ngModel"
-             maxlength="100"
-              (keypress)="apenasLetras($event)" (paste)="bloquearPaste($event)">
+             maxlength="100">
       <mat-error *ngIf="proNome.invalid && proNome.touched">
         Nome do Produto é obrigatório.
       </mat-error>
@@ -69,8 +68,7 @@
              name="proDescricao"
              required
              #proDescricao="ngModel"
-             maxlength="200"
-            (keypress)="apenasLetras($event)" (paste)="bloquearPaste($event)">
+             maxlength="200">
     </mat-form-field>
 
     <mat-form-field appearance="outline">

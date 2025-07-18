@@ -13,8 +13,7 @@
     <!-- Descrição -->
     <mat-form-field appearance="outline">
       <mat-label>Descrição*</mat-label>
-      <input matInput [(ngModel)]="cargo.carDescricao" name="carDescricao" maxlength="200" #carDescricao="ngModel"
-       (keypress)="apenasLetras($event)" (paste)="bloquearPaste($event)">
+      <input matInput [(ngModel)]="cargo.carDescricao" name="carDescricao" maxlength="200" #carDescricao="ngModel">
       <mat-error *ngIf="carDescricao.invalid && carDescricao.touched">Descrição é obrigatória</mat-error>
     </mat-form-field>
 

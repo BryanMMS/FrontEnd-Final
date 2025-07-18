@@ -1,14 +1,19 @@
-<mat-toolbar class="header" color="primary" mat-elevation-z4  >
+<mat-toolbar class="header" color="primary" mat-elevation-z4>
 
-  <!-- Nome da aplicação estilizado -->
   <span class="brand-name" routerLink="/">Part<span>Stock</span></span>
 
-  <!-- Espaçador -->
   <span class="spacer"></span>
 
-  <!-- Menu de navegação -->
-  <span class="nav-links">
-    <a mat-button routerLink="/clientes"><i class="material-icons">info</i> Sobre</a>
-  </span>
+  <div class="nav-links">
+    <a routerLink="/" class="nav-link">
+      <i class="material-icons">home</i> Início
+    </a>
+    <a routerLink="/vendas" class="nav-link">
+      <i class="material-icons">shopping_cart</i> Vendas
+    </a>
+    <a routerLink="/products" class="nav-link">
+      <i class="material-icons">inventory</i> Produtos
+    </a>
+  </div>
 
 </mat-toolbar>

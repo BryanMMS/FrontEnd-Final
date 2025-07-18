@@ -15,12 +15,19 @@ export class PaymentMethodUpdateComponent {
     private router: Router,
     private route: ActivatedRoute) {}
 
-  ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id')
-    this.paymentMethodService.readById(id!).subscribe((paymentMethod: PaymentMethod) =>{
-      this.paymentMethod = paymentMethod
-    })
-  }
+ngOnInit(): void {
+  const id = this.route.snapshot.paramMap.get('id');
+  this.paymentMethodService.readById(id!).subscribe((paymentMethod: PaymentMethod) => {
+    this.paymentMethod = paymentMethod;
+
+    // Se não permitir parcelamento, garante que juros começa em 0
+    if (!this.paymentMethod.fpgPermiteParcelamento) {
+      this.paymentMethod.fpgTaxaAdicional = '0';
+      this.paymentMethod.fpgNumMaxParcelas = 1; // ou 0, conforme regra
+    }
+  });
+}
+
 
   updatePaymentMethod(): void {
     // Valida campos obrigatórios básicos
@@ -48,6 +55,7 @@ export class PaymentMethodUpdateComponent {
     } else {
       // Se não permitir parcelamento, limpa ou seta padrão para máximo parcelas
       this.paymentMethod.fpgNumMaxParcelas = 1; // ou 0, conforme regra do negócio
+        this.paymentMethod.fpgTaxaAdicional = '0'; 
     }
   
     // Prosseguir com atualização
@@ -94,10 +102,12 @@ bloquearPasteNumeros(event: ClipboardEvent): void {
   if (!regex.test(texto)) {
     event.preventDefault();
   }
+
 }
 onPermiteParcelamentoChange(): void {
   if (!this.paymentMethod.fpgPermiteParcelamento) {
-    this.paymentMethod.fpgNumMaxParcelas = 1; // Ou 0, depende da regra de negócio
+    this.paymentMethod.fpgNumMaxParcelas = 1;  // ou 0, dependendo da regra
+    this.paymentMethod.fpgTaxaAdicional = '0'; // zera juros ao desabilitar
   }
 }
 }
