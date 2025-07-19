@@ -2,6 +2,15 @@
   <mat-card-title>Alterar Forma de Pagamento</mat-card-title>
 
   <form #form="ngForm" (ngSubmit)="updatePaymentMethod()">
+
+      <!-- Nome -->
+    <mat-form-field appearance="outline">
+      <mat-label>Nome</mat-label>
+      <input matInput [(ngModel)]="paymentMethod.fpgNome" name="fpgNome" required maxlength="100" #fpgNome="ngModel"
+          (keypress)="apenasLetras($event)" (paste)="bloquearPaste($event)">
+      <mat-error *ngIf="fpgNome.invalid && fpgNome.touched">Nome é obrigatório</mat-error>
+    </mat-form-field>
+
     <!-- Tipo -->
     <mat-form-field appearance="outline">
       <mat-label>Tipo</mat-label>

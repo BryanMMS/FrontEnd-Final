@@ -50,7 +50,7 @@ export class VendaReadComponent implements OnInit {
           .includes(this.filters.cliente.toLowerCase());
 
         // filtro formaPagamento
-        const formaPgtoMatch = (data.formaPagamento?.fpgDescricao || '')
+        const formaPgtoMatch = (data.formaPagamento?.fpgNome || '')
           .toLowerCase()
           .includes(this.filters.formaPagamento.toLowerCase());
 

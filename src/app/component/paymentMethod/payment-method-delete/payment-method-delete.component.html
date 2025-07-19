@@ -1,7 +1,11 @@
 <mat-card>
     <mat-card-title>Excluir Método de Pagamento</mat-card-title>
     <form>
-       
+         <mat-form-field appearance="outline">
+            <mat-label>Nome*</mat-label>
+            <input matInput placeholder="" [value]="paymentMethod.fpgNome" name="fpgNome" disabled>
+        </mat-form-field>
+
         <mat-form-field appearance="outline">
             <mat-label>Tipo*</mat-label>
             <input matInput placeholder="" [value]="paymentMethod.fpgTipo" name="fpgTipo" disabled>

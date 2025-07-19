@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class PaymentMethodCreateComponent implements OnInit{
 paymentMethod: PaymentMethod = {
+  fpgNome:'',
   fpgDescricao: '',
   fpgTipo: '',
   fpgPermiteParcelamento: false,
@@ -25,6 +26,7 @@ constructor(private paymentMethodService: PaymentMethodService,
 
   createPaymentMethod(): void {
     if (
+      !this.paymentMethod.fpgNome.trim() ||
       !this.paymentMethod.fpgTipo.trim() ||
       !this.paymentMethod.fpgDescricao.trim() ||
       this.paymentMethod.fpgTaxaAdicional === '' || this.paymentMethod.fpgTaxaAdicional === null

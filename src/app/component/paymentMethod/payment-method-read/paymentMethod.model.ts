@@ -5,4 +5,5 @@ export interface PaymentMethod{
     fpgPermiteParcelamento:boolean
     fpgNumMaxParcelas: number | null
     fpgTaxaAdicional:string
+    fpgNome: string
 }

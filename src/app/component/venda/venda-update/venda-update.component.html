@@ -30,7 +30,7 @@
         <mat-label>Forma de Pagamento</mat-label>
         <mat-select [(ngModel)]="venda.formaPagamento" name="formaPagamento" required #formaPagamentoNgModel="ngModel">
           <mat-option *ngFor="let fpg of formasPagamento" [value]="fpg">
-            {{ fpg.fpgDescricao }}
+            {{ fpg.fpgNome }}
           </mat-option>
         </mat-select>
         <mat-error *ngIf="formaPagamentoNgModel.invalid && formaPagamentoNgModel.touched">Forma de pagamento é obrigatória.</mat-error>

@@ -32,6 +32,7 @@ ngOnInit(): void {
   updatePaymentMethod(): void {
     // Valida campos obrigatórios básicos
     if (
+       !this.paymentMethod.fpgNome.trim() ||
       !this.paymentMethod.fpgTipo.trim() ||
       !this.paymentMethod.fpgDescricao.trim() ||
       this.paymentMethod.fpgTaxaAdicional === null ||
