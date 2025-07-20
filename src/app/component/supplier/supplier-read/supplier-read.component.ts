@@ -11,13 +11,14 @@ import { MatSelectChange } from '@angular/material/select';
 })
 export class SupplierReadComponent {
   suppliers!: MatTableDataSource<Supplier>;
-   displayedColumns = ['forId', 'forRazaoSocial', 'forNomeFantasia', 'forCnpj','conEmail','conCelular','conTelefoneComercial','enderecoCompleto', 'action'];
+   displayedColumns = ['forId', 'forRazaoSocial', 'forNomeFantasia', 'forCnpj','conEmail','conCelular','conTelefoneComercial','enderecoCompleto','forAtivo', 'action'];
 
   // armazenar os filtros de cada campo
   filters = {
     nomeFantasia: '',
     cnpj: '',
-    email: ''
+    email: '',
+    ativo: ''
   };
 
   constructor(private supplierService: SupplierService) { }
@@ -33,13 +34,16 @@ export class SupplierReadComponent {
         const nomeMatch = data.forNomeFantasia.toLowerCase().includes(this.filters.nomeFantasia.toLowerCase());
             const cnpjMatch = data.forCnpj.toLowerCase().includes(this.filters.cnpj.toLowerCase());
                 const emailMatch = data.conEmail.toLowerCase().includes(this.filters.email.toLowerCase());
+                 const ativoStr = data.forAtivo ? 'sim' : 'não';
+        const ativoMatch = ativoStr.includes(this.filters.ativo.toLowerCase());
+
 
         // retornar true só se todos os filtros baterem
-        return nomeMatch && cnpjMatch && emailMatch;
+        return nomeMatch && cnpjMatch && emailMatch && ativoMatch;
       };
     });
   }
-  onFilterChange(field: 'nomeFantasia' | 'cnpj' | 'email', event: Event | MatSelectChange) {
+  onFilterChange(field: 'nomeFantasia' | 'cnpj' | 'email' | 'ativo', event: Event | MatSelectChange) {
     let value: string;
   
     if (event instanceof MatSelectChange) {

@@ -35,6 +35,7 @@ export class ProductCreateComponent implements OnInit {
   fornecedores: Supplier[] = [];
   marcas: Marca[] = [];
   categorias: Categoria[] = [];
+  
 
   constructor(
     private productService: ProductService,
@@ -45,9 +46,7 @@ export class ProductCreateComponent implements OnInit {
   ) {}
 
 ngOnInit(): void {
-  this.supplierService.read().subscribe(fornecedores => {
-    this.fornecedores = fornecedores;
-  });
+  
 
   this.marcaService.read().subscribe(dados => {
     this.marcas = dados.filter(marca => marca.marAtivo); // Apenas marcas ativas
@@ -55,6 +54,9 @@ ngOnInit(): void {
 
   this.categoriaService.read().subscribe(dados => {
     this.categorias = dados.filter(categoria => categoria.ctgAtivo); // Apenas categorias ativas
+  });
+    this.supplierService.read().subscribe(dados => {
+    this.fornecedores = dados.filter(supplier => supplier.forAtivo); // Apenas fornecedores ativas
   });
 }
 
@@ -69,6 +71,7 @@ ngOnInit(): void {
       !this.product.fornecedor ||
       !this.product.marca ||
           !this.product.categoria.ctgAtivo ||         // Verifica se categoria está ativa
+            !this.product.fornecedor.forAtivo ||  
     !this.product.marca.marAtivo 
     ) {
       this.productService.showMessage('Por favor, preencha todos os campos obrigatórios corretamente!');

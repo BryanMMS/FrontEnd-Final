@@ -118,6 +118,20 @@
       </mat-error>
     </mat-form-field>
 
+    
+    <mat-card-title>Status</mat-card-title>
+
+       <!-- Status do Fornecedor -->
+    <mat-form-field appearance="outline">
+      <mat-label>Status do Fornecedor</mat-label>
+      <mat-select [(ngModel)]="supplier.forAtivo" name="forAtivo" required #forAtivo="ngModel">
+        <mat-option [value]="true">Ativo</mat-option>
+        <mat-option [value]="false">Inativo</mat-option>
+      </mat-select>
+      <mat-error *ngIf="forAtivo.invalid && forAtivo.touched">Obrigatório.</mat-error>
+    </mat-form-field>
+    
+
     <!-- Botões -->
     <button mat-raised-button color="primary" type="submit">
       Salvar

@@ -3,6 +3,7 @@ export interface Supplier {
   forRazaoSocial: string;
   forNomeFantasia: string;
   forCnpj: string; 
+  forAtivo: Boolean;
 
   // Contato
   conCelular: string;

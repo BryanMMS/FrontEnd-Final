@@ -13,6 +13,7 @@ export class SupplierCreateComponent implements OnInit{
     forRazaoSocial:'',
     forNomeFantasia:'',
     forCnpj: '',
+     forAtivo: false,
 
     conCelular: '',
     conTelefoneComercial: '',

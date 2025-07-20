@@ -35,46 +35,28 @@ selectedCategoriaId!: number;
     private route: ActivatedRoute
   ) {}
 
-  ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id');
+ ngOnInit(): void {
+  const id = this.route.snapshot.paramMap.get('id');
 
-    this.productService.readById(id!).subscribe((product: Product) => {
-      this.product = product;
+  this.productService.readById(id!).subscribe((product: Product) => {
+    this.product = product;
+    this.selectedMarcaId = product.marca?.marId || 0;
+    this.selectedFornecedorId = product.fornecedor?.forId || 0;
+    this.selectedCategoriaId = product.categoria?.ctgId || 0;
+  });
 
-      // inicializa selectedMarcaId com o id da marca do produto, se existir
-      this.selectedMarcaId = product.marca?.marId || 0;
-            // inicializa selectedFornecedorId com o id do fornecedor do produto, se existir
-      this.selectedFornecedorId = product.fornecedor?.forId || 0;
-         // inicializa selectedCategoriaId com o id da categoria do produto, se existir
-          this.selectedCategoriaId = product.categoria?.ctgId || 0;
-    });
+  this.marcaService.read().subscribe((dados: Marca[]) => {
+    this.marcas = dados.filter(marca => marca.marAtivo);
+  });
 
-   this.marcaService.read().subscribe((dados: Marca[]) => {
-  this.marcas = dados.filter(marca => marca.marAtivo); // apenas marcas ativas
-});
+  this.categoriaService.read().subscribe((dados: Categoria[]) => {
+    this.categorias = dados.filter(categoria => categoria.ctgAtivo);
+  });
 
-this.categoriaService.read().subscribe((dados: Categoria[]) => {
-  this.categorias = dados.filter(categoria => categoria.ctgAtivo); // apenas categorias ativas
-});
-
-
-       this.supplierService.read().subscribe((dados: Supplier[]) => {
-      this.fornecedores = dados;
-    });
-
-    const marcaSelecionada = this.marcas.find(m => m.marId === this.selectedMarcaId);
-if (!marcaSelecionada || !marcaSelecionada.marAtivo) {
-  this.productService.showMessage('Marca inválida ou inativa!');
-  return;
+  this.supplierService.read().subscribe((dados: Supplier[]) => {
+    this.fornecedores = dados.filter(supplier => supplier.forAtivo);
+  });
 }
-
-const categoriaSelecionado = this.categorias.find(c => c.ctgId === this.selectedCategoriaId);
-if (!categoriaSelecionado || !categoriaSelecionado.ctgAtivo) {
-  this.productService.showMessage('Categoria inválida ou inativa!');
-  return;
-}
-
-  }
 
   
 updateProduct(): void {
