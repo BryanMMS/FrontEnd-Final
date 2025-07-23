@@ -20,7 +20,7 @@ export class ProductUpdateComponent implements OnInit {
   fornecedores: Supplier[] = [];
   categorias: Categoria[] = [];
 
-  // variável para controlar o select da marca (apenas o id)
+  // variável para controlar o select das chaves estrangeiras (apenas o id)
   selectedMarcaId!: number;
 selectedFornecedorId!: number;
 selectedCategoriaId!: number;

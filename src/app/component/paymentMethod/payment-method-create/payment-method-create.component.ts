@@ -21,7 +21,10 @@ constructor(private paymentMethodService: PaymentMethodService,
   private router:Router){}
 
   ngOnInit(): void {
-      
+        if (!this.paymentMethod.fpgPermiteParcelamento) {
+      this.paymentMethod.fpgTaxaAdicional = '0';
+      this.paymentMethod.fpgNumMaxParcelas = 1; // ou 0, conforme regra
+    }
   }
 
   createPaymentMethod(): void {
@@ -41,14 +44,15 @@ constructor(private paymentMethodService: PaymentMethodService,
         this.paymentMethod.fpgNumMaxParcelas === null ||
         this.paymentMethod.fpgNumMaxParcelas === undefined ||
         this.paymentMethod.fpgNumMaxParcelas < 1 ||
-        this.paymentMethod.fpgNumMaxParcelas > 99
+        this.paymentMethod.fpgNumMaxParcelas > 12
       ) {
-        this.paymentMethodService.showMessage('Informe um número válido de parcelas (entre 1 e 99).');
+        this.paymentMethodService.showMessage('Informe um número válido de parcelas (entre 1 e 12).');
         return;
       }
     } else {
-      // Se não permitir parcelamento, define o número máximo de parcelas como 1 (ou 0 se preferir)
-      this.paymentMethod.fpgNumMaxParcelas = 1; // Ou 0, conforme regra do seu negócio
+      // Se não permitir parcelamento, limpa ou seta padrão para máximo parcelas
+      this.paymentMethod.fpgNumMaxParcelas = 1; // ou 0, conforme regra do negócio
+        this.paymentMethod.fpgTaxaAdicional = '0'; 
     }
   
     this.paymentMethodService.create(this.paymentMethod).subscribe(() => {
@@ -93,6 +97,12 @@ bloquearPasteNumeros(event: ClipboardEvent): void {
   const regex = /^[0-9]+$/;
   if (!regex.test(texto)) {
     event.preventDefault();
+  }
+}
+onPermiteParcelamentoChange(): void {
+  if (!this.paymentMethod.fpgPermiteParcelamento) {
+    this.paymentMethod.fpgNumMaxParcelas = 1;  // ou 0, dependendo da regra
+    this.paymentMethod.fpgTaxaAdicional = '0'; // zera juros ao desabilitar
   }
 }
 }

@@ -48,9 +48,9 @@ ngOnInit(): void {
         this.paymentMethod.fpgNumMaxParcelas === null ||
         this.paymentMethod.fpgNumMaxParcelas === undefined ||
         this.paymentMethod.fpgNumMaxParcelas < 1 ||
-        this.paymentMethod.fpgNumMaxParcelas > 99
+        this.paymentMethod.fpgNumMaxParcelas > 12
       ) {
-        this.paymentMethodService.showMessage('Informe um número válido de parcelas (entre 1 e 99).');
+        this.paymentMethodService.showMessage('Informe um número válido de parcelas (entre 1 e 12).');
         return;
       }
     } else {
