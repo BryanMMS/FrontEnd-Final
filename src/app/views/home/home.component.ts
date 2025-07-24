@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/component/product/product.service';
 import { VendaService } from 'src/app/component/venda/venda.service';
-import { Venda } from 'src/app/component/venda/venda-read/venda.model';
 
 @Component({
   selector: 'app-home',
@@ -24,12 +23,13 @@ export class HomeComponent implements OnInit {
     });
 
     this.vendaService.read().subscribe(vendas => {
-      this.qtdVendas = vendas.filter(v => v.vndConcluida).length;
-    });
-    
-    this.vendaService.read().subscribe(vendas => {
-      this.qtdVendas = vendas.length;
-      this.qtdPendentes = vendas.filter(v => !v.vndConcluida).length;
+      const vendasConcluidas = vendas.filter(v => v.vndConcluida);
+      const vendasPendentes = vendas.filter(v => !v.vndConcluida);
+
+      this.qtdVendas = vendasConcluidas.length;
+      this.qtdPendentes = vendasPendentes.length;
+
+
     });
   }
 }

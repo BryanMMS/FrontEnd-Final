@@ -23,15 +23,15 @@
             <h4>Produtos</h4>
             <p>{{ qtdProdutos }} cadastrados</p>
           </div>
-          <div class="info-card">
-            <h4>Vendas</h4>
+          <div class="info-card concluida">
+            <h4>✔ Vendas</h4>
             <p>{{ qtdVendas }} realizadas</p>
           </div>
         </div>
 
     <!-- Caixa de aviso para dados vinculados inativos -->
-    <div class="alert-box">
-      <h3>Atenção!</h3>
+    <div class="alert-box pendente">
+      <h3>⚠ Atenção!</h3>
       <p>{{ qtdPendentes }} venda(s) pendente(s)</p>
       <button class="btn-secondary" routerLink="/pendentes">Ver Pendentes</button>
     </div>

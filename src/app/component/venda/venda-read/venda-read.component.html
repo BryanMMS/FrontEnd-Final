@@ -46,13 +46,13 @@
     <!-- Nome do cliente -->
     <ng-container matColumnDef="cliente">
       <th mat-header-cell *matHeaderCellDef>Cliente</th>
-      <td mat-cell *matCellDef="let row">{{ row.cliente?.cliNome }}</td>
+      <td mat-cell *matCellDef="let row">{{ row.cliente.cliNome }}</td>
     </ng-container>
 
     <!-- Forma de pagamento -->
     <ng-container matColumnDef="formaPagamento">
       <th mat-header-cell *matHeaderCellDef>Forma Pagamento</th>
-      <td mat-cell *matCellDef="let row">{{ row.formaPagamento?.fpgNome }}</td>
+      <td mat-cell *matCellDef="let row">{{ row.formaPagamento.fpgNome }}</td>
     </ng-container>
 
 <!-- Data da venda -->

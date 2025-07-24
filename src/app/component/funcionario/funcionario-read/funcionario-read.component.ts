@@ -17,7 +17,7 @@ export class FuncionarioReadComponent implements OnInit {
 
   displayedColumns = [
     'funId', 'funNome', 'conEmail', 'funCpf', 'cargo',
-    'conCelular', 'conTelefoneComercial', 'funDataAdmissao', 'enderecoCompleto', 'action'
+    'conCelular', 'conTelefoneComercial', 'funDataAdmissao', 'enderecoCompleto', 'status','action'
   ];
 
   filters = {
@@ -70,5 +70,10 @@ export class FuncionarioReadComponent implements OnInit {
     if (!id) return '';
     const cargo = this.cargos.find(c => c.carId === id);
     return cargo ? cargo.carNome : '';
+  }
+  isCargoAtivo(id: number | undefined): boolean {
+    if (!id) return false;
+    const cargo = this.cargos.find(c => c.carId === id);
+    return cargo ? cargo.carAtivo : false;
   }
 }
