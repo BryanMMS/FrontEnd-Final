@@ -118,3 +118,21 @@ input::placeholder {
 .mat-option:hover {
   background-color: #2a2a38;
 }
+
+
+.tabela-scrollable {
+  max-height: 500px; /* ou a altura desejada */
+  overflow-y: auto;
+} 
+
+.tabela-scrollable table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.mat-header-row {
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  z-index: 1;
+} 

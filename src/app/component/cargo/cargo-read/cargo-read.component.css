@@ -61,3 +61,20 @@ tr:nth-child(even) td {
 td {
   min-height: 48px;
 }
+
+.tabela-scrollable {
+  max-height: 500px; /* ou a altura desejada */
+  overflow-y: auto;
+} 
+
+.tabela-scrollable table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.mat-header-row {
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  z-index: 1;
+} 
