@@ -28,7 +28,7 @@
       <!-- Forma de Pagamento -->
       <mat-form-field appearance="outline" class="full-width">
         <mat-label>Forma de Pagamento</mat-label>
-        <mat-select [(ngModel)]="venda.formaPagamento" name="formaPagamento" required #formaPagamentoNgModel="ngModel">
+        <mat-select [(ngModel)]="venda.formaPagamento" name="formaPagamento" required #formaPagamentoNgModel="ngModel" (selectionChange)="calculateTotal()">
           <mat-option *ngFor="let fpg of formasPagamento" [value]="fpg">
             {{ fpg.fpgNome }}
           </mat-option>
@@ -101,6 +101,15 @@
         Adicionar Item
       </button>
   
+      <!-- Aviso de juros, se houver -->
+<div *ngIf="venda.formaPagamento?.fpgPermiteParcelamento && venda.formaPagamento?.fpgTaxaAdicional && venda.formaPagamento?.fpgTaxaAdicional !== '0'" style="color: red; margin-top: 10px;">
+  Esta forma de pagamento possui juros de {{ venda.formaPagamento.fpgTaxaAdicional }}%.
+</div>
+
+<!-- Total com juros -->
+<div style="margin-top: 10px;">
+  <strong>Total com Juros:</strong> {{ venda.vndTotal | currency:'BRL' }}
+</div>
       <hr />
   
       <div>

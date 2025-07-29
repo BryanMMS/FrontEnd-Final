@@ -80,7 +80,8 @@
              name="proCodigoBarras"
              required
              #proCodigoBarras="ngModel"
-             (keypress)="apenasNumeros($event)">
+             (keypress)="apenasNumeros($event)"
+             [disabled]="isUpdateMode">
       <mat-error *ngIf="proCodigoBarras.invalid && proCodigoBarras.touched">
         Código de Barras é obrigatório e deve ter no máximo 13 caracteres.
       </mat-error>

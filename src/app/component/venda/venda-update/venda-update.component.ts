@@ -120,10 +120,26 @@ export class VendaUpdateComponent implements OnInit {
   }
 
   calculateTotal(): void {
-    this.totalVenda = this.venda.itens.reduce((sum, item) => sum + (item.ivdSubtotal || 0), 0);
-    this.venda.vndTotal = this.totalVenda;
+    const totalSemJuros = this.venda.itens.reduce((sum, item) => sum + (item.ivdSubtotal || 0), 0);
+  
+    const formaPagamento = this.venda.formaPagamento;
+    // Verifica se formaPagamento existe e se tem as propriedades necessárias
+    if (formaPagamento && formaPagamento.fpgPermiteParcelamento && formaPagamento.fpgTaxaAdicional !== undefined && formaPagamento.fpgTaxaAdicional !== null) {
+      const taxa = parseFloat(formaPagamento.fpgTaxaAdicional.toString()); // Garante que é uma string para parseFloat
+      
+      // Verifica se a taxa é um número válido antes de usar
+      if (!isNaN(taxa)) {
+        this.venda.vndTotal = totalSemJuros + (totalSemJuros * taxa / 100);
+      } else {
+        this.venda.vndTotal = totalSemJuros; // Se taxa inválida, não aplica
+      }
+    } else {
+      this.venda.vndTotal = totalSemJuros;
+    }
+  
+    this.totalVenda = this.venda.vndTotal;
   }
-
+  
   // Método para preparar o objeto para enviar no update, garantindo só IDs dos relacionamentos
   prepareVendaForUpdate(): Venda {
     return {

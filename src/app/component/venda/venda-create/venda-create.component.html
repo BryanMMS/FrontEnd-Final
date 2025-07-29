@@ -25,16 +25,19 @@
       <mat-error *ngIf="funcionarioNgModel.invalid && funcionarioNgModel.touched">Funcionário é obrigatório.</mat-error>
     </mat-form-field>
 
-    <!-- Forma de Pagamento -->
-    <mat-form-field appearance="outline" class="full-width">
-      <mat-label>Forma de Pagamento</mat-label>
-      <mat-select [(ngModel)]="venda.formaPagamento" name="formaPagamento" required #formaPagamentoNgModel="ngModel">
-        <mat-option *ngFor="let fpg of formasPagamento" [value]="fpg">
-          {{ fpg.fpgNome }}
-        </mat-option>
-      </mat-select>
-      <mat-error *ngIf="formaPagamentoNgModel.invalid && formaPagamentoNgModel.touched">Forma de pagamento é obrigatória.</mat-error>
-    </mat-form-field>
+      <!-- Forma de Pagamento -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Forma de Pagamento</mat-label>
+        <mat-select [(ngModel)]="venda.formaPagamento" name="formaPagamento" required #formaPagamentoNgModel="ngModel" (selectionChange)="calculateTotal()">
+          <mat-option *ngFor="let fpg of formasPagamento" [value]="fpg">
+            {{ fpg.fpgNome }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="formaPagamentoNgModel.invalid && formaPagamentoNgModel.touched">Forma de pagamento é obrigatória.</mat-error>
+      </mat-form-field>
+      
+
+    
 
     <!-- Observação -->
     <mat-form-field appearance="outline" class="full-width">
@@ -57,11 +60,15 @@
         <td mat-cell *matCellDef="let item; let i = index">
           <mat-form-field appearance="outline" class="full-width">
             <mat-select [(ngModel)]="item.produto" name="produto{{i}}" required (selectionChange)="updateItemSubtotal(i)">
-              <mat-option *ngFor="let p of produtos" [value]="p">{{ p.proNome }}</mat-option>
+              <mat-option *ngFor="let p of produtos" [value]="p">
+                {{ p.proNome }}
+              </mat-option>
             </mat-select>
           </mat-form-field>
         </td>
       </ng-container>
+
+      
 
       <ng-container matColumnDef="quantidade">
         <th mat-header-cell *matHeaderCellDef>Quantidade</th>
@@ -100,6 +107,15 @@
     <button mat-raised-button color="primary" (click)="addItem()" type="button" style="margin-top: 10px;">
       Adicionar Item
     </button>
+<!-- Aviso de juros, se houver -->
+<div *ngIf="venda.formaPagamento?.fpgPermiteParcelamento && venda.formaPagamento?.fpgTaxaAdicional && venda.formaPagamento?.fpgTaxaAdicional !== '0'" style="color: red; margin-top: 10px;">
+  Esta forma de pagamento possui juros de {{ venda.formaPagamento.fpgTaxaAdicional }}%.
+</div>
+
+<!-- Total com juros -->
+<div style="margin-top: 10px;">
+  <strong>Total com Juros:</strong> {{ venda.vndTotal | currency:'BRL' }}
+</div>
 
     <hr />
 

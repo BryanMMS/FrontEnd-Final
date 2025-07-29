@@ -47,6 +47,7 @@ export class ProductCreateComponent implements OnInit {
 
 ngOnInit(): void {
   
+  this.product.proCodigoBarras = this.gerarCodigoBarras();
 
   this.marcaService.read().subscribe(dados => {
     this.marcas = dados.filter(marca => marca.marAtivo); // Apenas marcas ativas
@@ -58,6 +59,11 @@ ngOnInit(): void {
     this.supplierService.read().subscribe(dados => {
     this.fornecedores = dados.filter(supplier => supplier.forAtivo); // Apenas fornecedores ativas
   });
+}
+
+gerarCodigoBarras(): string {
+  const codigo = Math.floor(Math.random() * 10000000000000).toString();  // Gera um número aleatório de 13 dígitos
+  return codigo.padStart(13, '0');  // Preenche com 0 à esquerda, se necessário, para ter exatamente 13 dígitos
 }
 
   createProduct(): void {

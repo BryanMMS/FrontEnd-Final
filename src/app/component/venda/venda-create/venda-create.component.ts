@@ -54,6 +54,11 @@ export class VendaCreateComponent implements OnInit {
     this.paymentMethodService.read().subscribe(fpgs => (this.formasPagamento = fpgs));
     this.productService.read().subscribe(prods => (this.produtos = prods));
 
+
+    this.productService.read().subscribe(prods => {
+      this.produtos = prods.filter(p => p.proAtivo);
+    });
+
     this.addItem(); // inicia com um item vazio no array
   }
 
@@ -88,12 +93,25 @@ updateItemSubtotal(index: number): void {
 }
 
 
+
 totalVenda: number = 0;
 
 // no método calculateTotal
 calculateTotal(): void {
-  this.totalVenda = this.venda.itens.reduce((sum, item) => sum + (item.ivdSubtotal || 0), 0);
+  const totalSemJuros = this.venda.itens.reduce((sum, item) => sum + (item.ivdSubtotal || 0), 0);
+
+  const formaPagamento = this.venda.formaPagamento;
+  if (formaPagamento?.fpgPermiteParcelamento && formaPagamento.fpgTaxaAdicional) {
+    const taxa = parseFloat(formaPagamento.fpgTaxaAdicional);
+    this.venda.vndTotal = totalSemJuros + (totalSemJuros * taxa / 100);
+  } else {
+    this.venda.vndTotal = totalSemJuros;
+  }
+
+  // ✅ Atualiza também a variável usada na tela
+  this.totalVenda = this.venda.vndTotal;
 }
+
 
   createVenda(): void {
     // validação simples
@@ -108,6 +126,8 @@ calculateTotal(): void {
         return;
       }
     }
+    
+    this.calculateTotal();
 
     this.vendaService.create(this.venda).subscribe(() => {
       alert('Venda criada com sucesso!');

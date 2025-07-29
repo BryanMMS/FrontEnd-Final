@@ -36,6 +36,8 @@ selectedCategoriaId!: number;
   ) {}
 
  ngOnInit(): void {
+
+  
   const id = this.route.snapshot.paramMap.get('id');
 
   this.productService.readById(id!).subscribe((product: Product) => {
@@ -58,7 +60,7 @@ selectedCategoriaId!: number;
   });
 }
 
-  
+isUpdateMode = true;
 updateProduct(): void {
   // Atribui o objeto Marca selecionado
   const marcaSelecionada = this.marcas.find(m => m.marId === this.selectedMarcaId);

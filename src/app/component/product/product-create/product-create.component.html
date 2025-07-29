@@ -43,9 +43,10 @@
     <mat-form-field appearance="outline">
       <mat-label>Código de Barras</mat-label>
       <input matInput maxlength="13" [(ngModel)]="product.proCodigoBarras" name="proCodigoBarras" required #proCodigoBarras="ngModel"
-         (keypress)="apenasNumeros($event)">
+             [readonly]="true" >
       <mat-error *ngIf="proCodigoBarras.invalid && proCodigoBarras.touched">Código é brigatório.</mat-error>
     </mat-form-field>
+    
 
   <!--Selecionar a Marca-->
 <mat-form-field appearance="outline">
